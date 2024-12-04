@@ -1,3 +1,172 @@
-h1 {
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+
+/* 重置內容字體(非襯線體)、行高 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+  font-optical-sizing: auto;
+  /*光學尺寸(若字體有支援依照裝置大小改變線條粗細)*/
+  line-height: 1.5;
+}
+
+/* 重置標題字重 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+/* 重置清單符號 */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 重置圖片 */
+img {
+  display: block;
+  width: 100%;
+}
+
+/* 重置連結 */
+a {
+  display: block;
+  /*將a預設的inline改為block，才能設定間距及寬高給超連結空間，排版上較方便*/
+  color: rgb(237, 100, 100);
+  /*直接設定連結顏色*/
+  text-decoration: none;
+}
+
+/*reset end*/
+h2 {
   color: red;
+}
+
+/*底圖區*/
+main {
+  background-image: url("../public/images/Pattern_color(1440)_background-texture.jpg");
+  background-repeat: repeat;
+}
+
+/*導覽列*/
+/*版頭區*/
+section #intro {
+  display: flex;
+  flex: 1;
+  width: 80%;
+}
+section #intro .photo {
+  display: flex;
+  flex-direction: column;
+  max-width: 545px;
+  height: 635px;
+}
+section #intro .photo .smallPhoto {
+  display: flex;
+}
+section #intro .photo .smallPhoto .photoS {
+  padding: 5px;
+}
+section #intro .courseIntro {
+  height: 530px;
+  background-color: rgb(191, 140, 140);
+}
+section #intro .courseIntro .couresName {
+  color: black;
+  font-size: 24px;
+}
+section #intro .courseIntro .couresName p {
+  font-size: 16px;
 }/*# sourceMappingURL=style.css.map */

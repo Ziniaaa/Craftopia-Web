@@ -1,3 +1,56 @@
-h1{
+@use './reset';
+
+h2 {
     color: red;
+}
+
+/*底圖區*/
+main {
+    background-image: url('../public/images/Pattern_color\(1440\)_background-texture.jpg');
+    background-repeat: repeat;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+}
+
+/*導覽列*/
+
+/*版頭區*/
+section #intro {
+    display: flex;
+    // justify-content: center;
+    flex: 1;
+    width: 80%;
+
+    .photo {
+        display: flex;
+        flex-direction: column;
+        max-width: 545px;
+        height: 635px;
+
+        
+
+        .smallPhoto {
+            display: flex;
+            .photoS {
+                padding: 5px;
+            }
+        }
+    }
+
+    .courseIntro {
+
+        height: 530px;
+        background-color: rgb(191, 140, 140);
+
+        .couresName {
+            color: black;
+            font-size: 24px;
+
+            p {
+                font-size: 16px;
+            }
+        }
+    }
+
 }
