@@ -14,11 +14,11 @@ function App() {
         <section id="intro">
           {/* 課程版頭intro區 */}
           <div className="photo">
-            <feature className='photoL'><img src="../public/images/courseImg-1.JPG" alt="" /></feature>
+            <feature className='photoL'></feature>
             <div className='smallPhoto'>
-            <feature className='photoS'><img src="../public/images/courseImg-1.JPG" alt="" /></feature>
-            <feature className='photoS'><img src="../public/images/courseImg-2.JPG" alt="" /></feature>
-            <feature className='photoS'><img src="../public/images/courseImg-3.JPG" alt="" /></feature>
+              <feature className='photoS'></feature>
+              <feature className='photoS'></feature>
+              <feature className='photoS'></feature>
             </div>
           </div>
           <div className="courseIntro">
