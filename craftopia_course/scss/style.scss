@@ -1,65 +1,942 @@
-@use './reset';
+@use 'reset';
+@use 'variables' as *;
+@use 'function' as *;
 
 h2 {
     color: red;
 }
 
 /*底圖區*/
-main {
-    background-image: url('../public/images/Pattern_color\(1440\)_background-texture.jpg');
+body {
+    background-image: url('../images/BG-texture-400.jpg');
     background-repeat: repeat;
+    letter-spacing: 2px;
+}
 
+/*共用區*/
+.titlePic {
+    margin: 50px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+/*大區塊置中*/
+main {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+
+    section {
+        // border: 1px solid rgb(234, 0, 255);
+        width: 90%;
+        align-self: center;
+    }
 }
 
 /*導覽列*/
 
-/*版頭區*/
+#topbar {
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 64px;
+
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+    .logo {
+        width: 232px;
+    }
+
+    .navigation {
+
+        display: flex;
+        align-items: center;
+
+        .search {
+            margin-right: 36px;
+
+            li {
+                background-image: url(../images/nav-search.svg);
+                background-size: cover;
+                padding: 12px 23px 10px 19px;
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    color: black;
+
+                    img {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 8px;
+                    }
+                }
+            }
+        }
+
+
+        .menu {
+            li {
+                background-image: url(../images/nav-menu.svg);
+                background-size: cover;
+                padding: 15px 16px;
+
+                img {
+                    width: 34px;
+                    height: 34px;
+                }
+            }
+        }
+    }
+}
+
+
+/*麵包屑*/
+.breadCrumb {
+    position: absolute;
+    left: 70px;
+    top: 100px
+}
+
+
+/*課程版頭區*/
 #intro {
     display: flex;
     justify-content: center;
-    flex: 1;
-    width: 80%;
-    border: 1px solid red;
 
-    .photo {
+    width: 90%;
+    max-width: 1100px;
+    margin-top: 180px;
+    margin-bottom: 150px;
+
+
+    .coursePhoto {
+        flex-shrink: 1;
+        // border: 1px solid rgb(4, 0, 255);
         display: flex;
         flex-direction: column;
-        max-width: 545px;
-        height: 635px;
-        border: 1px solid rgb(25, 0, 255);
-        padding: 5px;
+        margin-right: 60px;
 
-        .photoL {
-            background-color: aqua;
+        z-index: 99;
+        position: relative;
+
+        .photoL img {
+            width: 545px;
+            height: 460px;
+            object-fit: cover;
 
         }
 
         .smallPhoto {
             display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
 
-            .photoS {
-                background-color: blue;
-                padding: 15px;
+            .photoS img {
+                width: 175px;
+                height: 165px;
+                object-fit: cover;
+
+                &:hover {
+                    // border: #5A5A5A solid 2px;
+                    filter: drop-shadow(1px 1px 2px gray);
+                    cursor: pointer;
+                }
             }
         }
+
     }
 
     .courseIntro {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
-        height: 530px;
-        background-color: rgb(71, 17, 232);
+        height: 557px;
+        position: relative;
+        z-index: 99;
 
-        .couresName {
-            color: rgb(91, 62, 187);
-            font-size: 24px;
+        padding-top: 20px;
+
+        .courseIntroText {
+            justify-content: space-between;
+
+            h2 {
+                color: black;
+                font-size: 24px;
+                font-weight: 600;
+                line-height: 1.7;
+                letter-spacing: 0.1rem;
+                margin-bottom: 15px;
+            }
 
             p {
+                color: $color-neutral-60;
                 font-size: 16px;
-                color: chartreuse;
-                border: 1px solid rgb(25, 0, 255);
+                line-height: 1.7;
+                letter-spacing: 0.1rem;
+                margin-bottom: 15px;
+            }
 
+            .ctg {
+                display: flex;
+                justify-content: flex-start;
+                margin: 15px 0;
+                height: 35px;
+
+                color: white;
+
+                div {
+                    margin: 0 10px;
+                    font-size: 12px;
+                }
+
+                #ctg1 {
+                    background-image: url(../images/tag-time.svg);
+                    background-repeat: no-repeat;
+                    height: 100%;
+                    width: 60px;
+                    padding-left: 15px;
+                    padding-top: 6px;
+                }
+
+                #ctg2 {
+                    background-image: url(../images/tag-level.svg);
+                    background-repeat: no-repeat;
+                    height: 100%;
+                    width: 62px;
+                    padding-left: 16px;
+                    padding-top: 6px;
+                }
+
+                #ctg3 {
+                    background-image: url(../images/tag-location.svg);
+                    background-repeat: no-repeat;
+                    height: 100%;
+                    width: 70px;
+                    padding-left: 8px;
+                    padding-top: 6px;
+                }
+            }
+
+            #ulText {
+                margin-top: 20px;
+
+                li {
+                    color: $color-neutral-60;
+                    font-size: 16px;
+                    line-height: 1.7;
+                    letter-spacing: 0.1rem;
+                    list-style: disc;
+                    list-style-position: inside;
+                }
+            }
+        }
+
+    }
+
+    .buy {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+
+        p {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        button {
+            width: 216px;
+            height: 56px;
+            background-color: $color-brown-primary;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            margin: 0 16px;
+
+            &:hover {
+                filter: drop-shadow(0px 0px 1px gray);
+                scale: 1.04;
+            }
+        }
+
+        #heart {
+
+            &:hover {
+                scale: 1.15;
+                cursor: pointer;
             }
         }
     }
 
+    .bgblobs {
+        mix-blend-mode: multiply;
+    }
+
+    #bgCourse-y {
+        position: absolute;
+        z-index: -2;
+        right: 48%;
+        top: -20px;
+        opacity: .9;
+
+        img {
+            height: 920px;
+            width: auto;
+        }
+    }
+
+    #bgCourse-w {
+        position: absolute;
+        z-index: -1;
+        left: 43%;
+        top: 100px;
+
+        img {
+            height: 740px;
+            width: auto;
+        }
+    }
+}
+
+
+
+/*課程介紹區*/
+#content {
+    display: grid; //for firefox
+    justify-items: center;
+    z-index: 99;
+    width: 100%;
+    position: relative;
+
+    /*裝飾線AFTER*/
+    &::before {
+        content: "";
+        /*偽元素必須設定content，此內容不會被搜尋到*/
+        background-image: url(../images/decoline-intro.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        max-width: none;
+        width: 100%;
+        height: 350px;
+
+        position: absolute;
+        top: -40px;
+    }
+
+    #titleContent {
+        width: 205px;
+    }
+
+    .courseContent {
+        max-width: 700px;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+
+        p {
+            margin: 20px 0;
+        }
+
+        img {
+            align-self: center;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+    }
+
+}
+
+/*課程QA區*/
+#QA {
+    justify-items: center;
+    z-index: 99;
+    height: auto;
+    max-width: 1100px;
+    margin-bottom: 100px;
+
+    #titleQA {
+        width: 205px;
+    }
+
+    .courseQA {
+        // border: #BF6152 dashed 2px;
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .title {
+            margin-bottom: 40px;
+
+            img {
+                height: 40px;
+            }
+        }
+
+        .list-row,
+        .list-row-light {
+            display: flex;
+            margin: 24px 0;
+            gap: 48px;
+
+
+            .quest-mark {
+                font-weight: bolder;
+                font-size: 20px;
+                background-color:$color-brown-light;
+                border-radius: 99px;
+                width: 50px;
+                height: 50px;
+                text-align: center;
+                line-height: 50px;
+            }
+
+            .QAset {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+
+                .question {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+
+
+                    background-color:$color-brown-light;
+                    border-radius: 10px;
+                    padding: 10px 16px 10px 32px;
+
+
+                    cursor: pointer;
+
+
+                    .icon-arrow {
+                        width: 30px;
+                        height: 30px;
+                        margin-left: 60px;
+                    }
+                }
+
+                .answer {
+                    background-color: rgb(255, 255, 255, 0.65);
+                    border-radius: 0 0 10px 10px;
+                    padding: 20px 42px 36px 42px;
+                    position: relative;
+
+
+                    font-weight: 400;
+
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        /* 與白色背景的間距 */
+                        top: 0px;
+                        left: 10px;
+                        right: 10px;
+                        bottom: 10px;
+                        border: 2px dashed #D4AB8E;
+                        border-top: none;
+                        /* 虛線樣式 */
+                        border-radius: 0 0 10px 10px;
+
+
+                    }
+                }
+            }
+        }
+
+
+        .list-row-light {
+
+            .quest-mark {
+                background-color: $color-bg-dark;
+            }
+
+            .QAset {
+                .question {
+                    background-color: $color-bg-dark;
+                }
+
+
+                .answer {
+                    &::before {
+                        border-color: $color-bg-dark;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+/*店家資訊區*/
+#studio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99;
+    height: 400px;
+    max-width: 1100px;
+
+    margin-bottom: 100px;
+
+    .studioInfo {
+        display: flex;
+        width: 822px;
+        height: 232px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+
+        justify-content: center;
+
+        // border: #bfa252 1px solid;
+
+        position: relative;
+        margin-left: 40px;
+
+        figure {
+            margin-right: 20px;
+        }
+
+        img {
+            width: 344px;
+            position: absolute;
+            left: -95px;
+            top: -10px;
+        }
+
+        #titleStudio {
+            width: 205px;
+            position: absolute;
+            left: -65px;
+            top: -60px;
+            z-index: 50;
+
+
+        }
+
+        .studioInfo2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-self: center;
+
+            // border: #BF6152 1px solid;
+            height: 157px;
+
+            margin-left: 50px;
+
+
+
+            h3 {
+                font-size: 20px;
+                font-weight: 600;
+
+                .teacherName {
+                    font-size: 16px;
+                    font-weight: 400;
+                    margin-left: 24px;
+                }
+            }
+
+            p {
+                color: $color-neutral-60;
+            }
+
+        }
+    }
+}
+
+/*最新心得*/
+#experience {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+
+    background-image: url(../images/bg-experience.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50%;
+
+    padding-bottom: 30px;
+    margin-bottom: 10px;
+
+    position: relative;
+    z-index: 500;
+
+    /*裝飾線AFTER*/
+    &::after {
+        content: "";
+        /*偽元素必須設定content，此內容不會被搜尋到*/
+        background-image: url(../images/decoline-recommend.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 350px;
+
+        position: absolute;
+        bottom: -30px;
+    }
+
+    .expTop {
+        // border: #BF6152 solid 1px;
+        display: flex;
+        align-items: flex-end;
+
+        #seeAll {
+            padding-bottom: 50px;
+        }
+    }
+
+    #titleExp {
+        width: 245px;
+        margin-bottom: 50px;
+    }
+
+    .newestExp {
+        padding-bottom: 150px;
+
+        .Exp {
+            width: 1000px;
+            height: 300px;
+            display: flex;
+            margin: 30px 0;
+
+
+            &:hover {
+                cursor: pointer;
+                background-color: rgb(255, 255, 255, 0.65);
+                border-radius: 10px;
+            }
+
+            .expPic {
+                width: 400px;
+                border-radius: 10px;
+            }
+
+            .expContent {
+                margin-left: 65px;
+                padding-top: 30px;
+
+                .expInfo {
+                    display: flex;
+
+                    p {
+                        margin: 0 20px;
+                        font-size: 20px;
+                    }
+
+                    img {
+                        height: 40px;
+                        width: auto;
+                    }
+                }
+
+                .expDate {
+                    display: flex;
+                    margin: 10px 0;
+
+                    p {
+                        //日期
+                        color: $color-neutral-60;
+                        font-size: 14px;
+                    }
+
+                    span {
+                        margin: 0 10px;
+                    }
+                }
+
+
+                .expText {
+                    font-size: 14px;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 5;
+                    overflow: hidden;
+                    padding-right: 40px;
+                }
+            }
+        }
+    }
+
+    #bgExperience {
+
+        img {
+            height: auto;
+            width: auto;
+        }
+    }
+
+}
+
+/*課程推薦區*/
+#recommend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    #titleRec {
+        width: 205px;
+    }
+
+    .boxList {
+        border: blue solid 1px;
+        display: inline-flex;
+        overflow: hidden;
+
+        div {
+            border: #BF6152 2px solid;
+            width: 360px;
+            height: 460px;
+            margin: 30px;
+        }
+    }
+}
+
+
+
+
+/* 頁尾區 */
+footer {
+    background-color: $color-coffee-primary;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // padding: 50px 100px;
+
+
+    .footer-bgDeco {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+
+        img {
+            position: absolute;
+            bottom: -1px;
+        }
+    }
+
+
+    .foot-content {
+        display: flex;
+        justify-content: space-between;
+
+
+        width: 100%;
+        padding: 50px 100px;
+
+
+        img {
+            width: 100%;
+            max-width:338px;
+            height: 72px;
+        }
+    }
+
+    .menu {
+        display: flex;
+        text-align: center;
+
+        >li {
+            width: 6rem;
+            margin: 0 10px;
+            font-size: 14px;
+            font-weight: 400;
+
+            ul {
+                margin: 15px 0;
+
+                >li {
+                    padding: 4px 0;
+                }
+            }
+        }
+    }
+
+    a,
+    li,
+    small {
+        color: white;
+    }
+
+    small {
+        margin-bottom: 50px;
+        font-size: 0.8rem;
+    }
+}
+
+
+/*泡泡區*/
+.blobstools {
+
+    .blobs,
+    .tools {
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        // opacity: 80%;
+        mix-blend-mode: multiply;
+    }
+
+    .blobsw {
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        opacity: 80%;
+    }
+
+    #blobs-1 {
+        background-image: url(../images/blobs-1.svg);
+        width: 480px;
+        height: 100%;
+        right: 80%;
+        top: 2380px;
+    }
+
+    #blobs-2 {
+        background-image: url(../images/blobs-2.svg);
+        width: 320px;
+        height: 100%;
+        left: 85%;
+        top: 2550px;
+        z-index: 5;
+    }
+
+    #blobs-3 {
+        background-image: url(../images/blobs-3.svg);
+        width: 500px;
+        height: 100%;
+        left: 77%;
+        top: 2200px;
+
+    }
+
+    #blobs-4 {
+        background-image: url(../images/blobs-4.svg);
+        width: 230px;
+        height: 100%;
+        right: 92%;
+        top: 2270px;
+
+    }
+
+    #blobs-5 {
+        background-image: url(../images/blobs-5.svg);
+        width: 400px;
+        height: 100%;
+        left: 82%;
+        top: 1000px;
+    }
+
+    #blobs-6 {
+        background-image: url(../images/blobs-6.svg);
+        width: 460px;
+        height: 100%;
+        left: 80%;
+        top: 1300px;
+    }
+
+    #blobs-7 {
+        background-image: url(../images/blobs-7.svg);
+        width: 500px;
+        height: 100%;
+        right: 80%;
+        top: 1250px;
+    }
+
+    #blobs-8 {
+        background-image: url(../images/blobs-8.svg);
+        width: 150px;
+        height: 100%;
+        left: 80%;
+        top: 4400px;
+    }
+
+    #blobs-9 {
+        background-image: url(../images/blobs-9.svg);
+        width: 420px;
+        height: 100%;
+        right: 89%;
+        top: 4950px;
+
+    }
+
+    #blobs-5-2 {
+        background-image: url(../images/blobs-5.svg);
+        width: 400px;
+        height: 100%;
+        left: 82%;
+        top: 3200px;
+    }
+
+    #blobs-6-2 {
+        background-image: url(../images/blobs-6.svg);
+        width: 460px;
+        height: 100%;
+        left: 80%;
+        top: 3500px;
+    }
+
+    #blobs-7-2 {
+        background-image: url(../images/blobs-7.svg);
+        width: 500px;
+        height: 100%;
+        right: 80%;
+        top: 3450px;
+    }
+
+    #tools-awl {
+        background-image: url(../images/tools_awl.svg);
+        width: 300px;
+        height: 100%;
+        right: 85%;
+        top: 4100px;
+
+    }
+}
+
+
+
+/*浮動按鈕*/
+#buyNow {
+    width: 100px;
+    position: fixed;
+    right: 40px;
+    bottom: 20px;
+    z-index: 999;
+    cursor: pointer;
+
+    &:hover {
+        rotate: 10deg;
+        scale: 0.95;
+    }
 }

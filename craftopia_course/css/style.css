@@ -135,48 +135,732 @@ h2 {
 }
 
 /*底圖區*/
-main {
-  background-image: url("../public/images/Pattern_color(1440)_background-texture.jpg");
+body {
+  background-image: url("../images/BG-texture-400.jpg");
   background-repeat: repeat;
+  letter-spacing: 2px;
+}
+
+/*共用區*/
+.titlePic {
+  margin: 50px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+/*大區塊置中*/
+main {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+main section {
+  width: 90%;
+  align-self: center;
 }
 
 /*導覽列*/
-/*版頭區*/
+#topbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 64px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+#topbar .logo {
+  width: 232px;
+}
+#topbar .navigation {
+  display: flex;
+  align-items: center;
+}
+#topbar .navigation .search {
+  margin-right: 36px;
+}
+#topbar .navigation .search li {
+  background-image: url(../images/nav-search.svg);
+  background-size: cover;
+  padding: 12px 23px 10px 19px;
+}
+#topbar .navigation .search li a {
+  display: flex;
+  align-items: center;
+  color: black;
+}
+#topbar .navigation .search li a img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+#topbar .navigation .menu li {
+  background-image: url(../images/nav-menu.svg);
+  background-size: cover;
+  padding: 15px 16px;
+}
+#topbar .navigation .menu li img {
+  width: 34px;
+  height: 34px;
+}
+
+/*麵包屑*/
+.breadCrumb {
+  position: absolute;
+  left: 70px;
+  top: 100px;
+}
+
+/*課程版頭區*/
 #intro {
   display: flex;
   justify-content: center;
-  flex: 1;
-  width: 80%;
-  border: 1px solid red;
+  width: 90%;
+  max-width: 1100px;
+  margin-top: 180px;
+  margin-bottom: 150px;
 }
-#intro .photo {
+#intro .coursePhoto {
+  flex-shrink: 1;
   display: flex;
   flex-direction: column;
-  max-width: 545px;
-  height: 635px;
-  border: 1px solid rgb(25, 0, 255);
-  padding: 5px;
+  margin-right: 60px;
+  z-index: 99;
+  position: relative;
 }
-#intro .photo .photoL {
-  background-color: aqua;
+#intro .coursePhoto .photoL img {
+  width: 545px;
+  height: 460px;
+  object-fit: cover;
 }
-#intro .photo .smallPhoto {
+#intro .coursePhoto .smallPhoto {
   display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
-#intro .photo .smallPhoto .photoS {
-  background-color: blue;
-  padding: 15px;
+#intro .coursePhoto .smallPhoto .photoS img {
+  width: 175px;
+  height: 165px;
+  object-fit: cover;
+}
+#intro .coursePhoto .smallPhoto .photoS img:hover {
+  filter: drop-shadow(1px 1px 2px gray);
+  cursor: pointer;
 }
 #intro .courseIntro {
-  height: 530px;
-  background-color: rgb(71, 17, 232);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 557px;
+  position: relative;
+  z-index: 99;
+  padding-top: 20px;
 }
-#intro .courseIntro .couresName {
-  color: rgb(91, 62, 187);
+#intro .courseIntro .courseIntroText {
+  justify-content: space-between;
+}
+#intro .courseIntro .courseIntroText h2 {
+  color: black;
   font-size: 24px;
+  font-weight: 600;
+  line-height: 1.7;
+  letter-spacing: 0.1rem;
+  margin-bottom: 15px;
 }
-#intro .courseIntro .couresName p {
+#intro .courseIntro .courseIntroText p {
+  color: #5A5A5A;
   font-size: 16px;
-  color: chartreuse;
-  border: 1px solid rgb(25, 0, 255);
+  line-height: 1.7;
+  letter-spacing: 0.1rem;
+  margin-bottom: 15px;
+}
+#intro .courseIntro .courseIntroText .ctg {
+  display: flex;
+  justify-content: flex-start;
+  margin: 15px 0;
+  height: 35px;
+  color: white;
+}
+#intro .courseIntro .courseIntroText .ctg div {
+  margin: 0 10px;
+  font-size: 12px;
+}
+#intro .courseIntro .courseIntroText .ctg #ctg1 {
+  background-image: url(../images/tag-time.svg);
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 60px;
+  padding-left: 15px;
+  padding-top: 6px;
+}
+#intro .courseIntro .courseIntroText .ctg #ctg2 {
+  background-image: url(../images/tag-level.svg);
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 62px;
+  padding-left: 16px;
+  padding-top: 6px;
+}
+#intro .courseIntro .courseIntroText .ctg #ctg3 {
+  background-image: url(../images/tag-location.svg);
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 70px;
+  padding-left: 8px;
+  padding-top: 6px;
+}
+#intro .courseIntro .courseIntroText #ulText {
+  margin-top: 20px;
+}
+#intro .courseIntro .courseIntroText #ulText li {
+  color: #5A5A5A;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: 0.1rem;
+  list-style: disc;
+  list-style-position: inside;
+}
+#intro .buy {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#intro .buy p {
+  font-size: 24px;
+  font-weight: 700;
+}
+#intro .buy button {
+  width: 216px;
+  height: 56px;
+  background-color: #BF6E52;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  margin: 0 16px;
+}
+#intro .buy button:hover {
+  filter: drop-shadow(0px 0px 1px gray);
+  scale: 1.04;
+}
+#intro .buy #heart:hover {
+  scale: 1.15;
+  cursor: pointer;
+}
+#intro .bgblobs {
+  mix-blend-mode: multiply;
+}
+#intro #bgCourse-y {
+  position: absolute;
+  z-index: -2;
+  right: 48%;
+  top: -20px;
+  opacity: 0.9;
+}
+#intro #bgCourse-y img {
+  height: 920px;
+  width: auto;
+}
+#intro #bgCourse-w {
+  position: absolute;
+  z-index: -1;
+  left: 43%;
+  top: 100px;
+}
+#intro #bgCourse-w img {
+  height: 740px;
+  width: auto;
+}
+
+/*課程介紹區*/
+#content {
+  display: grid;
+  justify-items: center;
+  z-index: 99;
+  width: 100%;
+  position: relative;
+  /*裝飾線AFTER*/
+}
+#content::before {
+  content: "";
+  /*偽元素必須設定content，此內容不會被搜尋到*/
+  background-image: url(../images/decoline-intro.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  max-width: none;
+  width: 100%;
+  height: 350px;
+  position: absolute;
+  top: -40px;
+}
+#content #titleContent {
+  width: 205px;
+}
+#content .courseContent {
+  max-width: 700px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+#content .courseContent p {
+  margin: 20px 0;
+}
+#content .courseContent img {
+  align-self: center;
+  max-width: 600px;
+  border-radius: 10px;
+}
+
+/*課程QA區*/
+#QA {
+  justify-items: center;
+  z-index: 99;
+  height: auto;
+  max-width: 1100px;
+  margin-bottom: 100px;
+}
+#QA #titleQA {
+  width: 205px;
+}
+#QA .courseQA {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#QA .courseQA .title {
+  margin-bottom: 40px;
+}
+#QA .courseQA .title img {
+  height: 40px;
+}
+#QA .courseQA .list-row,
+#QA .courseQA .list-row-light {
+  display: flex;
+  margin: 24px 0;
+  gap: 48px;
+}
+#QA .courseQA .list-row .quest-mark,
+#QA .courseQA .list-row-light .quest-mark {
+  font-weight: bolder;
+  font-size: 20px;
+  background-color: #D4AB8E;
+  border-radius: 99px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+}
+#QA .courseQA .list-row .QAset,
+#QA .courseQA .list-row-light .QAset {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+#QA .courseQA .list-row .QAset .question,
+#QA .courseQA .list-row-light .QAset .question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #D4AB8E;
+  border-radius: 10px;
+  padding: 10px 16px 10px 32px;
+  cursor: pointer;
+}
+#QA .courseQA .list-row .QAset .question .icon-arrow,
+#QA .courseQA .list-row-light .QAset .question .icon-arrow {
+  width: 30px;
+  height: 30px;
+  margin-left: 60px;
+}
+#QA .courseQA .list-row .QAset .answer,
+#QA .courseQA .list-row-light .QAset .answer {
+  background-color: rgba(255, 255, 255, 0.65);
+  border-radius: 0 0 10px 10px;
+  padding: 20px 42px 36px 42px;
+  position: relative;
+  font-weight: 400;
+}
+#QA .courseQA .list-row .QAset .answer::before,
+#QA .courseQA .list-row-light .QAset .answer::before {
+  content: "";
+  position: absolute;
+  /* 與白色背景的間距 */
+  top: 0px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 2px dashed #D4AB8E;
+  border-top: none;
+  /* 虛線樣式 */
+  border-radius: 0 0 10px 10px;
+}
+#QA .courseQA .list-row-light .quest-mark {
+  background-color: #F0E4C6;
+}
+#QA .courseQA .list-row-light .QAset .question {
+  background-color: #F0E4C6;
+}
+#QA .courseQA .list-row-light .QAset .answer::before {
+  border-color: #F0E4C6;
+}
+
+/*店家資訊區*/
+#studio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  height: 400px;
+  max-width: 1100px;
+  margin-bottom: 100px;
+}
+#studio .studioInfo {
+  display: flex;
+  width: 822px;
+  height: 232px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  justify-content: center;
+  position: relative;
+  margin-left: 40px;
+}
+#studio .studioInfo figure {
+  margin-right: 20px;
+}
+#studio .studioInfo img {
+  width: 344px;
+  position: absolute;
+  left: -95px;
+  top: -10px;
+}
+#studio .studioInfo #titleStudio {
+  width: 205px;
+  position: absolute;
+  left: -65px;
+  top: -60px;
+  z-index: 50;
+}
+#studio .studioInfo .studioInfo2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-self: center;
+  height: 157px;
+  margin-left: 50px;
+}
+#studio .studioInfo .studioInfo2 h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+#studio .studioInfo .studioInfo2 h3 .teacherName {
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 24px;
+}
+#studio .studioInfo .studioInfo2 p {
+  color: #5A5A5A;
+}
+
+/*最新心得*/
+#experience {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-image: url(../images/bg-experience.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+  padding-bottom: 30px;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 500;
+  /*裝飾線AFTER*/
+}
+#experience::after {
+  content: "";
+  /*偽元素必須設定content，此內容不會被搜尋到*/
+  background-image: url(../images/decoline-recommend.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 350px;
+  position: absolute;
+  bottom: -30px;
+}
+#experience .expTop {
+  display: flex;
+  align-items: flex-end;
+}
+#experience .expTop #seeAll {
+  padding-bottom: 50px;
+}
+#experience #titleExp {
+  width: 245px;
+  margin-bottom: 50px;
+}
+#experience .newestExp {
+  padding-bottom: 150px;
+}
+#experience .newestExp .Exp {
+  width: 1000px;
+  height: 300px;
+  display: flex;
+  margin: 30px 0;
+}
+#experience .newestExp .Exp:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.65);
+  border-radius: 10px;
+}
+#experience .newestExp .Exp .expPic {
+  width: 400px;
+  border-radius: 10px;
+}
+#experience .newestExp .Exp .expContent {
+  margin-left: 65px;
+  padding-top: 30px;
+}
+#experience .newestExp .Exp .expContent .expInfo {
+  display: flex;
+}
+#experience .newestExp .Exp .expContent .expInfo p {
+  margin: 0 20px;
+  font-size: 20px;
+}
+#experience .newestExp .Exp .expContent .expInfo img {
+  height: 40px;
+  width: auto;
+}
+#experience .newestExp .Exp .expContent .expDate {
+  display: flex;
+  margin: 10px 0;
+}
+#experience .newestExp .Exp .expContent .expDate p {
+  color: #5A5A5A;
+  font-size: 14px;
+}
+#experience .newestExp .Exp .expContent .expDate span {
+  margin: 0 10px;
+}
+#experience .newestExp .Exp .expContent .expText {
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  padding-right: 40px;
+}
+#experience #bgExperience img {
+  height: auto;
+  width: auto;
+}
+
+/*課程推薦區*/
+#recommend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#recommend #titleRec {
+  width: 205px;
+}
+#recommend .boxList {
+  border: blue solid 1px;
+  display: inline-flex;
+  overflow: hidden;
+}
+#recommend .boxList div {
+  border: #BF6152 2px solid;
+  width: 360px;
+  height: 460px;
+  margin: 30px;
+}
+
+/* 頁尾區 */
+footer {
+  background-color: #483D3F;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer .footer-bgDeco {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+footer .footer-bgDeco img {
+  position: absolute;
+  bottom: -1px;
+}
+footer .foot-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 50px 100px;
+}
+footer .foot-content img {
+  width: 100%;
+  max-width: 338px;
+  height: 72px;
+}
+footer .menu {
+  display: flex;
+  text-align: center;
+}
+footer .menu > li {
+  width: 6rem;
+  margin: 0 10px;
+  font-size: 14px;
+  font-weight: 400;
+}
+footer .menu > li ul {
+  margin: 15px 0;
+}
+footer .menu > li ul > li {
+  padding: 4px 0;
+}
+footer a,
+footer li,
+footer small {
+  color: white;
+}
+footer small {
+  margin-bottom: 50px;
+  font-size: 0.8rem;
+}
+
+/*泡泡區*/
+.blobstools .blobs,
+.blobstools .tools {
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  mix-blend-mode: multiply;
+}
+.blobstools .blobsw {
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  opacity: 80%;
+}
+.blobstools #blobs-1 {
+  background-image: url(../images/blobs-1.svg);
+  width: 480px;
+  height: 100%;
+  right: 80%;
+  top: 2380px;
+}
+.blobstools #blobs-2 {
+  background-image: url(../images/blobs-2.svg);
+  width: 320px;
+  height: 100%;
+  left: 85%;
+  top: 2550px;
+  z-index: 5;
+}
+.blobstools #blobs-3 {
+  background-image: url(../images/blobs-3.svg);
+  width: 500px;
+  height: 100%;
+  left: 77%;
+  top: 2200px;
+}
+.blobstools #blobs-4 {
+  background-image: url(../images/blobs-4.svg);
+  width: 230px;
+  height: 100%;
+  right: 92%;
+  top: 2270px;
+}
+.blobstools #blobs-5 {
+  background-image: url(../images/blobs-5.svg);
+  width: 400px;
+  height: 100%;
+  left: 82%;
+  top: 1000px;
+}
+.blobstools #blobs-6 {
+  background-image: url(../images/blobs-6.svg);
+  width: 460px;
+  height: 100%;
+  left: 80%;
+  top: 1300px;
+}
+.blobstools #blobs-7 {
+  background-image: url(../images/blobs-7.svg);
+  width: 500px;
+  height: 100%;
+  right: 80%;
+  top: 1250px;
+}
+.blobstools #blobs-8 {
+  background-image: url(../images/blobs-8.svg);
+  width: 150px;
+  height: 100%;
+  left: 80%;
+  top: 4400px;
+}
+.blobstools #blobs-9 {
+  background-image: url(../images/blobs-9.svg);
+  width: 420px;
+  height: 100%;
+  right: 89%;
+  top: 4950px;
+}
+.blobstools #blobs-5-2 {
+  background-image: url(../images/blobs-5.svg);
+  width: 400px;
+  height: 100%;
+  left: 82%;
+  top: 3200px;
+}
+.blobstools #blobs-6-2 {
+  background-image: url(../images/blobs-6.svg);
+  width: 460px;
+  height: 100%;
+  left: 80%;
+  top: 3500px;
+}
+.blobstools #blobs-7-2 {
+  background-image: url(../images/blobs-7.svg);
+  width: 500px;
+  height: 100%;
+  right: 80%;
+  top: 3450px;
+}
+.blobstools #tools-awl {
+  background-image: url(../images/tools_awl.svg);
+  width: 300px;
+  height: 100%;
+  right: 85%;
+  top: 4100px;
+}
+
+/*浮動按鈕*/
+#buyNow {
+  width: 100px;
+  position: fixed;
+  right: 40px;
+  bottom: 20px;
+  z-index: 999;
+  cursor: pointer;
+}
+#buyNow:hover {
+  rotate: 10deg;
+  scale: 0.95;
 }/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,52 @@
+// 大量會重複的樣式程式碼放這裡
+
+// 多行省略
+%line-multiple {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    // ↓行數改於區塊中設定(因為可能其他地方行數會改變)
+    // -webkit-line-clamp: ;
+}
+
+// 單行省略
+%line-single {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Brown Button
+%btn-brown {
+    background-color: #BF6152;
+    color: white;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+}
+
+// Dark Coffe Button
+%btn-coffee {
+    background-color: #483D3F;
+    color: white;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+}
+
+// White Button
+%btn-white {
+    background-color: white;
+    color: #78686B;
+    border-radius: 999px;
+    border: #78686B solid 2px;
+    cursor: pointer;
+}
+
+// 區塊內物件置中(可另加flex direction)
+%box-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
