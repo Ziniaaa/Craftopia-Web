@@ -1,6 +1,32 @@
+import { useEffect } from 'react'
 import '../css/style.css'
+import $ from 'jquery'
 
 function App() {
+
+  useEffect(() => {
+    $(window).on('scroll', function () {
+      if ($(this).scrollTop() > 200) {
+        $('#buyNow').stop().fadeIn("fast")
+      } else {
+        $('#buyNow').fadeOut()
+      }
+    });
+  })
+  useEffect(() => {
+    $('#Q1').on('click', function () {
+      $('#A1').slideToggle();
+    });
+    $('#Q2').on('click', function () {
+      $('#A2').slideToggle();
+    });
+    $('#Q3').on('click', function () {
+      $('#A3').slideToggle();
+    });
+    $('#Q4').on('click', function () {
+      $('#A4').slideToggle();
+    });
+  });
 
   return (
     <>
@@ -101,14 +127,14 @@ function App() {
                   <p className="quest-mark">?</p>
                 </div>
                 <div className="QAset">
-                  <div className="question">
-                    <p>如何註冊會員</p>
+                  <div className="question" id="Q1">
+                    <p>需要自備工具嗎</p>
                     <div className="icon-arrow">
                       <img className="QA-arrowDown" src="./images/type=arrowDown_bold.svg" alt="" />
                       <img className="QA-arrowUp" src="./images/type=arrowUp_bold.svg" alt="" />
                     </div>
                   </div>
-                  <div className="answer">
+                  <div className="answer" id="A1">
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos aperiam id dicta molestias fugiat voluptas laudantium est similique debitis excepturi. Perferendis repudiandae, corrupti voluptatem cupiditate illo ab in animi amet excepturi laborum eveniet, ipsam hic, consequuntur molestiae earum eos quisquam dolore tempora! Distinctio veritatis ex pariatur delectus eum ab exercitationem ullam libero iusto sit? Quae nemo quo voluptatum ea enim.
                     </p>
@@ -120,14 +146,14 @@ function App() {
                   <p className="quest-mark">?</p>
                 </div>
                 <div className="QAset">
-                  <div className="question">
-                    <p>如何註冊會員</p>
+                  <div className="question" id="Q2">
+                    <p>我沒有經驗也可以報名嗎</p>
                     <div className="icon-arrow">
                       <img className="QA-arrowDown" src="./images/type=arrowDown_bold.svg" alt="" />
                       <img className="QA-arrowUp" src="./images/type=arrowUp_bold.svg" alt="" />
                     </div>
                   </div>
-                  <div className="answer">
+                  <div className="answer" id="A2">
                     <p>
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis ullam, impedit molestiae neque veniam provident? Beatae, dignissimos? Voluptas, vero expedita.
                     </p>
@@ -139,14 +165,14 @@ function App() {
                   <p className="quest-mark">?</p>
                 </div>
                 <div className="QAset">
-                  <div className="question">
+                  <div className="question" id="Q3">
                     <p>完成後的成品多久可以拿</p>
                     <div className="icon-arrow">
                       <img className="QA-arrowDown" src="./images/type=arrowDown_bold.svg" alt="" />
                       <img className="QA-arrowUp" src="./images/type=arrowUp_bold.svg" alt="" />
                     </div>
                   </div>
-                  <div className="answer">
+                  <div className="answer" id="A3">
                     <p>
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     </p>
@@ -158,23 +184,23 @@ function App() {
                   <p className="quest-mark">?</p>
                 </div>
                 <div className="QAset">
-                  <div className="question">
+                  <div className="question" id="Q4">
                     <p>報名費有包含材料費嗎</p>
                     <div className="icon-arrow">
                       <img className="QA-arrowDown" src="./images/type=arrowDown_bold.svg" alt="" />
                       <img className="QA-arrowUp" src="./images/type=arrowUp_bold.svg" alt="" />
                     </div>
                   </div>
-                  <div className="answer">
+                  <div className="answer" id="A4">
                     <p>
                       手機訊號不佳，建議至訊號良好的地方再次獲取驗證碼。確實關閉手機wifi 功能，使用個人網路後再次嘗試。
-                      <br/>
-                        · 開啟「飛航模式」後等待3 分鐘再關閉，並再次嘗試操作。
-                        <br/>
-                          · 開啟「飛航模式」後等待3 分鐘再關閉，並再次嘗試操作。
-                        </p>
-                      </div>
+                      <br />
+                      · 開啟「飛航模式」後等待3 分鐘再關閉，並再次嘗試操作。
+                      <br />
+                      · 開啟「飛航模式」後等待3 分鐘再關閉，並再次嘗試操作。
+                    </p>
                   </div>
+                </div>
               </li>
 
 

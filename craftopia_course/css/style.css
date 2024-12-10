@@ -600,6 +600,7 @@ main section {
   height: 350px;
   position: absolute;
   bottom: -30px;
+  z-index: -10;
 }
 #experience .expTop {
   display: flex;
