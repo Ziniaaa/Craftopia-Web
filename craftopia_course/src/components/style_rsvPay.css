@@ -203,6 +203,7 @@ h3 {
   margin-left: 10px;
   font-size: 1.2rem;
   font-weight: 700;
+  background-color: #BF6E52;
 }
 .lightBoxWrap .content .rsvPayment .payBtn #paymentPay:hover {
   background-color: #483D3F;

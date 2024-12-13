@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "../components/style_showQa.css";
 
 export default function ShowQa() {
 
@@ -56,17 +56,14 @@ export default function ShowQa() {
     }
 
 
-    // console.log(qaData);
+    console.log(qaData);
 
 
     return (
         <>
             {
-
-
                 qaData.map((item, index) => {
                     return (
-
 
                         <li className={`list-row ${index % 2 === 1 ? 'light' : ''}`} key={item.id}>
                             <div>
@@ -76,19 +73,11 @@ export default function ShowQa() {
                                 <div className={item.isClicked ? 'question show' : 'question'} onClick={() => toggleClick(item.id)}>
                                     <p>{item.question}</p>
 
-
                                     <div className={item.isClicked ? 'icon-arrow show' : 'icon-arrow'}>
-
-
-                                        <img className="QA-arrowDown" src="./images/icon-tag/type=arrowDown_bold.svg" alt="" />
-
-
-
-
+                                        <img className="QA-arrowDown" src="./images/icon-heart.svg" alt="" />
                                     </div>
                                 </div>
                                 <div className={item.isClicked ? 'ansWrap show' : 'ansWrap'}>
-
 
                                     <div className="answer">
                                         <p>
@@ -96,11 +85,9 @@ export default function ShowQa() {
                                         </p>
                                     </div>
 
-
                                 </div>
                             </div>
                         </li>
-
 
                     )
                 })
