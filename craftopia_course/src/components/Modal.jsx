@@ -1,5 +1,4 @@
 import React from "react";
-// import "./Modal.css"; // 如果你有單獨的樣式檔案
 import "../components/style_rsv.css";
 
 const Modal = ({ isOpen, onClose, children }) => {
@@ -7,7 +6,8 @@ const Modal = ({ isOpen, onClose, children }) => {
 
     
     return (
-        <div className="modal-overlay" onClick={onClose}>
+        <div className="modal-overlay" >
+            {/* ↑若點擊窗外要觸發關閉，加上 onClick={onClose} */}
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 {/* <button className="close-btn" onClick={onClose}></button> */}
                 {children}

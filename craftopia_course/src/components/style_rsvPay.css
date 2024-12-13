@@ -1,0 +1,252 @@
+@charset "UTF-8";
+
+/*reset end*/
+.lightBoxWrap .content .rsvPayment .payBtn #paymentPay {
+  background-color: #BF6152;
+  color: white;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+}
+
+.lightBoxWrap .content .rsvPayment .payBtn #paymentBack {
+  background-color: white;
+  color: #78686B;
+  border-radius: 999px;
+  border: #78686B solid 2px;
+  cursor: pointer;
+}
+
+h3 {
+  font-weight: 600;
+  background-image: url(../images/dot_rsvLBTitle.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-left: 12px;
+  margin: 5px;
+}
+
+
+
+.lightBoxWrap {
+  background-image: url(../images/bg-reservationLightBox.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 15px;
+  border: none;
+  max-width: 1280px;
+  width: 100vw;
+  height: 680px;
+}
+.lightBoxWrap .header {
+  display: flex;
+  justify-content: space-between;
+}
+.lightBoxWrap .header #iconXPay {
+  width: 24px;
+  height: 24px;
+  margin: 10px;
+  border: none;
+  background-image: url("./images/icons-X.svg");
+  background-position: center;
+  background-color: transparent;
+}
+.lightBoxWrap .header #iconXPay:hover {
+  cursor: pointer;
+}
+.lightBoxWrap .header h3 {
+  margin-top: 40px;
+  margin-left: 60px;
+  font-size: 24px;
+  font-weight: 600;
+}
+.lightBoxWrap .content {
+  display: flex;
+  margin: 16px 60px 98px 60px;
+  justify-content: space-between;
+}
+.lightBoxWrap .content .rsvPayContent {
+  flex: 2;
+  margin-right: 30px;
+}
+.lightBoxWrap .content .rsvPayment {
+  flex: 1;
+}
+.lightBoxWrap .content section {
+  background-color: white;
+  border-radius: 10px;
+  height: 472px;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 20px;
+}
+.lightBoxWrap .content section h3 {
+  margin-bottom: 24px;
+}
+.lightBoxWrap .content section hr {
+  margin: 23px 0 30px;
+  border-top: #b7b7b7 solid 1px;
+}
+.lightBoxWrap .content section .rsvPayContent p {
+  border: solid 1px #ADADAD;
+  border-radius: 4px;
+  color: #ADADAD;
+  width: 80%;
+  padding: 6px 16px;
+  margin-left: 20px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.lightBoxWrap .content section .rsvPayContentWrap {
+  display: flex;
+  justify-content: space-between;
+}
+.lightBoxWrap .content section #payPic {
+  flex: 1;
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+  overflow: hidden;
+  border-radius: 4px;
+  min-width: 132px;
+}
+.lightBoxWrap .content section #payPic img {
+  height: 100%;
+  width: auto;
+  object-position: -10px;
+}
+.lightBoxWrap .content section #payCourse {
+  flex: 4;
+  padding: 0 20px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+}
+.lightBoxWrap .content section #payCourse h4 {
+  font-weight: 700;
+}
+.lightBoxWrap .content section .rsvPlan {
+  color: #5A5A5A;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.lightBoxWrap .content section .rsvPlan .planCtg {
+  color: #ADADAD;
+}
+.lightBoxWrap .content section .rsvPlan1 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.lightBoxWrap .content section .rsvPlan1 #payFee {
+  align-self: flex-end;
+  align-items: center;
+  color: #3B3B3B;
+}
+.lightBoxWrap .content section .rsvPlan1 #payFee #fee {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-left: 16px;
+}
+.lightBoxWrap .content section #studioName {
+  font-size: 0.8rem;
+  color: #483D3F;
+}
+.lightBoxWrap .content .rsvPayment {
+  flex-grow: 1;
+}
+.lightBoxWrap .content .rsvPayment .payRadio {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.lightBoxWrap .content .rsvPayment fieldset {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.lightBoxWrap .content .rsvPayment fieldset li {
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.lightBoxWrap .content .rsvPayment fieldset li label {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.lightBoxWrap .content .rsvPayment fieldset li label div {
+  display: flex;
+}
+.lightBoxWrap .content .rsvPayment fieldset img {
+  width: 35px;
+}
+.lightBoxWrap .content .rsvPayment .payBtn {
+  display: flex;
+  justify-content: center;
+}
+.lightBoxWrap .content .rsvPayment .payBtn #paymentBack {
+  height: 56px;
+  width: 105px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.lightBoxWrap .content .rsvPayment .payBtn #paymentBack:hover {
+  scale: 1.04;
+}
+.lightBoxWrap .content .rsvPayment .payBtn #paymentPay {
+  height: 56px;
+  width: 175px;
+  margin-left: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.lightBoxWrap .content .rsvPayment .payBtn #paymentPay:hover {
+  background-color: #483D3F;
+  filter: drop-shadow(0px 0px 1px gray);
+  scale: 1.04;
+}
+.lightBoxWrap .content #FeeNext {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.lightBoxWrap .content #FeeNext .totalFee {
+  margin-bottom: 24px;
+}
+.lightBoxWrap .content #FeeNext .totalFee span {
+  font-size: 24px;
+  margin-left: 0.5rem;
+}
+.lightBoxWrap .content #FeeNext .nextStep {
+  background-color: #BF6E52;
+  border-radius: 99px;
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  height: 56px;
+  width: 100%;
+}
+.lightBoxWrap .content #FeeNext .nextStep:hover {
+  background-color: #483D3F;
+  filter: drop-shadow(0px 0px 1px gray);
+  scale: 1.04;
+}
+.modalPay-overlay {
+  position: fixed;        /* 固定在螢幕上 */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color:transparent;  /* 半透明背景 */
+  display: flex;         /* 使用 flex 使內容居中 */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;         /* 確保它在頁面最上層 */
+}
+/*# sourceMappingURL=style_rsvPay.css.map */

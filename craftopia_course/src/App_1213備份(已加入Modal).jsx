@@ -2,8 +2,6 @@ import { useEffect,useState } from 'react'
 import $ from 'jquery'
 import '../css/style.css'
 import Modal from "./components/Modal"; // 引入 Modal 元件
-import ModalPay from "./components/ModalPay"; // 引入 ModalPay 元件
-
 
 
 function App() {
@@ -58,23 +56,6 @@ function App() {
       $('#A4').slideToggle();
     });
   });
-
-// ModalPay開關控制
-const [isModalPayOpen, setIsModalPayOpen] = useState(false); // 控制 ModalPay 開啟狀態
-
-const handleOpenModalPay = () => {
-  setIsModalPayOpen(true);  // 開啟 Modal
-};
-
-const handleCloseModalPay = () => {
-  setIsModalPayOpen(false);  // 關閉 Modal
-};
-
-// Modal&ModalPay同時關閉
-const closeAllModals = () => {
-  setIsModalOpen(false);
-  setIsModalPayOpen(false);
-};
 
   return (
     <>
@@ -447,98 +428,12 @@ const closeAllModals = () => {
                 <div className="totalFee">金額小計
                   <span id="rsvTolFee">$3500</span>
                 </div>
-                <button className="nextStep" onClick={handleOpenModalPay}>下一步</button>
+                <button className="nextStep">下一步</button>
               </div>
             </section>
           </div>
 
         </div>
-
-        {/* 付款彈窗 */}
-      <ModalPay isOpen={isModalPayOpen} onClose={handleCloseModalPay}>
-      <div className="lightBoxWrap">
-            <div className="header">
-                <h3 className="topTitle">確認預約內容</h3>
-                {/* <img src="./images/icons-X.svg" alt="" id="iconX"/> */}
-                <button id="iconXPay" onClick={closeAllModals}></button>
-            </div>
-            <div className="content">
-                <section className="rsvPayContent">
-                    <h3>預約內容</h3>
-                    <div className="rsvPayContentWrap">
-                        <figure id="payPic"><img src="./images/courseImg-1.JPG" alt=""/></figure>
-                        <div id="payCourse">
-                            <h4>Overloading 戒指 | 純銀 | 送禮自用送禮自用送禮自用送禮自用</h4>
-                            <p id="studioName">小自在工藝空間</p>
-                            <hr/>
-                            <div className="rsvPlan1">
-                                <div className="rsvPlan2">
-                                    <div className="rsvPlan">
-                                        <p className="planCtg">課程方案</p>
-                                        <p>初階 | 造型戒指</p>
-                                    </div>
-                                    <div className="rsvPlan">
-                                        <p className="planCtg">日期</p>
-                                        <p>2024/11/30 14:00-16:00</p>
-                                    </div>
-                                    <div className="rsvPlan">
-                                        <p className="planCtg">人數</p>
-                                        <p>成人 2位</p>
-                                    </div>
-                                </div>
-                                <div className="rsvPlan" id="payFee">
-                                    <p>金額小計</p>
-                                    <p id="fee">$3500</p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section className="rsvPayment">
-                    <h3>選擇付款方式</h3>
-                    <div className="payRadio">
-                        <fieldset>
-                            <li>
-                                <input type="radio" name="payment" id="payment1" title="信用卡" value="信用卡"/>
-                                <label htmlFor="payment1">信用卡
-                                    <div>
-                                        <img src="./images/payment-Visa.svg" alt=""/>
-                                        <img src="./images/payment-JCB.svg" alt=""/>
-                                        <img src="./images/payment-Mastercard.svg" alt=""/>
-                                    </div>
-                                </label>
-                                <div>
-                                </div>
-                            </li>
-                            <li>
-                                <input type="radio" name="payment" id="payment2" title="PayPal" value="PayPal"/>
-                                <label htmlFor="payment2">PayPal
-                                    <img src="./images/payment-PayPal.svg" alt=""/>
-                                </label>
-                            </li>
-                            <li>
-                                <input type="radio" name="payment" id="payment3" title="Apple Pay" value="Apple Pay"/>
-                                <label htmlFor="payment3">Apple Pay
-                                    <img src="./images/payment-ApplePay.svg" alt=""/>
-                                </label>
-                            </li>
-                            <li>
-                                <input type="radio" name="payment" id="payment4" title="LINE Pay" value="LINE Pay"/>
-                                <label htmlFor="payment4">LINE Pay
-                                    <img src="./images/payment-Line pay.svg" alt=""/>
-                                </label>
-                            </li>
-                        </fieldset>
-                    </div>
-                    <div className="payBtn">
-                        <button id="paymentBack" onClick={handleCloseModalPay}>返回</button>
-                        <button id="paymentPay" >付款去 →</button>
-                    </div>
-                </section>
-            </div>
-        </div>
-      </ModalPay>
       </Modal>
 
 
