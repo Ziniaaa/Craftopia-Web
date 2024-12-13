@@ -1,37 +1,8 @@
-import { useEffect,useState } from 'react'
-import $ from 'jquery'
+import { useEffect } from 'react'
 import '../css/style.css'
-import Modal from "./components/Modal"; // 引入 Modal 元件
-
+import $ from 'jquery'
 
 function App() {
-
-  const [isModalOpen, setIsModalOpen] = useState(false); // 控制 Modal 開啟狀態
-
-  const handleOpenModal = () => {
-    setIsModalOpen(true);  // 開啟 Modal
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);  // 關閉 Modal
-  };
-
-  const [adultCount, setAdultCount] = useState(0); // 成人人數
-  const [childCount, setChildCount] = useState(0); // 孩童人數
-
-  // 處理成人人數增加/減少
-  const handleAdultCount = (operation) => {
-    setAdultCount((prev) =>
-      operation === "+" ? prev + 1 : Math.max(prev - 1, 0)
-    );
-  };
-  // 處理孩童人數增加/減少
-  const handleChildCount = (operation) => {
-    setChildCount((prev) =>
-      operation === "+" ? prev + 1 : Math.max(prev - 1, 0)
-    );
-  };
-
 
   useEffect(() => {
     $(window).on('scroll', function () {
@@ -80,7 +51,7 @@ function App() {
 
       {/*獨立區 */}
       <p className="breadCrumb">首頁＞課程列表＞overloading戒指...</p>
-      <a id="buyNow" onClick={handleOpenModal}><img src="./images/btn-buyNow.svg" alt="" /></a>
+      <a id="buyNow"><img src="./images/btn-buyNow.svg" alt="" /></a>
 
       <main>
         <section id="intro">
@@ -116,7 +87,7 @@ function App() {
             </div>
             <div className="buy">
               <p>$1000起</p>
-              <button onClick={handleOpenModal}>立即預約</button>
+              <button>立即預約</button>
               <figure id="heart"><img src="./images/icon-heart.svg" alt="" /></figure>
 
             </div>
@@ -329,112 +300,7 @@ function App() {
 
       </main>
 
-      {/* Modal_預約彈窗 */}
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        <div className="lightBoxWrap">
-          <div className="header">
-            <h3 className="topTitle">選擇預約內容</h3>
-            <button id="iconX" onClick={handleCloseModal}></button>
-            {/* <img src="./images/icons-X.svg" alt="" id="iconX" /> */}
-          </div>
-          <div className="content">
-            <section className="rsvS-1">
-              <div className="rsvcontent">
-                <h3>選擇課程方案</h3>
-                <p>初階 | 造型戒指</p>
-                <p>初階 | 雙人戒指</p>
-              </div>
-              <hr />
-              <div className="rsvcount">
-                <h3>選擇報名人數</h3>
-                <div>成人 (18歲以上)
-                  <span>
-                    <button id="rsvBtnAdultSub" onClick={() => handleAdultCount("-")}>－</button>
-                    <p id="rsvAdultCount">{adultCount}</p>
-                    <button id="rsvAdultAdd" onClick={() => handleAdultCount("+")}>＋</button>
-                  </span>
-                </div>
-                <div>孩童 (12 ~ 17歲)
-                  <span>
-                    <button id="rsvBtnChildSub" onClick={() => handleChildCount("-")}>－</button>
-                    <p id="rsvChildCount">{childCount}</p>
-                    <button id="rsvChildAdd" onClick={() => handleChildCount("+")}>＋</button>
-                  </span>
-                </div>
-              </div>
-            </section>
-            <section className="rsvDate">
-              <h3>選擇預約日期</h3>
-              <div className="calendar-wrapper">
-                <h1>December 2024</h1>
-                <ol className="calendar">
 
-                  <li className="day-name">Sun</li>
-                  <li className="day-name">Mon</li>
-                  <li className="day-name">Tue</li>
-                  <li className="day-name">Wed</li>
-                  <li className="day-name">Thu</li>
-                  <li className="day-name">Fri</li>
-                  <li className="day-name">Sat</li>
-
-                  <li className="first-day">1</li>
-
-                  <li>2</li>
-                  <li>3</li>
-                  <li>4</li>
-                  <li>5</li>
-                  <li>6</li>
-                  <li>7</li>
-                  <li>8</li>
-                  <li>9</li>
-                  <li>10</li>
-                  <li>11</li>
-                  <li>12</li>
-                  <li>13</li>
-                  <li>14</li>
-                  <li>15</li>
-                  <li>16</li>
-                  <li>17</li>
-                  <li>18</li>
-                  <li>19</li>
-                  <li>20</li>
-                  <li>21</li>
-                  <li>22</li>
-                  <li>23</li>
-                  <li>24</li>
-                  <li>25</li>
-                  <li>26</li>
-                  <li>27</li>
-                  <li>28</li>
-                  <li>29</li>
-                  <li>30</li>
-                  <li>31</li>
-                </ol>
-              </div>
-            </section>
-            <section className="rsvS-3">
-              <div className="rsvTime">
-                <h3>選擇課程時段</h3>
-                <ul>
-                  <li>10:00~12:00</li>
-                  <li>12:00~14:00</li>
-                  <li>14:00~16:00</li>
-                  <li>16:00~18:00</li>
-                  <li>18:00~20:00</li>
-                  <li>20:00~22:00</li>
-                </ul>
-              </div>
-              <div id="FeeNext">
-                <div className="totalFee">金額小計
-                  <span id="rsvTolFee">$3500</span>
-                </div>
-                <button className="nextStep">下一步</button>
-              </div>
-            </section>
-          </div>
-
-        </div>
-      </Modal>
 
 
       {/* 頁尾區 */}
