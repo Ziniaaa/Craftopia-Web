@@ -57,14 +57,14 @@ export default function ShowQa() {
     }
 
 
-    console.log(qaData);
+    // console.log(qaData);
 
 
     return (
         <>
             {
                 qaData.map((item, index) => {
-                    console.log(index);
+                    // console.log(index);
                     return (
 
                         <li className={`list-row ${index % 2 === 1 ? 'light' : ''}`} key={item.id}>
