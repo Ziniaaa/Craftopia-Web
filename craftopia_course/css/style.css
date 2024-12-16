@@ -429,90 +429,6 @@ main section {
 #QA #titleQA {
   width: 205px;
 }
-#QA .courseQA {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-#QA .courseQA .title {
-  margin-bottom: 40px;
-}
-#QA .courseQA .title img {
-  height: 40px;
-}
-#QA .courseQA .list-row,
-#QA .courseQA .list-row-light {
-  display: flex;
-  margin: 24px 0;
-  gap: 48px;
-}
-#QA .courseQA .list-row .quest-mark,
-#QA .courseQA .list-row-light .quest-mark {
-  font-weight: bolder;
-  font-size: 20px;
-  background-color: #D4AB8E;
-  border-radius: 99px;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  line-height: 50px;
-}
-#QA .courseQA .list-row .QAset,
-#QA .courseQA .list-row-light .QAset {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-#QA .courseQA .list-row .QAset .question,
-#QA .courseQA .list-row-light .QAset .question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  background-color: #D4AB8E;
-  border-radius: 10px;
-  padding: 10px 16px 10px 32px;
-  cursor: pointer;
-}
-#QA .courseQA .list-row .QAset .question .icon-arrow,
-#QA .courseQA .list-row-light .QAset .question .icon-arrow {
-  width: 30px;
-  height: 30px;
-  margin-left: 60px;
-}
-#QA .courseQA .list-row .QAset .answer,
-#QA .courseQA .list-row-light .QAset .answer {
-  background-color: rgba(255, 255, 255, 0.65);
-  border-radius: 0 0 10px 10px;
-  padding: 20px 42px 36px 42px;
-  position: relative;
-  font-weight: 400;
-}
-#QA .courseQA .list-row .QAset .answer::before,
-#QA .courseQA .list-row-light .QAset .answer::before {
-  content: "";
-  position: absolute;
-  /* 與白色背景的間距 */
-  top: 0px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  border: 2px dashed #D4AB8E;
-  border-top: none;
-  /* 虛線樣式 */
-  border-radius: 0 0 10px 10px;
-}
-#QA .courseQA .list-row-light .quest-mark {
-  background-color: #F0E4C6;
-}
-#QA .courseQA .list-row-light .QAset .question {
-  background-color: #F0E4C6;
-}
-#QA .courseQA .list-row-light .QAset .answer::before {
-  border-color: #F0E4C6;
-}
 
 /*店家資訊區*/
 #studio {
@@ -868,14 +784,18 @@ footer small {
 
 /*固定彈跳視窗在頁面上方*/
 .modal-overlay {
-  position: fixed; /* 固定在螢幕上 */
+  position: fixed;
+  /* 固定在螢幕上 */
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
-  display: flex; /* 使用 flex 使內容居中 */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* 半透明背景 */
+  display: flex;
+  /* 使用 flex 使內容居中 */
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* 確保它在頁面最上層 */
+  z-index: 9999;
+  /* 確保它在頁面最上層 */
 }/*# sourceMappingURL=style.css.map */

@@ -4,6 +4,8 @@ import '../css/style.css'
 import Modal from "./components/Modal"; // 引入 Modal 元件
 import ModalPay from "./components/ModalPay"; // 引入 ModalPay 元件
 import ShowQa from "./components/ShowQa"; // 引入 ShowQa 元件
+import AOS from 'aos';
+import 'aos/dist/aos.css'; //載入node modules中的套件前面不加./
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
     setIsModalOpen(false);  // 關閉 Modal
   };
 
+  //人數按鈕
   const [adultCount, setAdultCount] = useState(0); // 成人人數
   const [childCount, setChildCount] = useState(0); // 孩童人數
 
@@ -34,7 +37,7 @@ function App() {
     );
   };
 
-//QA開關(jQuery)
+  //QA開關(jQuery)
   useEffect(() => {
     $(window).on('scroll', function () {
       if ($(this).scrollTop() > 200) {
@@ -76,7 +79,14 @@ function App() {
     setIsModalPayOpen(false);
   };
 
-  
+  //Modal預約選項點擊選取
+
+
+  //AOS淡入淡出套件
+  useEffect(() => {
+    AOS.init(); //初始化
+  }, []
+  );
 
   return (
     <>
@@ -172,87 +182,7 @@ function App() {
           <figure><img src="./images/title_QA.svg" alt="課程Q&A" className="titlePic" id="titleQA" /></figure>
           <div className="courseQA">
             <ul className="list">
-              {/* <li className="list-row">
-                <div>
-                  <p className="quest-mark">?</p>
-                </div>
-                <div className="QAset">
-                  <div className="question" id="Q1">
-                    <p>需要自備工具嗎</p>
-                    <div className="icon-arrow">
-                      <img className="QA-arrowDown" src="./images/type=arrowDown_bold.svg" alt="" />
-                      <img className="QA-arrowUp" src="./images/type=arrowUp_bold.svg" alt="" />
-                    </div>
-                  </div>
-                  <div className="answer" id="A1">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos aperiam id dicta molestias fugiat voluptas laudantium est similique debitis excepturi. Perferendis repudiandae, corrupti voluptatem cupiditate illo ab in animi amet excepturi laborum eveniet, ipsam hic, consequuntur molestiae earum eos quisquam dolore tempora! Distinctio veritatis ex pariatur delectus eum ab exercitationem ullam libero iusto sit? Quae nemo quo voluptatum ea enim.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li className="list-row-light">
-                <div>
-                  <p className="quest-mark">?</p>
-                </div>
-                <div className="QAset">
-                  <div className="question" id="Q2">
-                    <p>我沒有經驗也可以報名嗎</p>
-                    <div className="icon-arrow">
-                      <img className="QA-arrowDown" src="./images/type=arrowDown_bold.svg" alt="" />
-                      <img className="QA-arrowUp" src="./images/type=arrowUp_bold.svg" alt="" />
-                    </div>
-                  </div>
-                  <div className="answer" id="A2">
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis ullam, impedit molestiae neque veniam provident? Beatae, dignissimos? Voluptas, vero expedita.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li className="list-row">
-                <div>
-                  <p className="quest-mark">?</p>
-                </div>
-                <div className="QAset">
-                  <div className="question" id="Q3">
-                    <p>完成後的成品多久可以拿</p>
-                    <div className="icon-arrow">
-                      <img className="QA-arrowDown" src="./images/type=arrowDown_bold.svg" alt="" />
-                      <img className="QA-arrowUp" src="./images/type=arrowUp_bold.svg" alt="" />
-                    </div>
-                  </div>
-                  <div className="answer" id="A3">
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li className="list-row-light">
-                <div>
-                  <p className="quest-mark">?</p>
-                </div>
-                <div className="QAset">
-                  <div className="question" id="Q4">
-                    <p>報名費有包含材料費嗎</p>
-                    <div className="icon-arrow">
-                      <img className="QA-arrowDown" src="./images/type=arrowDown_bold.svg" alt="" />
-                      <img className="QA-arrowUp" src="./images/type=arrowUp_bold.svg" alt="" />
-                    </div>
-                  </div>
-                  <div className="answer" id="A4">
-                    <p>
-                      手機訊號不佳，建議至訊號良好的地方再次獲取驗證碼。確實關閉手機wifi 功能，使用個人網路後再次嘗試。
-                      <br />
-                      · 開啟「飛航模式」後等待3 分鐘再關閉，並再次嘗試操作。
-                      <br />
-                      · 開啟「飛航模式」後等待3 分鐘再關閉，並再次嘗試操作。
-                    </p>
-                  </div>
-                </div>
-              </li> */}
-            <ShowQa />
+              <ShowQa />
             </ul>
           </div>
         </section>
@@ -329,21 +259,21 @@ function App() {
           </div>
         </section>
 
-        <section className="blobstools">
+        <section className="blobstools" >
           {/* 泡泡區 */}
-          <figure className="blobs" id="blobs-1"></figure>
-          <figure className="blobs" id="blobs-2"></figure>
-          <figure className="blobs" id="blobs-3"></figure>
-          <figure className="blobsw" id="blobs-4"></figure>
-          <figure className="blobs" id="blobs-5"></figure>
-          <figure className="blobsw" id="blobs-6"></figure>
-          <figure className="blobs" id="blobs-7"></figure>
-          <figure className="blobs" id="blobs-8"></figure>
-          <figure className="blobs" id="blobs-9"></figure>
-          <figure className="blobs" id="blobs-5-2"></figure>
-          <figure className="blobsw" id="blobs-6-2"></figure>
-          <figure className="blobs" id="blobs-7-2"></figure>
-          <figure className="tools" id="tools-awl"></figure>
+          <figure className="blobs" id="blobs-1" data-aos="fade-up" data-aos-duration="1800"></figure>
+          <figure className="blobs" id="blobs-2" data-aos="fade-up" data-aos-duration="1800"></figure>
+          <figure className="blobs" id="blobs-3" data-aos="fade-up" data-aos-duration="1800"></figure>
+          <figure className="blobsw" id="blobs-4" data-aos="fade-up" data-aos-duration="1800"></figure>
+          <figure className="blobs" id="blobs-5" data-aos="fade-up" data-aos-duration="1800"></figure>
+          <figure className="blobsw" id="blobs-6" data-aos="fade-up" data-aos-duration="1800"></figure>
+          <figure className="blobs" id="blobs-7" data-aos="fade-up" data-aos-duration="1800"></figure>
+          <figure className="blobs" id="blobs-8" data-aos="fade-up" data-aos-duration="1800"></figure>
+          <figure className="blobs" id="blobs-9" data-aos="fade-up" data-aos-duration="800"></figure>
+          <figure className="blobs" id="blobs-5-2" data-aos="fade-up" data-aos-duration="800"></figure>
+          <figure className="blobsw" id="blobs-6-2" data-aos="fade-up" data-aos-duration="800"></figure>
+          <figure className="blobs" id="blobs-7-2" data-aos="fade-up" data-aos-duration="800"></figure>
+          <figure className="tools" id="tools-awl" data-aos="fade-up" data-aos-duration="800"></figure>
 
         </section>
 

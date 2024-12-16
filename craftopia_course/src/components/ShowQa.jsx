@@ -8,28 +8,29 @@ export default function ShowQa() {
     const [qaData, setQaData] = useState([
         {
             id: 1,
-            question: '如何註冊會員',
-            ans: '透過信箱綁定',
+            question: '需要自備工具嗎？',
+            ans: '上課教室提供個人獨立金工桌，以及整套的金工工具設備供學員使用，不需要自備任何工具，僅需攜帶一顆愉快的心即可！',
             isClicked: false,
         },
         {
             id: 2,
-            question: '如何更改會員資料',
+            question: '我沒有經驗也可以報名嗎？',
             ans: '手機訊號不佳，建議至訊號良好的地方再次獲取驗證碼。確實關閉手機wifi 功能，使用個人網路後再次嘗試。手機訊號不佳，建議至訊號良好的地方再次獲取驗證碼。確實關閉手機wifi 功能，使用個人網路後再次嘗試。手機訊號不佳，建議至訊號良好的地方再次獲取驗證碼。確實關閉手機wifi 功能，使用個人網路後再次嘗試。',
             isClicked: false,
         },
         {
             id: 3,
-            question: '收不到驗證碼',
+            question: '完成後的成品多久可以拿？',
             ans: '手機訊號不佳，建議至訊號良好的地方再次獲取驗證碼。確實關閉手機wifi 功能，使用個人網路後再次嘗試。',
             isClicked: false,
         },
         {
             id: 4,
-            question: '收不到驗證碼',
+            question: '報名費有包含材料費嗎？',
             ans: '手機訊號不佳，建議至訊號良好的地方再次獲取驗證碼。確實關閉手機wifi 功能，使用個人網路後再次嘗試。',
             isClicked: false,
         },
+        
     ]);
 
 
@@ -63,6 +64,7 @@ export default function ShowQa() {
         <>
             {
                 qaData.map((item, index) => {
+                    console.log(index);
                     return (
 
                         <li className={`list-row ${index % 2 === 1 ? 'light' : ''}`} key={item.id}>
@@ -70,11 +72,13 @@ export default function ShowQa() {
                                 <p className="quest-mark">?</p>
                             </div>
                             <div className="QAset" >
-                                <div className={item.isClicked ? 'question show' : 'question'} onClick={() => toggleClick(item.id)}>
+                                <div className={item.isClicked ? 'question show' : 'question'} onClick={(e) => {
+                                        e.stopPropagation(); // 防止冒泡
+                                    toggleClick(item.id);}}>
                                     <p>{item.question}</p>
 
                                     <div className={item.isClicked ? 'icon-arrow show' : 'icon-arrow'}>
-                                        <img className="QA-arrowDown" src="./images/icon-heart.svg" alt="" />
+                                        <img className="QA-arrowDown" src="./images/type=arrowDown_bold.svg" alt="" />
                                     </div>
                                 </div>
                                 <div className={item.isClicked ? 'ansWrap show' : 'ansWrap'}>

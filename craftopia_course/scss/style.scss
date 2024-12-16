@@ -372,110 +372,7 @@ main {
         width: 205px;
     }
 
-    .courseQA {
-        // border: #BF6152 dashed 2px;
-        width: 100%;
-        height: auto;
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        .title {
-            margin-bottom: 40px;
-
-            img {
-                height: 40px;
-            }
-        }
-
-        .list-row,
-        .list-row-light {
-            display: flex;
-            margin: 24px 0;
-            gap: 48px;
-
-
-            .quest-mark {
-                font-weight: bolder;
-                font-size: 20px;
-                background-color:$color-brown-light;
-                border-radius: 99px;
-                width: 50px;
-                height: 50px;
-                text-align: center;
-                line-height: 50px;
-            }
-
-            .QAset {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-
-                .question {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    width: 100%;
-
-                    background-color:$color-brown-light;
-                    border-radius: 10px;
-                    padding: 10px 16px 10px 32px;
-
-                    cursor: pointer;
-
-                    .icon-arrow {
-                        width: 30px;
-                        height: 30px;
-                        margin-left: 60px;
-                    }
-                }
-
-                .answer {
-                    background-color: rgb(255, 255, 255, 0.65);
-                    border-radius: 0 0 10px 10px;
-                    padding: 20px 42px 36px 42px;
-                    position: relative;
-
-                    font-weight: 400;
-
-                    &::before {
-                        content: "";
-                        position: absolute;
-                        /* 與白色背景的間距 */
-                        top: 0px;
-                        left: 10px;
-                        right: 10px;
-                        bottom: 10px;
-                        border: 2px dashed #D4AB8E;
-                        border-top: none;
-                        /* 虛線樣式 */
-                        border-radius: 0 0 10px 10px;
-
-
-                    }
-                }
-            }
-        }
-
-        .list-row-light {
-
-            .quest-mark {
-                background-color: $color-bg-dark;
-            }
-
-            .QAset {
-                .question {
-                    background-color: $color-bg-dark;
-                }
-                .answer {
-                    &::before {
-                        border-color: $color-bg-dark;
-                    }
-                }
-            }
-        }
-    }
 }
 
 
@@ -749,7 +646,7 @@ footer {
 
         img {
             width: 100%;
-            max-width:338px;
+            max-width: 338px;
             height: 72px;
         }
     }
@@ -935,14 +832,18 @@ footer {
 
 /*固定彈跳視窗在頁面上方*/
 .modal-overlay {
-    position: fixed;        /* 固定在螢幕上 */
+    position: fixed;
+    /* 固定在螢幕上 */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);  /* 半透明背景 */
-    display: flex;         /* 使用 flex 使內容居中 */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 半透明背景 */
+    display: flex;
+    /* 使用 flex 使內容居中 */
     justify-content: center;
     align-items: center;
-    z-index: 9999;         /* 確保它在頁面最上層 */
-  }
+    z-index: 9999;
+    /* 確保它在頁面最上層 */
+}

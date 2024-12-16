@@ -1,24 +1,28 @@
 @charset "UTF-8";
 
 /*reset end*/
-.member-QA-right {
+.courseQA {
   width: 100%;
-  border: red solid 2px;
+  /* border: red solid 2px; */
 }
-.member-QA-right .title {
+
+.courseQA .title {
   margin-bottom: 40px;
 }
-.member-QA-right .title img {
+
+.courseQA .title img {
   height: 40px;
 }
-.member-QA-right .list-row,
-.member-QA-right .list-row.light {
+
+.courseQA .list-row,
+.courseQA .list-row .light {
   display: flex;
   margin: 24px 0;
   gap: 48px;
 }
-.member-QA-right .list-row .quest-mark,
-.member-QA-right .list-row.light .quest-mark {
+
+.courseQA .list-row .quest-mark,
+.courseQA .list-row .light .quest-mark {
   font-weight: bolder;
   font-size: 20px;
   background-color: #D4AB8E;
@@ -28,14 +32,16 @@
   text-align: center;
   line-height: 50px;
 }
-.member-QA-right .list-row .QAset,
-.member-QA-right .list-row.light .QAset {
+
+.courseQA .list-row .QAset,
+.courseQA .list-row .light .QAset {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-.member-QA-right .list-row .QAset .question,
-.member-QA-right .list-row.light .QAset .question {
+
+.courseQA .list-row .QAset .question,
+.courseQA .list-row .light .QAset .question {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,29 +52,35 @@
   cursor: pointer;
   transition: 0.4s linear;
 }
-.member-QA-right .list-row .QAset .question .icon-arrow,
-.member-QA-right .list-row.light .QAset .question .icon-arrow {
+
+.courseQA .list-row .QAset .question .icon-arrow,
+.courseQA .list-row .light .QAset .question .icon-arrow {
   width: 30px;
   height: 30px;
   margin-left: 60px;
   transition: 0.4s linear;
 }
-.member-QA-right .list-row .QAset .question.show,
-.member-QA-right .list-row.light .QAset .question.show {
+
+.courseQA .list-row .QAset .question.show,
+.courseQA .list-row .light .QAset .question.show {
   border-radius: 10px 10px 0 0;
 }
-.member-QA-right .list-row .QAset .question.show .icon-arrow.show,
-.member-QA-right .list-row.light .QAset .question.show .icon-arrow.show {
+
+.courseQA .list-row .QAset .question.show .icon-arrow.show,
+.courseQA .list-row .light .QAset .question.show .icon-arrow.show {
   transform: rotate(-180deg);
 }
-.member-QA-right .list-row .QAset .ansWrap,
-.member-QA-right .list-row.light .QAset .ansWrap {
+
+.courseQA .list-row .QAset .ansWrap,
+.courseQA .list-row .light .QAset .ansWrap {
   max-height: 0;
   overflow: hidden;
   transition: all 0.8s cubic-bezier(0, 1, 0, 1);
+  /* display: none; */
 }
-.member-QA-right .list-row .QAset .answer,
-.member-QA-right .list-row.light .QAset .answer {
+
+.courseQA .list-row .QAset .answer,
+.courseQA .list-row .light .QAset .answer {
   display: flex;
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 0 0 10px 10px;
@@ -76,8 +88,9 @@
   position: relative;
   font-weight: 400;
 }
-.member-QA-right .list-row .QAset .answer::before,
-.member-QA-right .list-row.light .QAset .answer::before {
+
+.courseQA .list-row .QAset .answer::before,
+.courseQA .list-row .light .QAset .answer::before {
   content: "";
   position: absolute;
   /* 與白色背景的間距 */
@@ -90,18 +103,26 @@
   /* 虛線樣式 */
   border-radius: 0 0 10px 10px;
 }
-.member-QA-right .list-row .QAset .ansWrap.show,
-.member-QA-right .list-row.light .QAset .ansWrap.show {
+
+.courseQA .list-row .QAset .ansWrap.show,
+.courseQA .list-row .light .QAset .ansWrap.show {
   height: auto;
   max-height: 1000px;
   transition: all 0.8s cubic-bezier(1, 0, 1, 0);
+  /* display: block; */
 }
-.member-QA-right .list-row.light .quest-mark {
+
+.courseQA .list-row .light .quest-mark {
   background-color: #F0E4C6;
 }
-.member-QA-right .list-row.light .QAset .question {
+
+.courseQA .list-row.light .QAset .question {
   background-color: #F0E4C6;
+  /* border: red solid 2px; */
 }
-.member-QA-right .list-row.light .QAset .answer::before {
+
+.courseQA .list-row .light .QAset .answer::before {
   border-color: #F0E4C6;
-}/*# sourceMappingURL=style_showQa.css.map */
+}
+
+/*# sourceMappingURL=style_showQa.css.map */
