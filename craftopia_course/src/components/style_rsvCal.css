@@ -510,7 +510,7 @@ h2.react-datepicker__current-month {
 .react-datepicker__year-text--in-selecting-range,
 .react-datepicker__year-text--in-range {
   border-radius: 50%;
-  background-color: #D4B86F;
+  background-color: #ECD8A3;;
   color: black;
   /* border: red solid; */
 }
