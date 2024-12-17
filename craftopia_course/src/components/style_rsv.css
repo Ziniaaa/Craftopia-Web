@@ -39,6 +39,7 @@ h3 {
   margin-left: 60px;
   font-size: 24px;
   font-weight: 600;
+  padding-left: 20px;
 }
 .lightBoxWrap .content {
   display: flex;
@@ -56,6 +57,7 @@ h3 {
 }
 .lightBoxWrap .content section h3 {
   margin-bottom: 24px;
+  padding-left: 12px;
 }
 .lightBoxWrap .content section hr {
   margin: 23px 0 30px;
@@ -191,6 +193,12 @@ h3 {
   scale: 1.04;
 }
 
+.tooltip {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
 
 /*固定彈跳視窗在頁面上方*/
 .modal-overlay {

@@ -68,8 +68,8 @@ function App() {
   // 計算金額
   const totalFee = calculateTotalFee();
 
-//選擇課程日期
-const [selectedDate, setSelectedDate] = useState(null); 
+  //選擇課程日期
+  const [selectedDate, setSelectedDate] = useState(null);
 
 
   //選擇課程時段
@@ -88,6 +88,27 @@ const [selectedDate, setSelectedDate] = useState(null);
     setSelectedTime(timeKey);
   };
 
+  // 按下「下一步」檢查條件
+  const [showTooltip, setShowTooltip] = useState(false);
+  const handleNextStep = () => {
+    if (!selectedCourse || (adultCount === 0 && childCount === 0) || !selectedDate || !selectedTime) {
+      setShowTooltip(true);
+      return;
+    }
+    setShowTooltip(false);
+    handleOpenModalPay();
+  };
+  // 使用 useEffect 監聽條件變化
+  useEffect(() => {
+    if (
+      selectedCourse &&
+      (adultCount > 0 || childCount > 0) &&
+      selectedDate &&
+      selectedTime
+    ) {
+      setShowTooltip(false); // 自動隱藏 tooltip
+    }
+  }, [selectedCourse, adultCount, childCount, selectedDate, selectedTime]);
 
   //QA開關(jQuery)
   useEffect(() => {
@@ -130,8 +151,6 @@ const [selectedDate, setSelectedDate] = useState(null);
     setIsModalOpen(false);
     setIsModalPayOpen(false);
   };
-
-  //Modal預約選項點擊選取
 
 
   //AOS淡入淡出套件
@@ -376,51 +395,7 @@ const [selectedDate, setSelectedDate] = useState(null);
             <section className="rsvDate">
               <h3>選擇預約日期</h3>
               <div className="calendar-wrapper">
-                <RsvCalendar />
-                {/* <h1>December 2024</h1>
-                <ol className="calendar">
-
-                  <li className="day-name">Sun</li>
-                  <li className="day-name">Mon</li>
-                  <li className="day-name">Tue</li>
-                  <li className="day-name">Wed</li>
-                  <li className="day-name">Thu</li>
-                  <li className="day-name">Fri</li>
-                  <li className="day-name">Sat</li>
-
-                  <li className="first-day">1</li>
-
-                  <li>2</li>
-                  <li>3</li>
-                  <li>4</li>
-                  <li>5</li>
-                  <li>6</li>
-                  <li>7</li>
-                  <li>8</li>
-                  <li>9</li>
-                  <li>10</li>
-                  <li>11</li>
-                  <li>12</li>
-                  <li>13</li>
-                  <li>14</li>
-                  <li>15</li>
-                  <li>16</li>
-                  <li>17</li>
-                  <li>18</li>
-                  <li>19</li>
-                  <li>20</li>
-                  <li>21</li>
-                  <li>22</li>
-                  <li>23</li>
-                  <li>24</li>
-                  <li>25</li>
-                  <li>26</li>
-                  <li>27</li>
-                  <li>28</li>
-                  <li>29</li>
-                  <li>30</li>
-                  <li>31</li>
-                </ol> */}
+                <RsvCalendar setSelectedDate={setSelectedDate} selectedDate={selectedDate} />
               </div>
             </section>
             <section className="rsvS-3">
@@ -445,7 +420,13 @@ const [selectedDate, setSelectedDate] = useState(null);
                 <div className="totalFee">金額小計
                   <span id="rsvTolFee">${totalFee}</span>
                 </div>
-                <button className="nextStep" onClick={handleOpenModalPay}>下一步</button>
+                <button className="nextStep" onClick={handleNextStep}>下一步</button>
+                {/* Tooltip 提示 */}
+                {showTooltip && (
+                  <div className="tooltip">
+                    <p>請確認所有欄位皆有選取項目喔!</p>
+                  </div>
+                )}
               </div>
             </section>
           </div>
@@ -473,25 +454,41 @@ const [selectedDate, setSelectedDate] = useState(null);
                       <div className="rsvPlan2">
                         <div className="rsvPlan">
                           <p className="planCtg">課程方案</p>
-                          <p>初階 | 造型戒指</p>
+                          <p>{selectedCourse ? (
+                            <p>{courseOption[selectedCourse].option}</p>
+                          ) : (
+                            ''
+                          )}</p>
                         </div>
                         <div className="rsvPlan">
                           <p className="planCtg">日期</p>
-                          <p>{selectedDate}{TimeOption[selectedTime]}</p>
+                          <div className='selectedTime'>
+                            {selectedDate ? (
+                              <p>{selectedDate.toLocaleDateString("zh-TW", {
+                                weekday: "long",
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                              })}</p>
+                            ) : (
+                              <p>尚未選擇日期</p>
+                            )}
+                            <p>&nbsp;‧&nbsp;{TimeOption[selectedTime]}</p>
+                          </div>
                         </div>
                         <div className="rsvPlan">
                           <p className="planCtg">人數</p>
                           <div>
-                          {adultCount > 0 && (
-                            <p>
-                              成人 <span>{adultCount}</span> 位
-                            </p>
-                          )}
-                          {childCount > 0 && (
-                            <p>
-                              孩童 <span>{childCount}</span> 位
-                            </p>
-                          )}
+                            {adultCount > 0 && (
+                              <p>
+                                成人 <span>{adultCount}</span> 位
+                              </p>
+                            )}
+                            {childCount > 0 && (
+                              <p>
+                                孩童 <span>{childCount}</span> 位
+                              </p>
+                            )}
                           </div>
                         </div>
                       </div>

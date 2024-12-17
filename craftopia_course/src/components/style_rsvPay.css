@@ -134,6 +134,9 @@ h3 {
 .lightBoxWrap .content section .rsvPlan .planCtg {
   color: #ADADAD;
 }
+.lightBoxWrap .content section .rsvPlan .selectedTime{
+  display: flex;
+  }
 .lightBoxWrap .content section .rsvPlan1 {
   height: 100%;
   display: flex;

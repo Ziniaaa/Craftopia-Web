@@ -6,9 +6,9 @@ import "../components/style_rsvCal.css"; // 引入樣式
 
 import { zhTW } from "date-fns/locale"; // 引入繁體中文語系 npm install date-fns
 
-export default function RsvCalendar() {
+export default function RsvCalendar({ setSelectedDate, selectedDate }) {
 
-    const [selectedDate, setSelectedDate] = useState(null); // 用於儲存選擇的日期
+    // const [selectedDate, setSelectedDate] = useState(null); // 用於儲存選擇的日期
 
     // 處理日期變化
     const handleDateChange = (date) => {
@@ -19,13 +19,12 @@ export default function RsvCalendar() {
         <>
             <div>
                 <DatePicker
-                    inline // 讓月曆常駐顯示
-                    selected={selectedDate}
-                    onChange={handleDateChange}
+                    inline
+                    selected={selectedDate}   // 綁定選擇的日期狀態
+        onChange={handleDateChange} // 呼叫父元件的 setSelectedDate
                     dateFormat="yyyy-MM-dd"
-                    locale={zhTW} // 將語系設為繁體中文
-
-                    minDate={new Date()} // 禁選過去日期
+                    locale={zhTW}
+                    minDate={new Date()}
                 />
             </div>
 
