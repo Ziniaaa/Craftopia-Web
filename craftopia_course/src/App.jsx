@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 import $ from 'jquery'
-import '../css/style.css'
+// import '../css/style.css'
 import Modal from "./components/Modal"; // 引入 Modal 元件
 import ModalPay from "./components/ModalPay"; // 引入 ModalPay 元件
 import ShowQa from "./components/ShowQa"; // 引入 ShowQa 元件
 import AOS from 'aos';
 import 'aos/dist/aos.css'; //載入node modules中的套件前面不加./
+import RsvCalendar from "./components/RsvCalendar"; // 引入 RsvCalendar 元件
 
 
 function App() {
@@ -67,6 +68,10 @@ function App() {
   // 計算金額
   const totalFee = calculateTotalFee();
 
+//選擇課程日期
+const [selectedDate, setSelectedDate] = useState(null); 
+
+
   //選擇課程時段
   const [selectedTime, setSelectedTime] = useState(null); // 儲存選擇的時段
 
@@ -77,7 +82,6 @@ function App() {
     t4: '16:00~18:00',
     t5: '18:00~20:00',
     t6: '20:00~22:00',
-
   }
 
   const handleTimeSelect = (timeKey) => {
@@ -372,7 +376,8 @@ function App() {
             <section className="rsvDate">
               <h3>選擇預約日期</h3>
               <div className="calendar-wrapper">
-                <h1>December 2024</h1>
+                <RsvCalendar />
+                {/* <h1>December 2024</h1>
                 <ol className="calendar">
 
                   <li className="day-name">Sun</li>
@@ -415,7 +420,7 @@ function App() {
                   <li>29</li>
                   <li>30</li>
                   <li>31</li>
-                </ol>
+                </ol> */}
               </div>
             </section>
             <section className="rsvS-3">
@@ -472,11 +477,22 @@ function App() {
                         </div>
                         <div className="rsvPlan">
                           <p className="planCtg">日期</p>
-                          <p>2024/11/30 {TimeOption[selectedTime]}</p>
+                          <p>{selectedDate}{TimeOption[selectedTime]}</p>
                         </div>
                         <div className="rsvPlan">
                           <p className="planCtg">人數</p>
-                          <p>成人 2位</p>
+                          <div>
+                          {adultCount > 0 && (
+                            <p>
+                              成人 <span>{adultCount}</span> 位
+                            </p>
+                          )}
+                          {childCount > 0 && (
+                            <p>
+                              孩童 <span>{childCount}</span> 位
+                            </p>
+                          )}
+                          </div>
                         </div>
                       </div>
                       <div className="rsvPlan" id="payFee">

@@ -518,12 +518,8 @@ main section {
   z-index: -10;
 }
 #experience .expTop {
-  border: #BF6152 solid 1px;
   display: flex;
   align-items: flex-end;
-}
-#experience .expTop #seeAll {
-  padding-bottom: 50px;
 }
 #experience #titleExp {
   width: 245px;
@@ -597,12 +593,12 @@ main section {
   width: 205px;
 }
 #recommend .boxList {
-  border: blue solid 1px;
+  border: rgb(36, 151, 36) solid 3px;
   display: inline-flex;
   overflow: hidden;
 }
 #recommend .boxList div {
-  border: #BF6152 2px solid;
+  border: #5553ff 2px solid;
   width: 360px;
   height: 460px;
   margin: 30px;
@@ -801,12 +797,11 @@ footer small {
 }
 
 .expTop a {
-  border: #BF6152 solid;
   display: inline-flex;
   align-items: center;
   text-decoration: none;
   color: #000;
-  margin-left: 30%;
+  margin-bottom: 50px;
   padding: 0 40px;
   position: relative;
   font-weight: bold;
@@ -815,6 +810,24 @@ footer small {
   margin-left: 100px;
   position: relative;
   z-index: 10;
+}
+.expTop a:hover .ball {
+  transition: 0.8s;
+  filter: hue-rotate(30deg) brightness(140%);
+  transform: translateX(122px);
+}
+.expTop a.shot .ball {
+  filter: hue-rotate(30deg) brightness(140%);
+  transition: 0.7s cubic-bezier(0.3, 1.77, 0.36, 0.69);
+  transform: translateX(150px);
+}
+.expTop a.shot .transform-delay {
+  transition: 0.4s;
+  transform: translateX(65px);
+}
+.expTop a.shot .transform-delay2 {
+  transition: 0.3s;
+  opacity: 0;
 }
 .expTop a span {
   position: absolute;

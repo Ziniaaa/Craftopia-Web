@@ -478,6 +478,7 @@ main {
     position: relative;
     z-index: 500;
 
+
     /*裝飾線AFTER*/
     &::after {
         content: "";
@@ -494,13 +495,12 @@ main {
     }
 
     .expTop {
-        border: #BF6152 solid 1px;
         display: flex;
         align-items: flex-end;
 
-        #seeAll {
-            padding-bottom: 50px;
-        }
+        // #seeAll {
+        //     padding-bottom: 50px;
+        // }
     }
 
     #titleExp {
@@ -597,12 +597,12 @@ main {
     }
 
     .boxList {
-        border: blue solid 1px;
+        border: rgb(36, 151, 36) solid 3px;
         display: inline-flex;
         overflow: hidden;
 
         div {
-            border: #BF6152 2px solid;
+            border: #5553ff 2px solid;
             width: 360px;
             height: 460px;
             margin: 30px;
@@ -850,13 +850,16 @@ footer {
 
 //see more按鈕
 .expTop {
+    // border: #52bf7f solid;
+    
     a {
-        border: #BF6152 solid;
+        // border: #BF6152 solid;
         display: inline-flex;
         align-items: center;
         text-decoration: none;
         color: #000;
-        margin-left: 30%;
+
+        margin-bottom: 50px;
         padding: 0 40px;
         position: relative;
         font-weight: bold;
@@ -867,34 +870,34 @@ footer {
             z-index: 10;
         }
 
-        // &:hover {
+        &:hover {
 
-        //     .ball {
-        //         transition: .8s;
-        //         filter: hue-rotate(30deg) brightness(140%);
-        //         transform: translateX(122px);
-        //     }
-        // }
+            .ball {
+                transition: .8s;
+                filter: hue-rotate(30deg) brightness(140%);
+                transform: translateX(122px);
+            }
+        }
 
-        // &.shot {
-        //     .ball {
-        //         filter: hue-rotate(30deg) brightness(140%);
-        //         transition: .7s cubic-bezier(.3, 1.77, .36, .69)
-        //             /*cubic-bezier(.5,2.77,.25,.35)*/
-        //         ;
-        //         transform: translateX(150px);
-        //     }
+        &.shot {
+            .ball {
+                filter: hue-rotate(30deg) brightness(140%);
+                transition: .7s cubic-bezier(.3, 1.77, .36, .69)
+                    /*cubic-bezier(.5,2.77,.25,.35)*/
+                ;
+                transform: translateX(150px);
+            }
 
-        //     .transform-delay {
-        //         transition: .4s;
-        //         transform: translateX(65px);
-        //     }
+            .transform-delay {
+                transition: .4s;
+                transform: translateX(65px);
+            }
 
-        //     .transform-delay2 {
-        //         transition: .3s;
-        //         opacity: 0;
-        //     }
-        // }
+            .transform-delay2 {
+                transition: .3s;
+                opacity: 0;
+            }
+        }
 
         span {
             position: absolute;
