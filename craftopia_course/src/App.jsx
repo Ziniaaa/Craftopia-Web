@@ -37,52 +37,52 @@ function App() {
     );
   };
 
-//Modal課程金額計算
-const [selectedCourse, setSelectedCourse] = useState(null); // 儲存選擇的課程
+  //Modal課程金額計算
+  const [selectedCourse, setSelectedCourse] = useState(null); // 儲存選擇的課程
 
-const courseOption = {
-  c1: {
-    option: "初階｜造型戒指",
-    adultFee: 1500,
-    childFee: 1200,
-  },
-  c2: {
-    option: "初階｜雙人對戒",
-    adultFee: 2800,
-    childFee: 2300,
+  const courseOption = {
+    c1: {
+      option: "初階｜造型戒指",
+      adultFee: 1500,
+      childFee: 1200,
+    },
+    c2: {
+      option: "初階｜雙人對戒",
+      adultFee: 2800,
+      childFee: 2300,
+    }
   }
-}
-// 計算總金額
-const calculateTotalFee = () => {
-  if (!selectedCourse) return 0; // 若未選擇課程，金額為 0
-  const course = courseOption[selectedCourse];
-  return course.adultFee * adultCount + course.childFee * childCount;
-};
+  // 計算總金額
+  const calculateTotalFee = () => {
+    if (!selectedCourse) return 0; // 若未選擇課程，金額為 0
+    const course = courseOption[selectedCourse];
+    return course.adultFee * adultCount + course.childFee * childCount;
+  };
 
-// 更新選擇的課程
-const handleCourseSelect = (courseKey) => {
-  setSelectedCourse(courseKey);
-};
+  // 更新選擇的課程
+  const handleCourseSelect = (courseKey) => {
+    setSelectedCourse(courseKey);
+  };
 
-// 計算金額
-const totalFee = calculateTotalFee();
+  // 計算金額
+  const totalFee = calculateTotalFee();
 
-//選擇課程時段
-const [selectedTime, setSelectedTime] = useState(null); // 儲存選擇的時段
+  //選擇課程時段
+  const [selectedTime, setSelectedTime] = useState(null); // 儲存選擇的時段
 
-const TimeOption = {
-  t1: '10:00~12:00',
-  t2: '12:00~14:00',
-  t3: '14:00~16:00',
-  t4: '16:00~18:00',
-  t5: '18:00~20:00',
-  t6: '20:00~22:00',
-  
-}
+  const TimeOption = {
+    t1: '10:00~12:00',
+    t2: '12:00~14:00',
+    t3: '14:00~16:00',
+    t4: '16:00~18:00',
+    t5: '18:00~20:00',
+    t6: '20:00~22:00',
 
-const handleTimeSelect = (timeKey) => {
-  setSelectedTime(timeKey);
-};
+  }
+
+  const handleTimeSelect = (timeKey) => {
+    setSelectedTime(timeKey);
+  };
 
 
   //QA開關(jQuery)
@@ -194,7 +194,7 @@ const handleTimeSelect = (timeKey) => {
               </ul>
             </div>
             <div className="buy">
-              <p>$1000起</p>
+              <p>$1200起</p>
               <button onClick={handleOpenModal}>立即預約</button>
               <figure id="heart"><img src="./images/icon-heart.svg" alt="" /></figure>
 
@@ -254,7 +254,13 @@ const handleTimeSelect = (timeKey) => {
         <section id="experience">
           <div className="expTop">
             <figure><img src="./images/title_Exp.svg" alt="最新心得足跡" className="titlePic" id="titleExp" /></figure>
-            <a id="seeAll">See All (485)＞</a>
+            {/* <a id="seeAll">See All (485)＞</a> */}
+            <a class="seemore-btn" href="#">
+              <img class="ball" src="./images/Vector-circle-b.png" alt="" />
+              <span class="font">see all(485)</span>
+              <img class="arr" src="./images/Vector-arr.png" alt="" />
+            </a>
+
           </div>
           <div className="newestExp">
             <div className="Exp">
@@ -417,17 +423,17 @@ const handleTimeSelect = (timeKey) => {
                 <h3>選擇課程時段</h3>
                 <ul>
                   <li className={selectedTime === "t1" ? "selected" : ""}
-                    onClick={() => handleTimeSelect("t1") }>10:00~12:00</li>
+                    onClick={() => handleTimeSelect("t1")}>10:00~12:00</li>
                   <li className={selectedTime === "t2" ? "selected" : ""}
-                    onClick={() => handleTimeSelect("t2") }>12:00~14:00</li>
+                    onClick={() => handleTimeSelect("t2")}>12:00~14:00</li>
                   <li className={selectedTime === "t3" ? "selected" : ""}
-                    onClick={() => handleTimeSelect("t3") }>14:00~16:00</li>
+                    onClick={() => handleTimeSelect("t3")}>14:00~16:00</li>
                   <li className={selectedTime === "t4" ? "selected" : ""}
-                    onClick={() => handleTimeSelect("t4") }>16:00~18:00</li>
+                    onClick={() => handleTimeSelect("t4")}>16:00~18:00</li>
                   <li className={selectedTime === "t5" ? "selected" : ""}
-                    onClick={() => handleTimeSelect("t5") }>18:00~20:00</li>
+                    onClick={() => handleTimeSelect("t5")}>18:00~20:00</li>
                   <li className={selectedTime === "t6" ? "selected" : ""}
-                    onClick={() => handleTimeSelect("t6") }>20:00~22:00</li>
+                    onClick={() => handleTimeSelect("t6")}>20:00~22:00</li>
                 </ul>
               </div>
               <div id="FeeNext">
@@ -583,6 +589,10 @@ const handleTimeSelect = (timeKey) => {
         </div>
         <small> Copyright© 2024 CRAFTOPIA All rights reserved. </small>
       </footer>
+
+      <script src="./js/jquery-3.7.1.min.js"></script>
+      <script src="./js/script.js"></script>
+
     </>
   )
 }

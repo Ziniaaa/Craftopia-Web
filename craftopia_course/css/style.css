@@ -124,7 +124,6 @@ img {
 a {
   display: block;
   /*將a預設的inline改為block，才能設定間距及寬高給超連結空間，排版上較方便*/
-  color: rgb(237, 100, 100);
   /*直接設定連結顏色*/
   text-decoration: none;
 }
@@ -519,6 +518,7 @@ main section {
   z-index: -10;
 }
 #experience .expTop {
+  border: #BF6152 solid 1px;
   display: flex;
   align-items: flex-end;
 }
@@ -798,4 +798,27 @@ footer small {
   align-items: center;
   z-index: 9999;
   /* 確保它在頁面最上層 */
+}
+
+.expTop a {
+  border: #BF6152 solid;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  margin-left: 30%;
+  padding: 0 40px;
+  position: relative;
+  font-weight: bold;
+}
+.expTop a .arr {
+  margin-left: 100px;
+  position: relative;
+  z-index: 10;
+}
+.expTop a span {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  margin-left: 15px;
 }/*# sourceMappingURL=style.css.map */
