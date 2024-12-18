@@ -402,10 +402,14 @@ main {
             bottom: -15px;
             width: 100%;
             z-index: 99;
-            cursor: pointer;
-            font-size: $font-size-m;
             font-weight: $font-weight-bold;
             color: $color-deepBrown-dark;
+
+            &:hover {
+                cursor: pointer;
+                font-weight: $font-weight-bold;
+                color: $color-brown-dark;
+            }
         }
     }
 }
@@ -669,22 +673,123 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    // border: blue solid;
+    z-index: 998;
 
     #titleRec {
         width: 205px;
     }
 
     .boxList {
-        border: rgb(36, 151, 36) solid 3px;
-        display: inline-flex;
+        // border: rgb(151, 36, 136) solid 3px;
+        display: flex;
+        padding: 5px;
         overflow: hidden;
 
-        div {
-            border: #5553ff 2px solid;
-            width: 360px;
+        /*卡片本體*/
+        .classCard {
+            // border: rgb(36, 151, 36) solid 1px;
+            display: flex;
+            position: relative;
+            width: 320px;
             height: 460px;
-            margin: 30px;
+            margin-right: $interval-l;
+            
+
+            &:hover{
+                outline: $color-gold-dark dashed 1px;
+                outline-offset: 4px;
+                border-radius: 10px ;
+                background-color: rgb(244, 235, 217,0.4);
+            }
+
+            a {
+                .classPhoto {
+                    width: 100%;
+                    height: 240px;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    img{
+                        width:100&;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                .tagHotorNew {
+                    width: 56px;
+                    position: absolute;
+                    left: 4px;
+                    top: 4px;
+                    z-index: 10;
+                }
+
+                .classTag {
+                    display: flex;
+                    margin: 20px 0;
+                    width: 100%;
+                    height: auto;
+                    justify-content: left;
+
+                    p {
+                        color: #ffffff;
+                        font-size: 13px;
+                        margin-right: 12px;
+                    }
+
+                    .classLevel {
+                        background-image: url(../images/tag-level.svg);
+                        padding: 7px 16px 8px;
+                        background-repeat: no-repeat;
+                    }
+
+                    .classTime {
+                        background-image: url(../images/tag-time.svg);
+
+                        padding: 5px 20px 4px 13px;
+                        background-repeat: no-repeat;
+                    }
+                }
+
+                .title-price-wrap {
+                    height: 100px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    .classTitle {
+                        display: flex;
+
+                        h3 {
+                            background-image: none;
+                            color: $color-neutral-90;
+                            font-weight: $font-weight-bold;
+                        }
+
+                        .icons-heart {
+                            width: 24px;
+                            height: 24px;
+                        }
+                    }
+
+                    .classPrice {
+                        display: flex;
+                        justify-content: space-between;
+
+
+                        .classStoreName {
+                            color: $color-neutral-80;
+                        }
+
+                        .classPrice {
+                            color: $color-coffee-dark;
+                            font-weight: $font-weight-bold;
+                        }
+                    }
+                }
+            }
+
         }
+
     }
 }
 

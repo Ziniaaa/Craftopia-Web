@@ -511,10 +511,13 @@ main section {
   bottom: -15px;
   width: 100%;
   z-index: 99;
-  cursor: pointer;
-  font-size: 1rem;
   font-weight: 700;
   color: #6F595D;
+}
+#content .courseContent .course-readmore:hover {
+  cursor: pointer;
+  font-weight: 700;
+  color: hsl(15, 33%, 54%);
 }
 
 /*課程QA區*/
@@ -721,10 +724,82 @@ main section {
   overflow: hidden;
 }
 #recommend .boxList div {
-  border: #5553ff 2px solid;
   width: 360px;
   height: 460px;
-  margin: 30px;
+}
+#recommend .boxList .classCard {
+  display: flex;
+  position: relative;
+  width: 320px;
+  /*卡片本體*/
+}
+#recommend .boxList .classCard div {
+  display: flex;
+  justify-content: space-between;
+}
+#recommend .boxList .classCard .classPhoto {
+  width: 320px;
+  height: auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+#recommend .boxList .classCard .classPhoto .tagHotorNew {
+  width: 56px;
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  z-index: 10;
+}
+#recommend .boxList .classCard .classTag {
+  margin: 20px 0;
+  width: 100%;
+  height: auto;
+  justify-content: left;
+}
+#recommend .boxList .classCard .classTag p {
+  color: #ffffff;
+  font-size: 13px;
+  margin-right: 12px;
+}
+#recommend .boxList .classCard .classTag .classLevel {
+  background-image: url(../images/tag-level.svg);
+  padding: 7px 16px 8px;
+  background-repeat: no-repeat;
+}
+#recommend .boxList .classCard .classTag .classTime {
+  background-image: url(../images/tag-time.svg);
+  padding: 5px 20px 4px 13px;
+  background-repeat: no-repeat;
+}
+#recommend .boxList .classCard #recommend .classTitle {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin-bottom: 24px;
+}
+#recommend .boxList .classCard #recommend .classTitle h3 {
+  width: 100%;
+  color: #303030;
+  font-size: 18px;
+  font-weight: 600;
+  background-image: none;
+}
+#recommend .boxList .classCard #recommend .classTitle img {
+  width: 24px;
+  height: 24px;
+}
+#recommend .boxList .classCard .classPrice {
+  align-items: center;
+}
+#recommend .boxList .classCard .classPrice .classStoreName {
+  color: #5a5a5a;
+}
+#recommend .boxList .classCard .classPrice .classPrice {
+  color: #483D3F;
+  font-size: 22px;
+}
+#recommend .boxList .classCard .icons-heart {
+  width: 24px;
 }
 
 /* 頁尾區 */

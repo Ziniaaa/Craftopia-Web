@@ -395,10 +395,34 @@ function App() {
         <section id='recommend'>
           <figure><img src="./images/title_recommend.svg" alt="相關課程推薦" className="titlePic" id="titleRec" /></figure>
           <div className="boxList">
-            <div className="box">課程卡片1</div>
+            {/* <div className="box">課程卡片1</div>
             <div className="box">課程卡片2</div>
             <div className="box">課程卡片3</div>
-            <div className="box">課程卡片4</div>
+            <div className="box">課程卡片4</div> */}
+            <div class="classCard" id="classCard-1">
+              <a href="#">
+                <figure className="classPhoto">
+                  <img src="./images/course-card-pic-1.jpg" alt="" />
+                </figure>
+                <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
+                <div className="classTag">
+                  <p className="classLevel">入門</p>
+                  <p className="classTime">3hr</p>
+                </div>
+                <div className='title-price-wrap'>
+                  <div className="classTitle">
+                    <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
+                    <img className="icons-heart" src="./images/icon-heart.svg" alt="" />
+                  </div>
+                  <div className="classPrice">
+                    <p className="classStoreName">草樹工作坊</p>
+                    <p className="classPrice">$ 3800</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+
           </div>
         </section>
 
