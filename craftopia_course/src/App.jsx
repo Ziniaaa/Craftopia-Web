@@ -12,18 +12,43 @@ import { SlArrowDown } from "react-icons/sl";
 function App() {
   // 點圖切換首圖
   const [selectedPhoto, setSelectedPhoto] = useState(1); // 儲存選擇的課程
-  const handlePhotoSelect = (id,url) => {
-    setSelectedPhoto({id,url});
+  const handlePhotoSelect = (id, url) => {
+    setSelectedPhoto({ id, url });
   };
-    // 初始化選擇第一張照片
-    useEffect(() => {
-      setSelectedPhoto(photoOption.p1); // 預設為第一張
-    }, []); // 空陣列表示只執行一次
+  // 初始化選擇第一張照片
+  useEffect(() => {
+    setSelectedPhoto(photoOption.p1); // 預設為第一張
+  }, []); // 空陣列表示只執行一次
   const photoOption = {
     p1: { id: 'coursePhoto-1', url: './images/courseImg-1.JPG' },
     p2: { id: 'coursePhoto-2', url: './images/courseImg-2.JPG' },
     p3: { id: 'coursePhoto-3', url: './images/courseImg-3.JPG' },
   };
+
+  //愛心icon toggle
+  useEffect(() => {
+    $('#heart').on('click', function () {
+      const img = $(this).find('img');
+      const currentSrc = img.attr('src');
+      const isFilled = currentSrc.includes('heart-fill');
+      const newSrc = isFilled
+        ? './images/icon-heart.svg'
+        : './images/icon-heart-fill.svg';
+
+      // 先立即更新圖片
+      img.attr('src', newSrc);
+
+      // 如果切換到 icon-heart-fill.svg，加入動畫
+      if (!isFilled) {
+        img.addClass('animate');
+
+        // 動畫結束後移除動畫類名
+        setTimeout(() => {
+          img.removeClass('animate');
+        }, 900); // 動畫時長與 jello-horizontal 一致
+      }
+    });
+  },)
 
   //控制閱讀更多(jQ)
   useEffect(() => {
@@ -211,22 +236,22 @@ function App() {
         <section id="intro">
           {/* 課程版頭intro區 */}
           <div className="coursePhoto">
-          {selectedPhoto && (
-        <figure className="photoL">
-          <img src={selectedPhoto.url} alt={`selected ${selectedPhoto.id}`} />
-        </figure>
-      )}
+            {selectedPhoto && (
+              <figure className="photoL">
+                <img src={selectedPhoto.url} alt={`selected ${selectedPhoto.id}`} />
+              </figure>
+            )}
             <div className='smallPhoto'>
-            {Object.entries(photoOption).map(([key, { id, url }]) => (
-          <figure
-            key={key}
-            className={`photoS ${selectedPhoto?.id === id ? 'photoSelected' : ''}`}
-            id={id}
-            onClick={() => handlePhotoSelect(id, url)} // 點擊圖片時更新選中的照片
-          >
-            <img src={url} alt={`course ${id}`} />
-          </figure>
-        ))}
+              {Object.entries(photoOption).map(([key, { id, url }]) => (
+                <figure
+                  key={key}
+                  className={`photoS ${selectedPhoto?.id === id ? 'photoSelected' : ''}`}
+                  id={id}
+                  onClick={() => handlePhotoSelect(id, url)} // 點擊圖片時更新選中的照片
+                >
+                  <img src={url} alt={`course ${id}`} />
+                </figure>
+              ))}
             </div>
 
           </div>
@@ -277,7 +302,7 @@ function App() {
                 <img src="./images/coursePic-2.jpg" alt="" title="課程照片2" />
                 <p>由材質、服務介紹及保養方式小講堂帶入課程介紹，每個步驟都會有專業講師解說及現場示範，帶您體驗刻印敲紋、彎折、鋸切、焊接，拋光等金工職人專業工序。可指定戒指亮面、霧面等效果。均附Wedding
                   Code保固卡、絨布袋及拭銀布，消費滿3000元加贈小圓木對戒盒。【 特殊加工服務 】特殊加工服務屬加價購部分，歡迎在課堂中與講師討論或諮詢。</p>
-                <img src="./images/courseImg-2.jpg" alt="" title="課程照片3" />
+                <img src="./images/courseImg-2.JPG" alt="" title="課程照片3" />
                 <p>由材質、服務介紹及保養方式小講堂帶入課程介紹，每個步驟都會有專業講師解說及現場示範，帶您體驗刻印敲紋、彎折、鋸切、焊接，拋光等金工職人專業工序。</p>
               </div>
             </div>
@@ -300,7 +325,10 @@ function App() {
         <section id="studio">
           <div className="studioInfo">
             <figure><img src="./images/title_studio.svg" alt="店家資訊" id="titleStudio" /></figure>
-            <figure><img src="./images/studio_pic1.png" alt="" /></figure>
+            <a href="#" className='studio-photo-masked'>
+              <h4>看店家簡介</h4>
+              <figure><img src="./images/studio_pic1.jpg" alt="" /></figure>
+            </a>
             <div className="studioInfo2">
               <h3 className="studioName">小自在工藝空間<sapn className="teacherName">課程講師：Elle</sapn>
               </h3>
@@ -458,13 +486,15 @@ function App() {
                 <div className="totalFee">金額小計
                   <span id="rsvTolFee">${totalFee}</span>
                 </div>
-                <button className="nextStep" onClick={handleNextStep}>下一步</button>
-                {/* Tooltip 提示 */}
-                {showTooltip && (
-                  <div className="toolTip">
-                    <p>請確認所有欄位皆有選取項目喔!</p>
-                  </div>
-                )}
+                <button className="nextStep" onClick={handleNextStep}>下一步
+
+                  {/* Tooltip 提示 */}
+                  {showTooltip && (
+                    <div className="toolTip">
+                      <p>每個項目皆需要選取喔!</p>
+                    </div>
+                  )}
+                </button>
               </div>
             </section>
           </div>
