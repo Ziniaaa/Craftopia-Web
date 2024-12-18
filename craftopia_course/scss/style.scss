@@ -346,18 +346,52 @@ main {
         width: 70%;
         display: flex;
         flex-direction: column;
+        // border: rgb(0, 255, 76) solid;
+        position: relative;
 
-        p {
-            margin: 20px 0;
+        .course-content-clip {
+            max-height: 800px;
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0.8) 90%, rgba(0, 0, 0, 0) 100%);
+            mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0.8) 90%, rgba(0, 0, 0, 0) 100%);
+
+            .course-detail {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                p {
+                    margin: 20px;
+                    line-height: 180%;
+                }
+
+                img {
+                    align-self: center;
+                    max-width: 650px;
+                    border-radius: $border-r-xs;
+                }
+            }
         }
 
-        img {
-            align-self: center;
-            max-width: 600px;
-            border-radius: 10px;
+        .content-clip-open {
+            max-height: none;
+            mask-image: none;
+        }
+
+        .course-readmore {
+            position: absolute;
+            // border: #5553ff solid;
+            text-align: center;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: 99;
+            cursor: pointer;
+            font-size: $font-size-l;
+            font-weight: $font-weight-bold;
+            color:$color-deepBrown-dark;
         }
     }
-
 }
 
 /*課程QA區*/
@@ -851,7 +885,7 @@ footer {
 //see more按鈕
 .expTop {
     // border: #52bf7f solid;
-    
+
     a {
         // border: #BF6152 solid;
         display: inline-flex;

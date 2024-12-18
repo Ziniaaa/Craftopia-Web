@@ -10,8 +10,16 @@ import RsvCalendar from "./components/RsvCalendar"; // 引入 RsvCalendar 元件
 
 
 function App() {
+//控制閱讀更多(jQ)
+useEffect(() => {
+  $('.course-readmore').on('click', function () {
+    $('.course-content-clip').addClass('content-clip-open');
+    $('.course-readmore').hide();
+  });
+  }, [])
 
-  const [isModalOpen, setIsModalOpen] = useState(false); // 控制 Modal 開啟狀態
+// 控制 Modal 開啟狀態
+  const [isModalOpen, setIsModalOpen] = useState(false); 
 
   const handleOpenModal = () => {
     setIsModalOpen(true);  // 開啟 Modal
@@ -236,14 +244,18 @@ function App() {
         <section id="content">
           <figure><img src="./images/title_content.svg" alt="課程介紹" className="titlePic" id="titleContent" /></figure>
           <div className="courseContent">
-            <img src="./images/coursePic-1.jpg" alt="" title="課程照片1" />
-            <p>由材質、服務介紹及保養方式小講堂帶入課程介紹，每個步驟都會有專業講師解說及現場示範，帶您體驗刻印敲紋、彎折、鋸切、焊接，拋光等金工職人專業工序。</p>
-            <img src="./images/coursePic-2.jpg" alt="" title="課程照片2" />
-            <p>由材質、服務介紹及保養方式小講堂帶入課程介紹，每個步驟都會有專業講師解說及現場示範，帶您體驗刻印敲紋、彎折、鋸切、焊接，拋光等金工職人專業工序。可指定戒指亮面、霧面等效果。均附Wedding
-              Code保固卡、絨布袋及拭銀布，消費滿3000元加贈小圓木對戒盒。【 特殊加工服務 】特殊加工服務屬加價購部分，歡迎在課堂中與講師討論或諮詢。</p>
-            <img src="./images/courseImg-2.jpg" alt="" title="課程照片3" />
-            <p>由材質、服務介紹及保養方式小講堂帶入課程介紹，每個步驟都會有專業講師解說及現場示範，帶您體驗刻印敲紋、彎折、鋸切、焊接，拋光等金工職人專業工序。</p>
-
+            <div className='course-content-clip'>
+            <div className='course-detail'>
+              <img src="./images/coursePic-1.jpg" alt="" title="課程照片1" />
+              <p>由材質、服務介紹及保養方式小講堂帶入課程介紹，每個步驟都會有專業講師解說及現場示範，帶您體驗刻印敲紋、彎折、鋸切、焊接，拋光等金工職人專業工序。</p>
+              <img src="./images/coursePic-2.jpg" alt="" title="課程照片2" />
+              <p>由材質、服務介紹及保養方式小講堂帶入課程介紹，每個步驟都會有專業講師解說及現場示範，帶您體驗刻印敲紋、彎折、鋸切、焊接，拋光等金工職人專業工序。可指定戒指亮面、霧面等效果。均附Wedding
+                Code保固卡、絨布袋及拭銀布，消費滿3000元加贈小圓木對戒盒。【 特殊加工服務 】特殊加工服務屬加價購部分，歡迎在課堂中與講師討論或諮詢。</p>
+              <img src="./images/courseImg-2.jpg" alt="" title="課程照片3" />
+              <p>由材質、服務介紹及保養方式小講堂帶入課程介紹，每個步驟都會有專業講師解說及現場示範，帶您體驗刻印敲紋、彎折、鋸切、焊接，拋光等金工職人專業工序。</p>
+            </div>
+            </div>
+            <p className='course-readmore readmore-hide'>閱讀更多 ⌵</p>
           </div>
 
         </section>
