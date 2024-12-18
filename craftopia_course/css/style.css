@@ -251,6 +251,10 @@ main section {
   filter: drop-shadow(1px 1px 2px gray);
   cursor: pointer;
 }
+#intro .coursePhoto .smallPhoto .photoSelected {
+  outline: #D4AB8E solid 4px;
+  outline-offset: -4px;
+}
 #intro .courseIntro {
   display: flex;
   flex-direction: column;
@@ -437,11 +441,11 @@ main section {
   position: absolute;
   text-align: center;
   left: 0;
-  bottom: 0;
+  bottom: -15px;
   width: 100%;
   z-index: 99;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #6F595D;
 }

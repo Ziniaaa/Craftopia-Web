@@ -75,7 +75,7 @@
 .courseQA .list-row .light .QAset .ansWrap {
   max-height: 0;
   overflow: hidden;
-  transition: all 0.8s cubic-bezier(0, 1, 0, 1);
+  transition: all 0.4s cubic-bezier(0, 1, 0, 1);
   /* display: none; */
 }
 
@@ -108,7 +108,7 @@
 .courseQA .list-row .light .QAset .ansWrap.show {
   height: auto;
   max-height: 1000px;
-  transition: all 0.8s cubic-bezier(1, 0, 1, 0);
+  transition: all 0.4s cubic-bezier(1, 0, 1, 0);
   /* display: block; */
 }
 

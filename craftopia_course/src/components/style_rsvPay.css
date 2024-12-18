@@ -129,7 +129,7 @@ h3 {
   color: #5A5A5A;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .lightBoxWrap .content section .rsvPlan .planCtg {
   color: #ADADAD;
@@ -147,6 +147,7 @@ h3 {
   align-self: flex-end;
   align-items: center;
   color: #3B3B3B;
+  margin-bottom: 0;
 }
 .lightBoxWrap .content section .rsvPlan1 #payFee #fee {
   font-size: 1.4rem;

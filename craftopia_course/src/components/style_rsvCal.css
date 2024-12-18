@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Braah+One&display=swap');
+
 
 
 .react-datepicker__year-read-view--down-arrow,
@@ -34,6 +36,8 @@
   padding: 0 10px;
   position: relative;
   line-height: initial;
+
+  font-family: "Braah One", serif;
 }
 
 .react-datepicker--time-only .react-datepicker__time-container {
@@ -427,7 +431,7 @@ h2.react-datepicker__current-month {
 .react-datepicker__month-text--today,
 .react-datepicker__quarter-text--today,
 .react-datepicker__year-text--today {
-  font-weight: bold;
+  font-weight: normal;
 }
 
 /* .react-datepicker__day--highlighted,
@@ -851,3 +855,12 @@ h2.react-datepicker__current-month {
   height: 1em;
   vertical-align: -0.125em;
 } */
+
+/* 更改前後月份日期顏色 */
+.react-datepicker__day--outside-month {
+  color:#938588;
+}
+
+.react-datepicker__day--outside-month.react-datepicker__day--disabled {
+  color:#cccccc;
+}

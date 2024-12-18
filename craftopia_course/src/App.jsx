@@ -7,19 +7,34 @@ import ShowQa from "./components/ShowQa"; // 引入 ShowQa 元件
 import AOS from 'aos';
 import 'aos/dist/aos.css'; //載入node modules中的套件前面不加./
 import RsvCalendar from "./components/RsvCalendar"; // 引入 RsvCalendar 元件
-
+import { SlArrowDown } from "react-icons/sl";
 
 function App() {
-//控制閱讀更多(jQ)
-useEffect(() => {
-  $('.course-readmore').on('click', function () {
-    $('.course-content-clip').addClass('content-clip-open');
-    $('.course-readmore').hide();
-  });
+  // 點圖切換首圖
+  const [selectedPhoto, setSelectedPhoto] = useState(1); // 儲存選擇的課程
+  const handlePhotoSelect = (id,url) => {
+    setSelectedPhoto({id,url});
+  };
+    // 初始化選擇第一張照片
+    useEffect(() => {
+      setSelectedPhoto(photoOption.p1); // 預設為第一張
+    }, []); // 空陣列表示只執行一次
+  const photoOption = {
+    p1: { id: 'coursePhoto-1', url: './images/courseImg-1.JPG' },
+    p2: { id: 'coursePhoto-2', url: './images/courseImg-2.JPG' },
+    p3: { id: 'coursePhoto-3', url: './images/courseImg-3.JPG' },
+  };
+
+  //控制閱讀更多(jQ)
+  useEffect(() => {
+    $('.course-readmore').on('click', function () {
+      $('.course-content-clip').addClass('content-clip-open');
+      $('.course-readmore').hide();
+    });
   }, [])
 
-// 控制 Modal 開啟狀態
-  const [isModalOpen, setIsModalOpen] = useState(false); 
+  // 控制 Modal 開啟狀態
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);  // 開啟 Modal
@@ -51,14 +66,14 @@ useEffect(() => {
 
   const courseOption = {
     c1: {
-      option: "初階｜造型戒指",
+      option: "初階｜鍛敲戒指",
       adultFee: 1500,
       childFee: 1200,
     },
     c2: {
-      option: "初階｜雙人對戒",
-      adultFee: 2800,
-      childFee: 2300,
+      option: "進階｜造型戒指",
+      adultFee: 1900,
+      childFee: 1600,
     }
   }
   // 計算總金額
@@ -196,11 +211,22 @@ useEffect(() => {
         <section id="intro">
           {/* 課程版頭intro區 */}
           <div className="coursePhoto">
-            <figure className="photoL"><img src="./images/courseImg-1.JPG" alt="" /></figure>
+          {selectedPhoto && (
+        <figure className="photoL">
+          <img src={selectedPhoto.url} alt={`selected ${selectedPhoto.id}`} />
+        </figure>
+      )}
             <div className='smallPhoto'>
-              <figure className="photoS"><img src="./images/courseImg-1.JPG" alt="" /></figure>
-              <figure className="photoS"><img src="./images/courseImg-2.jpg" alt="" /></figure>
-              <figure className="photoS"><img src="./images/courseImg-3.jpg" alt="" /></figure>
+            {Object.entries(photoOption).map(([key, { id, url }]) => (
+          <figure
+            key={key}
+            className={`photoS ${selectedPhoto?.id === id ? 'photoSelected' : ''}`}
+            id={id}
+            onClick={() => handlePhotoSelect(id, url)} // 點擊圖片時更新選中的照片
+          >
+            <img src={url} alt={`course ${id}`} />
+          </figure>
+        ))}
             </div>
 
           </div>
@@ -245,17 +271,17 @@ useEffect(() => {
           <figure><img src="./images/title_content.svg" alt="課程介紹" className="titlePic" id="titleContent" /></figure>
           <div className="courseContent">
             <div className='course-content-clip'>
-            <div className='course-detail'>
-              <img src="./images/coursePic-1.jpg" alt="" title="課程照片1" />
-              <p>由材質、服務介紹及保養方式小講堂帶入課程介紹，每個步驟都會有專業講師解說及現場示範，帶您體驗刻印敲紋、彎折、鋸切、焊接，拋光等金工職人專業工序。</p>
-              <img src="./images/coursePic-2.jpg" alt="" title="課程照片2" />
-              <p>由材質、服務介紹及保養方式小講堂帶入課程介紹，每個步驟都會有專業講師解說及現場示範，帶您體驗刻印敲紋、彎折、鋸切、焊接，拋光等金工職人專業工序。可指定戒指亮面、霧面等效果。均附Wedding
-                Code保固卡、絨布袋及拭銀布，消費滿3000元加贈小圓木對戒盒。【 特殊加工服務 】特殊加工服務屬加價購部分，歡迎在課堂中與講師討論或諮詢。</p>
-              <img src="./images/courseImg-2.jpg" alt="" title="課程照片3" />
-              <p>由材質、服務介紹及保養方式小講堂帶入課程介紹，每個步驟都會有專業講師解說及現場示範，帶您體驗刻印敲紋、彎折、鋸切、焊接，拋光等金工職人專業工序。</p>
+              <div className='course-detail'>
+                <img src="./images/coursePic-1.jpg" alt="" title="課程照片1" />
+                <p>由材質、服務介紹及保養方式小講堂帶入課程介紹，每個步驟都會有專業講師解說及現場示範，帶您體驗刻印敲紋、彎折、鋸切、焊接，拋光等金工職人專業工序。</p>
+                <img src="./images/coursePic-2.jpg" alt="" title="課程照片2" />
+                <p>由材質、服務介紹及保養方式小講堂帶入課程介紹，每個步驟都會有專業講師解說及現場示範，帶您體驗刻印敲紋、彎折、鋸切、焊接，拋光等金工職人專業工序。可指定戒指亮面、霧面等效果。均附Wedding
+                  Code保固卡、絨布袋及拭銀布，消費滿3000元加贈小圓木對戒盒。【 特殊加工服務 】特殊加工服務屬加價購部分，歡迎在課堂中與講師討論或諮詢。</p>
+                <img src="./images/courseImg-2.jpg" alt="" title="課程照片3" />
+                <p>由材質、服務介紹及保養方式小講堂帶入課程介紹，每個步驟都會有專業講師解說及現場示範，帶您體驗刻印敲紋、彎折、鋸切、焊接，拋光等金工職人專業工序。</p>
+              </div>
             </div>
-            </div>
-            <p className='course-readmore readmore-hide'>閱讀更多 ⌵</p>
+            <p className='course-readmore'>閱讀更多 <SlArrowDown /></p>
           </div>
 
         </section>
@@ -381,9 +407,9 @@ useEffect(() => {
               <div className="rsvcontent">
                 <h3>選擇課程方案</h3>
                 <p className={selectedCourse === "c1" ? "selected" : ""}
-                  onClick={() => handleCourseSelect("c1")}>初階 | 造型戒指</p>
+                  onClick={() => handleCourseSelect("c1")}>初階 | 鍛敲戒指</p>
                 <p className={selectedCourse === "c2" ? "selected" : ""}
-                  onClick={() => handleCourseSelect("c2")}>初階 | 雙人戒指</p>
+                  onClick={() => handleCourseSelect("c2")}>進階 | 造型戒指</p>
               </div>
               <hr />
               <div className="rsvcount">
@@ -435,7 +461,7 @@ useEffect(() => {
                 <button className="nextStep" onClick={handleNextStep}>下一步</button>
                 {/* Tooltip 提示 */}
                 {showTooltip && (
-                  <div className="tooltip">
+                  <div className="toolTip">
                     <p>請確認所有欄位皆有選取項目喔!</p>
                   </div>
                 )}

@@ -152,6 +152,11 @@ main {
                     cursor: pointer;
                 }
             }
+
+            .photoSelected {
+                outline: $color-brown-light solid 4px;
+                outline-offset: -4px;
+            }
         }
 
     }
@@ -383,13 +388,13 @@ main {
             // border: #5553ff solid;
             text-align: center;
             left: 0;
-            bottom: 0;
+            bottom: -15px;
             width: 100%;
             z-index: 99;
             cursor: pointer;
-            font-size: $font-size-l;
+            font-size: $font-size-m;
             font-weight: $font-weight-bold;
-            color:$color-deepBrown-dark;
+            color: $color-deepBrown-dark;
         }
     }
 }
