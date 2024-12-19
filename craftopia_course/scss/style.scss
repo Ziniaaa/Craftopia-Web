@@ -675,32 +675,33 @@ main {
     flex-direction: column;
     // border: blue solid;
     z-index: 998;
+    margin-bottom: 150px;
 
     #titleRec {
         width: 205px;
     }
 
     .boxList {
-        // border: rgb(151, 36, 136) solid 3px;
+        border: rgb(252, 148, 238) solid 3px;
         display: flex;
         padding: 5px;
         overflow: hidden;
 
         /*卡片本體*/
         .classCard {
-            // border: rgb(36, 151, 36) solid 1px;
+            border: rgb(36, 151, 36) solid 1px;
             display: flex;
             position: relative;
             width: 320px;
             height: 460px;
             margin-right: $interval-l;
-            
 
-            &:hover{
+
+            &:hover {
                 outline: $color-gold-dark dashed 1px;
                 outline-offset: 4px;
-                border-radius: 10px ;
-                background-color: rgb(244, 235, 217,0.4);
+                border-radius: 10px;
+                background-color: rgb(244, 235, 217, 0.4);
             }
 
             a {
@@ -709,12 +710,14 @@ main {
                     height: 240px;
                     border-radius: 10px;
                     overflow: hidden;
-                    img{
-                        width:100&;
+
+                    img {
+                        width: 100&;
                         height: 100%;
                         object-fit: cover;
                     }
                 }
+
                 .tagHotorNew {
                     width: 56px;
                     position: absolute;

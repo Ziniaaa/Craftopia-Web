@@ -714,92 +714,101 @@ main section {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  z-index: 998;
+  margin-bottom: 150px;
 }
 #recommend #titleRec {
   width: 205px;
 }
 #recommend .boxList {
-  border: rgb(36, 151, 36) solid 3px;
-  display: inline-flex;
+  border: rgb(252, 148, 238) solid 3px;
+  display: flex;
+  padding: 5px;
   overflow: hidden;
-}
-#recommend .boxList div {
-  width: 360px;
-  height: 460px;
+  /*卡片本體*/
 }
 #recommend .boxList .classCard {
+  border: rgb(36, 151, 36) solid 1px;
   display: flex;
   position: relative;
   width: 320px;
-  /*卡片本體*/
+  height: 460px;
+  margin-right: 20px;
 }
-#recommend .boxList .classCard div {
-  display: flex;
-  justify-content: space-between;
+#recommend .boxList .classCard:hover {
+  outline: #D4B86F dashed 1px;
+  outline-offset: 4px;
+  border-radius: 10px;
+  background-color: rgba(244, 235, 217, 0.4);
 }
-#recommend .boxList .classCard .classPhoto {
-  width: 320px;
-  height: auto;
+#recommend .boxList .classCard a .classPhoto {
+  width: 100%;
+  height: 240px;
   border-radius: 10px;
   overflow: hidden;
 }
-#recommend .boxList .classCard .classPhoto .tagHotorNew {
+#recommend .boxList .classCard a .classPhoto img {
+  width: 100 #recommend .boxList .classCard a .classPhoto img;
+  height: 100%;
+  object-fit: cover;
+}
+#recommend .boxList .classCard a .tagHotorNew {
   width: 56px;
   position: absolute;
   left: 4px;
   top: 4px;
   z-index: 10;
 }
-#recommend .boxList .classCard .classTag {
+#recommend .boxList .classCard a .classTag {
+  display: flex;
   margin: 20px 0;
   width: 100%;
   height: auto;
   justify-content: left;
 }
-#recommend .boxList .classCard .classTag p {
+#recommend .boxList .classCard a .classTag p {
   color: #ffffff;
   font-size: 13px;
   margin-right: 12px;
 }
-#recommend .boxList .classCard .classTag .classLevel {
+#recommend .boxList .classCard a .classTag .classLevel {
   background-image: url(../images/tag-level.svg);
   padding: 7px 16px 8px;
   background-repeat: no-repeat;
 }
-#recommend .boxList .classCard .classTag .classTime {
+#recommend .boxList .classCard a .classTag .classTime {
   background-image: url(../images/tag-time.svg);
   padding: 5px 20px 4px 13px;
   background-repeat: no-repeat;
 }
-#recommend .boxList .classCard #recommend .classTitle {
+#recommend .boxList .classCard a .title-price-wrap {
+  height: 100px;
   display: flex;
-  width: 100%;
-  height: auto;
-  margin-bottom: 24px;
+  flex-direction: column;
+  justify-content: space-between;
 }
-#recommend .boxList .classCard #recommend .classTitle h3 {
-  width: 100%;
-  color: #303030;
-  font-size: 18px;
-  font-weight: 600;
+#recommend .boxList .classCard a .title-price-wrap .classTitle {
+  display: flex;
+}
+#recommend .boxList .classCard a .title-price-wrap .classTitle h3 {
   background-image: none;
+  color: #303030;
+  font-weight: 700;
 }
-#recommend .boxList .classCard #recommend .classTitle img {
+#recommend .boxList .classCard a .title-price-wrap .classTitle .icons-heart {
   width: 24px;
   height: 24px;
 }
-#recommend .boxList .classCard .classPrice {
-  align-items: center;
+#recommend .boxList .classCard a .title-price-wrap .classPrice {
+  display: flex;
+  justify-content: space-between;
 }
-#recommend .boxList .classCard .classPrice .classStoreName {
-  color: #5a5a5a;
+#recommend .boxList .classCard a .title-price-wrap .classPrice .classStoreName {
+  color: #3B3B3B;
 }
-#recommend .boxList .classCard .classPrice .classPrice {
-  color: #483D3F;
-  font-size: 22px;
-}
-#recommend .boxList .classCard .icons-heart {
-  width: 24px;
+#recommend .boxList .classCard a .title-price-wrap .classPrice .classPrice {
+  color: #625759;
+  font-weight: 700;
 }
 
 /* 頁尾區 */
