@@ -21,6 +21,21 @@ $(function () {
             $('.arr').addClass('transform-delay2');
             $('.ball').addClass('transform-delay2');
         }, 700);
-
     })
+
+    $(function () {
+        $("#rvwThisCourse").on('click',function () {
+            $("#rvwThisCourse").toggleClass('rvwBigBtn'),
+            $("#rvwThisCourse").toggleClass('rvwSmBtn'),
+            $("#rvwAllCourse").toggleClass('rvwSmBtn'),
+            $("#rvwAllCourse").toggleClass('rvwBigBtn')
+        });
+        $("#rvwAllCourse").on('click',function () {
+            $("#rvwThisCourse").toggleClass('rvwBigBtn'),
+            $("#rvwThisCourse").toggleClass('rvwSmBtn'),
+            $("#rvwAllCourse").toggleClass('rvwSmBtn'),
+            $("#rvwAllCourse").toggleClass('rvwBigBtn')
+        });
+    })
+
 })

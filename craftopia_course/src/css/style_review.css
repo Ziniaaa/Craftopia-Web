@@ -1,0 +1,159 @@
+@charset "UTF-8";
+.reviewSubContent .switchBtn .rvwBigBtn {
+  background-color: #BF6152;
+  color: white;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+}
+
+.reviewSubContent .switchBtn .rvwSmBtn {
+  background-color: #483D3F;
+  color: white;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+}
+
+body {
+  height: 100vh;
+  background-color: #5A5A5A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reviewWrap {
+  width: 100%;
+  max-width: 1280px;
+  height: 680px;
+}
+
+.reviewContent {
+  display: flex;
+  background-color: white;
+  border-radius: 15px;
+  border: none;
+  overflow: hidden;
+  max-width: 1280px;
+  height: 515px;
+  margin-bottom: 20px;
+}
+.reviewContent .rvwLeft figure {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.reviewContent .rvwLeft figure img {
+  object-fit: cover;
+}
+.reviewContent .rvwRight {
+  width: 100%;
+  padding: 40px 50px;
+  position: relative;
+}
+.reviewContent .rvwRight #iconX {
+  width: 24px;
+  height: 24px;
+  margin: 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.reviewContent .rvwRight #iconX:hover {
+  cursor: pointer;
+}
+.reviewContent .rvwRight .row1 {
+  display: flex;
+  align-items: center;
+}
+.reviewContent .rvwRight .row1 .idPic {
+  width: 40px;
+}
+.reviewContent .rvwRight .row1 .idName {
+  margin: 0 15px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #3B3B3B;
+}
+.reviewContent .rvwRight .row1 .stoneLv {
+  width: 76px;
+}
+.reviewContent .rvwRight .row2 {
+  display: flex;
+  margin: 10px 0 25px 0;
+  font-size: 0.8rem;
+  color: #5A5A5A;
+}
+.reviewContent .rvwRight .row2 span {
+  margin: 0 10px;
+}
+.reviewContent .rvwRight .row3 {
+  color: #3B3B3B;
+  line-height: 1.7;
+}
+
+.reviewSubContent {
+  display: flex;
+  overflow: hidden;
+  max-width: 1280px;
+}
+.reviewSubContent .switchBtn {
+  display: block;
+  position: relative;
+}
+.reviewSubContent .switchBtn .rvwBigBtn {
+  width: 100px;
+  height: 100px;
+  font-size: 1rem;
+  font-weight: 700;
+  position: absolute;
+  transition: all 0.2s linear;
+  top: 2px;
+  left: 60px;
+  z-index: 10;
+}
+.reviewSubContent .switchBtn .rvwBigBtn:hover {
+  scale: 1.02;
+  rotate: 3deg;
+}
+.reviewSubContent .switchBtn .rvwSmBtn {
+  width: 77px;
+  height: 77px;
+  position: absolute;
+  transition: all 0.2s linear;
+  top: 55px;
+  left: 0px;
+}
+.reviewSubContent .switchBtn .rvwSmBtn:hover {
+  scale: 1.04;
+  rotate: 3deg;
+}
+.reviewSubContent .slideshow {
+  display: inline-flex;
+  margin-left: 155px;
+}
+.reviewSubContent .slideshow figure {
+  overflow: hidden;
+  width: 180px;
+  height: 135px;
+  margin-right: 12px;
+  border-radius: 8px;
+}
+.reviewSubContent .slideshow figure img {
+  object-fit: cover;
+}
+
+.modalReview-overlay {
+  position: fixed; /* 固定在螢幕上 */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+  display: flex; /* 使用 flex 使內容居中 */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* 確保它在頁面最上層 */
+}/*# sourceMappingURL=style_review.css.map */

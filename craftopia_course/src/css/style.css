@@ -748,7 +748,7 @@ main section {
   overflow: hidden;
 }
 #recommend .boxList .classCard a .classPhoto img {
-  width: 100 #recommend .boxList .classCard a .classPhoto img;
+  width: 100%;
   height: 100%;
   object-fit: cover;
 }

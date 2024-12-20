@@ -3,6 +3,7 @@ import $ from 'jquery'
 // import '../css/style.css'
 import Modal from "./components/Modal"; // 引入 Modal 元件
 import ModalPay from "./components/ModalPay"; // 引入 ModalPay 元件
+// import ModalReview from "./components/ModalReview"; // 引入 ModalReview 元件
 import ShowQa from "./components/ShowQa"; // 引入 ShowQa 元件
 import AOS from 'aos';
 import 'aos/dist/aos.css'; //載入node modules中的套件前面不加./
@@ -200,6 +201,17 @@ function App() {
     setIsModalPayOpen(false);
   };
 
+  // 控制 ModalReview 開啟狀態
+  const [isModalReviewOpen, setIsModalReviewOpen] = useState(false);
+
+  const handleOpenModalReview = () => {
+    setIsModalReviewOpen(true);  // 開啟 ModalReview
+  };
+
+  const handleCloseModalReview = () => {
+    setIsModalReviewOpen(false);  // 關閉 ModalReview
+  };
+
 
   //AOS淡入淡出套件
   useEffect(() => {
@@ -352,7 +364,7 @@ function App() {
 
           </div>
           <div className="newestExp">
-            <div className="Exp">
+            <div className="Exp" onClick={handleOpenModalReview}>
               <img src="./images/exp-1.jpg" alt="" className="expPic" />
               <div className="expContent">
                 <div className="expInfo">
@@ -389,6 +401,8 @@ function App() {
             </div>
           </div>
           {/* <figure id="bgExperience"><img src="./images/bg-experience.svg" alt=""></figure> */}
+          {/* ModalReview 元件 */}
+          {/* <ModalReview isOpen={isModalReviewOpen} onClose={handleCloseModalReview} /> */}
         </section>
 
         {/* 相關課程推薦recommend區 */}
