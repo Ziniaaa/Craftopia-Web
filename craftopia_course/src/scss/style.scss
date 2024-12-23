@@ -558,8 +558,12 @@ main {
     margin-bottom: 10px;
 
     position: relative;
-    z-index: 500;
+    
 
+    .modalReview-overlay {
+        position: fixed;
+        z-index: 9998;
+    }
 
     /*裝飾線AFTER*/
     &::after {
@@ -674,7 +678,7 @@ main {
     align-items: center;
     flex-direction: column;
     // border: blue solid;
-    z-index: 998;
+    z-index: 500;
     margin-bottom: 150px;
 
     #titleRec {
@@ -682,19 +686,19 @@ main {
     }
 
     .boxList {
-        border: rgb(252, 148, 238) solid 3px;
+        // border: rgb(252, 148, 238) solid 3px;
         display: flex;
         padding: 5px;
         overflow: hidden;
 
         /*卡片本體*/
         .classCard {
-            border: rgb(36, 151, 36) solid 1px;
+            // border: rgb(36, 151, 36) solid 1px;
             display: flex;
             position: relative;
-            width: 320px;
-            height: 460px;
-            margin-right: $interval-l;
+            width: 200px;
+            height: auto;
+            margin: 0 24px;
 
 
             &:hover {
@@ -707,7 +711,7 @@ main {
             a {
                 .classPhoto {
                     width: 100%;
-                    height: 240px;
+                    height: 160px;
                     border-radius: 10px;
                     overflow: hidden;
 
@@ -762,10 +766,15 @@ main {
                     .classTitle {
                         display: flex;
 
+
                         h3 {
                             background-image: none;
                             color: $color-neutral-90;
                             font-weight: $font-weight-bold;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 3;
+                            overflow: hidden;
                         }
 
                         .icons-heart {
@@ -801,11 +810,13 @@ main {
 
 /* 頁尾區 */
 footer {
-    background-color: $color-coffee-primary;
+    background-color: #483D3F;
     display: flex;
     flex-direction: column;
     align-items: center;
     // padding: 50px 100px;
+
+
 
 
     .footer-bgDeco {
@@ -821,6 +832,8 @@ footer {
     }
 
 
+
+
     .foot-content {
         display: flex;
         justify-content: space-between;
@@ -831,8 +844,7 @@ footer {
 
 
         img {
-            width: 100%;
-            max-width: 338px;
+            width: 338px;
             height: 72px;
         }
     }
@@ -840,6 +852,8 @@ footer {
     .menu {
         display: flex;
         text-align: center;
+
+
 
         >li {
             width: 6rem;
@@ -863,11 +877,44 @@ footer {
         color: white;
     }
 
+
+
     small {
         margin-bottom: 50px;
         font-size: 0.8rem;
     }
+
+    /*RWD*/
+    @media ($mediaLg) {
+        .menu {
+            li {
+                width: 70px;
+                text-align: start;
+            }
+        }
+
+        .foot-content {
+            padding: 50px 60px 20px;
+        }
+    }
+
+    @media ($mediaMd) {
+        .menu {
+            display: none;
+        }
+
+        .foot-content {
+            padding: 20px;
+
+            img {
+                width: 240px;
+            }
+        }
+    }
+
+
 }
+
 
 
 /*泡泡區*/

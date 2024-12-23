@@ -1,20 +1,12 @@
-// @use './reset';
 @use 'variables' as *;
 @use 'function' as *;
 
-body {
-    height: 100vh;
-    background-color: $color-neutral-60;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .reviewWrap {
-    width: 100%;
+    width: 1280px;
     max-width: 1280px;
-    height: 680px;
-    // border: red solid;
+    height: auto;
+    // border: rgb(25, 0, 255) solid;
     // overflow: hidden;
 }
 
@@ -32,20 +24,23 @@ body {
     margin-bottom: 20px;
 
     .rvwLeft {
+
         figure {
             height: 100%;
-            width: 100%;
+            // width: 100%;
             overflow: hidden;
             aspect-ratio: 4 / 3;
 
             img {
                 object-fit: cover;
+                height: 100%;
             }
         }
     }
 
     .rvwRight {
         width: 100%;
+        min-width: 500px;
         padding: 40px 50px;
         position: relative;
 
@@ -126,8 +121,7 @@ body {
             z-index: 10;
 
             &:hover {
-                scale: 1.02;
-                rotate: 3deg;
+                cursor:default;
             }
         }
 
@@ -139,7 +133,7 @@ body {
             position: absolute;
             transition: all .2s linear;
             top: 55px;
-            left: 0px;
+            left: 5px;
 
             &:hover {
                 scale: 1.04;
@@ -149,35 +143,92 @@ body {
     }
 
     .slideshow {
-        // border: aqua solid;
-        display: inline-flex;
-
+        // border: rgb(255, 0, 0) solid;
+        display: flex;
+        width: calc(100% - 155px);
         margin-left: 155px;
+        position: relative;
 
-        figure {
+        .thumbnail-container {
+            // border: rgb(255, 141, 47) solid;
             overflow: hidden;
-            width: 180px;
-            height: 135px;
+            // width: 180px;
+            // height: 135px;
             margin-right: 12px;
             border-radius: $border-r-s;
+            display: flex;
 
-            img {
-                object-fit: cover;
-                // aspect-ratio: 1 / 1;
+            .thumbnail-wrap {
+                // border: rgb(231, 245, 39) solid;
+                display: flex;
             }
+
+            .thumbnail {
+                margin-right: 10px;
+                width: 180px;
+                height: 135px;
+                cursor: pointer;
+
+                img {
+                    object-fit: cover;
+                    height: 100%;
+                }
+
+                &:hover {
+                    filter: brightness(120%);
+                }
+            }
+
+            .active {
+                border: $color-gold-medium solid 3px;
+
+            }
+        }
+
+        .arrow-btn {
+            color: $color-brown-primary;
+            background-color: rgb(244, 235, 217, 0.7);
+            border: none;
+            border-radius: 4px;
+            height: 135px;
+
+            position: absolute;
+            top: 0px;
+
+            &:hover {
+                background-color: rgb(244, 235, 217, 0.9);
+            }
+        }
+
+        .right {
+            right: 0;
+            z-index: 999;
+        }
+
+        .left {
+            left: 0;
+            z-index: 999;
+        }
+
+        :disabled {
+            display: none;
         }
     }
 }
 
 .modalReview-overlay {
-    position: fixed;        /* 固定在螢幕上 */
+    position: fixed;
+    /* 固定在螢幕上 */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);  /* 半透明背景 */
-    display: flex;         /* 使用 flex 使內容居中 */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 半透明背景 */
+    display: flex;
+    /* 使用 flex 使內容居中 */
     justify-content: center;
     align-items: center;
-    z-index: 9999;         /* 確保它在頁面最上層 */
-  }
+    z-index: 9999;
+    /* 確保它在頁面最上層 */
+}

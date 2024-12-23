@@ -1,4 +1,5 @@
 $(function () {
+    // see more button
     $('.seemore-btn').on('click',function (e) {
         e.preventDefault();
         const href = $(this).attr('href');
@@ -23,19 +24,6 @@ $(function () {
         }, 700);
     })
 
-    $(function () {
-        $("#rvwThisCourse").on('click',function () {
-            $("#rvwThisCourse").toggleClass('rvwBigBtn'),
-            $("#rvwThisCourse").toggleClass('rvwSmBtn'),
-            $("#rvwAllCourse").toggleClass('rvwSmBtn'),
-            $("#rvwAllCourse").toggleClass('rvwBigBtn')
-        });
-        $("#rvwAllCourse").on('click',function () {
-            $("#rvwThisCourse").toggleClass('rvwBigBtn'),
-            $("#rvwThisCourse").toggleClass('rvwSmBtn'),
-            $("#rvwAllCourse").toggleClass('rvwSmBtn'),
-            $("#rvwAllCourse").toggleClass('rvwBigBtn')
-        });
-    })
+    
 
 })

@@ -3,7 +3,7 @@ import $ from 'jquery'
 // import '../css/style.css'
 import Modal from "./components/Modal"; // 引入 Modal 元件
 import ModalPay from "./components/ModalPay"; // 引入 ModalPay 元件
-// import ModalReview from "./components/ModalReview"; // 引入 ModalReview 元件
+import ModalReview from "./components/ModalReview"; // 引入 ModalReview 元件
 import ShowQa from "./components/ShowQa"; // 引入 ShowQa 元件
 import AOS from 'aos';
 import 'aos/dist/aos.css'; //載入node modules中的套件前面不加./
@@ -12,7 +12,7 @@ import { SlArrowDown } from "react-icons/sl";
 
 function App() {
   // 點圖切換首圖
-  const [selectedPhoto, setSelectedPhoto] = useState(1); 
+  const [selectedPhoto, setSelectedPhoto] = useState(1);
   const handlePhotoSelect = (id, url) => {
     setSelectedPhoto({ id, url });
   };
@@ -355,7 +355,6 @@ function App() {
         <section id="experience">
           <div className="expTop">
             <figure><img src="./images/title_Exp.svg" alt="最新心得足跡" className="titlePic" id="titleExp" /></figure>
-            {/* <a id="seeAll">See All (485)＞</a> */}
             <a className="seemore-btn" href="#">
               <img className="ball" src="./images/Vector-circle-b.png" alt="" />
               <span className="font">see all(485)</span>
@@ -369,11 +368,11 @@ function App() {
               <div className="expContent">
                 <div className="expInfo">
                   <img src="./images/exp-id-pic-1.png" alt="" />
-                  <p>Amber</p>
+                  <p>文仔</p>
                   <img src="./images/tag-stoneLV.svg" alt="" />
                 </div>
                 <div className="expDate">
-                  <p>2024 年 10 月 13 日</p>
+                  <p>2024 年 12 月 13 日</p>
                   <span>‧</span>
                   <p>Overloading 戒指 | 純銀 | 送禮自用</p>
                 </div>
@@ -381,16 +380,18 @@ function App() {
               </div>
             </div>
             <img src="./images/HrLine_rec.svg" alt="" className="hrline" />
-            <div className="Exp">
+            <div className="Exp" onClick={() => {
+              handleOpenModalReview(); // 打開 Modal
+            }}>
               <img src="./images/exp-2.jpg" alt="" className="expPic" />
               <div className="expContent">
                 <div className="expInfo">
                   <img src="./images/exp-id-pic-1.png" alt="" />
-                  <p>文仔</p>
+                  <p>二郎</p>
                   <img src="./images/tag-stoneLV.svg" alt="" />
                 </div>
                 <div className="expDate">
-                  <p>2024 年 10 月 11 日</p>
+                  <p>2024 年 12 月 11 日</p>
                   <span>‧</span>
                   <p>Overloading 戒指 | 純銀 | 送禮自用</p>
                 </div>
@@ -402,7 +403,7 @@ function App() {
           </div>
           {/* <figure id="bgExperience"><img src="./images/bg-experience.svg" alt=""></figure> */}
           {/* ModalReview 元件 */}
-          {/* <ModalReview isOpen={isModalReviewOpen} onClose={handleCloseModalReview} /> */}
+          <ModalReview isOpen={isModalReviewOpen} onClose={handleCloseModalReview} />
         </section>
 
         {/* 相關課程推薦recommend區 */}
@@ -425,12 +426,12 @@ function App() {
                 </div>
                 <div className='title-price-wrap'>
                   <div className="classTitle">
-                    <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
+                    <h3>【陶藝小酒杯】『土斯工作坊』手作陶杯體驗課 </h3>
                     <img className="icons-heart" src="./images/icon-heart.svg" alt="" />
                   </div>
                   <div className="classPrice">
-                    <p className="classStoreName">草樹工作坊</p>
-                    <p className="classPrice">$ 3800</p>
+                    <p className="classStoreName">土斯工作坊</p>
+                    <p className="classPrice">$ 1290</p>
                   </div>
                 </div>
               </a>
@@ -442,16 +443,16 @@ function App() {
                 </figure>
                 <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
                 <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
+                  <p className="classLevel">進階</p>
+                  <p className="classTime">4hr</p>
                 </div>
                 <div className='title-price-wrap'>
                   <div className="classTitle">
-                    <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
+                    <h3>低調奢華名片夾─從無到有自己製作 </h3>
                     <img className="icons-heart" src="./images/icon-heart.svg" alt="" />
                   </div>
                   <div className="classPrice">
-                    <p className="classStoreName">草樹工作坊</p>
+                    <p className="classStoreName">Royal Leather</p>
                     <p className="classPrice">$ 3800</p>
                   </div>
                 </div>
@@ -487,64 +488,21 @@ function App() {
                 <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
                 <div className="classTag">
                   <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
+                  <p className="classTime">2hr</p>
                 </div>
                 <div className='title-price-wrap'>
                   <div className="classTitle">
-                    <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
+                    <h3>《真皮老鋪》皮革文件夾手作課程 / DIY / 適合上班族、情侶、社團 </h3>
                     <img className="icons-heart" src="./images/icon-heart.svg" alt="" />
                   </div>
                   <div className="classPrice">
-                    <p className="classStoreName">草樹工作坊</p>
+                    <p className="classStoreName">真皮老鋪</p>
                     <p className="classPrice">$ 3800</p>
                   </div>
                 </div>
               </a>
             </div>
-            <div className="classCard" id="classCard-5">
-              <a href="#">
-                <figure className="classPhoto">
-                  <img src="./images/course-card-pic-5.jpg" alt="" />
-                </figure>
-                <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className='title-price-wrap'>
-                  <div className="classTitle">
-                    <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                    <img className="icons-heart" src="./images/icon-heart.svg" alt="" />
-                  </div>
-                  <div className="classPrice">
-                    <p className="classStoreName">草樹工作坊</p>
-                    <p className="classPrice">$ 3800</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div className="classCard" id="classCard-6">
-              <a href="#">
-                <figure className="classPhoto">
-                  <img src="./images/course-card-pic-6.jpg" alt="" />
-                </figure>
-                <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className='title-price-wrap'>
-                  <div className="classTitle">
-                    <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                    <img className="icons-heart" src="./images/icon-heart.svg" alt="" />
-                  </div>
-                  <div className="classPrice">
-                    <p className="classStoreName">草樹工作坊</p>
-                    <p className="classPrice">$ 3800</p>
-                  </div>
-                </div>
-              </a>
-            </div>
+
 
           </div>
         </section>
