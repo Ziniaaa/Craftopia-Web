@@ -21,9 +21,9 @@ function App() {
     setSelectedPhoto(photoOption.p1); // 預設為第一張
   }, []); // 空陣列表示只執行一次
   const photoOption = {
-    p1: { id: 'coursePhoto-1', url: './images/courseImg-1.JPG' },
-    p2: { id: 'coursePhoto-2', url: './images/courseImg-2.JPG' },
-    p3: { id: 'coursePhoto-3', url: './images/courseImg-3.JPG' },
+    p1: { id: 'coursePhoto-1', url: './images/courseImg-1.jpg' },
+    p2: { id: 'coursePhoto-2', url: './images/courseImg-2.jpg' },
+    p3: { id: 'coursePhoto-3', url: './images/courseImg-3.jpg' },
   };
 
   //愛心icon toggle
