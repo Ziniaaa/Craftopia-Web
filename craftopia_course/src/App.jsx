@@ -12,7 +12,7 @@ import { SlArrowDown } from "react-icons/sl";
 
 function App() {
   // 點圖切換首圖
-  const [selectedPhoto, setSelectedPhoto] = useState(1); // 儲存選擇的課程
+  const [selectedPhoto, setSelectedPhoto] = useState(1); 
   const handlePhotoSelect = (id, url) => {
     setSelectedPhoto({ id, url });
   };
@@ -259,7 +259,7 @@ function App() {
                   key={key}
                   className={`photoS ${selectedPhoto?.id === id ? 'photoSelected' : ''}`}
                   id={id}
-                  onClick={() => handlePhotoSelect(id, url)} // 點擊圖片時更新選中的照片
+                  onClick={() => handlePhotoSelect(id, url)} // 選取圖片時更新選中的照片
                 >
                   <img src={url} alt={`course ${id}`} />
                 </figure>
