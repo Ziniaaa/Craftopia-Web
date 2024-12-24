@@ -620,7 +620,7 @@ function App() {
               <section className="rsvPayContent">
                 <h3>預約內容</h3>
                 <div className="rsvPayContentWrap">
-                  <figure id="payPic"><img src="./images/courseImg-1.JPG" alt="" /></figure>
+                  <figure id="payPic"><img src="./images/courseImg-1.jpg" alt="" /></figure>
                   <div id="payCourse">
                     <h4>Overloading 戒指 | 純銀 | 送禮自用送禮自用送禮自用送禮自用</h4>
                     <p id="studioName">小自在工藝空間</p>

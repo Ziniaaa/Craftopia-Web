@@ -1,5 +1,7 @@
 import React from "react";
-import "../components/style_rsvPay.css";
+// import "../components/style_rsvPay.css";
+import "../scss/_style_rsvPay.scss";
+
 
 const ModalPay = ({ isOpen, onClose, children }) => {
     if (!isOpen) return null;  // 如果 ModalPay 沒有開啟，不渲染任何東西

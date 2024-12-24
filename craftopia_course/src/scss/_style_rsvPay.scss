@@ -1,0 +1,365 @@
+@use 'variables' as *;
+@use 'function' as *;
+
+h3 {
+    font-weight: 600;
+    background-image: url(../images/dot_rsvLBTitle.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 12px;
+    margin: 5px;
+
+}
+
+.modalPay-overlay {
+    position: fixed;
+    /* 固定在螢幕上 */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    /* 半透明背景 */
+    display: flex;
+    /* 使用 flex 使內容居中 */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    /* 確保它在頁面最上層 */
+}
+
+.topTitle {
+    background-image: none;
+}
+
+// body {
+//     background-color: $color-neutral-60;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+.lightBoxWrap {
+    background-image: url(../images/bg-reservationLightBox.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px;
+    border: none;
+
+    max-width: 1280px;
+    width: 100vw;
+    height: 680px;
+
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+
+
+        #iconXPay {
+            width: 24px;
+            height: 24px;
+            margin: 10px;
+            border: none;
+            background-image: url("./images/icons-X.svg");
+            background-position: center;
+            background-color: transparent;
+
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        h3 {
+            margin-top: 40px;
+            margin-left: 60px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+    }
+
+
+    .content {
+        display: flex;
+        margin: 16px 60px 98px 60px;
+        justify-content: space-between;
+
+        .rsvPayContent {
+            flex: 2;
+            margin-right: 30px;
+
+        }
+
+        .rsvPayment {
+            flex: 1;
+
+        }
+
+        section {
+            background-color: white;
+            border-radius: 10px;
+            height: 472px;
+            // width: 400px;
+
+            display: flex;
+            flex-direction: column;
+            padding: 32px 20px;
+
+            h3 {
+                margin-bottom: 24px;
+            }
+
+            hr {
+                margin: 23px 0 30px;
+                border-top: #b7b7b7 solid 1px;
+            }
+
+
+            .rsvPayContent {
+                p {
+                    border: solid 1px $color-neutral-40;
+                    border-radius: 4px;
+                    color: $color-neutral-40;
+                    width: 80%;
+                    padding: 6px 16px;
+                    margin-left: 20px;
+                    margin-bottom: 12px;
+                    text-align: center;
+                }
+            }
+
+            .rsvPayContentWrap {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            #payPic {
+                flex: 1;
+                width: 100%;
+                height: 100px;
+                object-fit: contain;
+                overflow: hidden;
+                border-radius: $border-r-xs;
+                min-width: 132px;
+
+                img {
+                    height: 100%;
+                    width: auto;
+                    object-position: -10px;
+                }
+            }
+
+            #payCourse {
+                flex: 4;
+                padding: 0 20px;
+                height: 350px;
+                display: flex;
+                flex-direction: column;
+
+                h4 {
+                    font-weight: $font-weight-bold;
+                }
+
+            }
+
+            .rsvPlan {
+                color: $color-neutral-60;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: $interval-s;
+
+                .planCtg {
+                    color: $color-neutral-40;
+                }
+
+                .selectedTime {
+                    display: flex;
+                }
+            }
+
+            .rsvPlan1 {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                #payFee {
+                    align-self: flex-end;
+                    align-items: center;
+                    color: $color-neutral-80;
+
+                    #fee {
+                        font-size: $font-size-xl;
+                        font-weight: $font-weight-bold;
+                        margin-left: $interval-m;
+                    }
+                }
+            }
+
+            #studioName {
+                font-size: $font-size-s;
+                color: $color-coffee-primary;
+            }
+
+
+        }
+
+        .rsvPayment {
+            flex-grow: 1;
+
+            .payRadio {
+                height: 100%;
+                display: flex;
+                justify-content: space-between;
+
+            }
+
+            fieldset {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                li {
+                    width: 100%;
+                    margin-bottom: 30px;
+                    display: flex;
+                    justify-content: space-between;
+
+                    label {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 100%;
+
+                        div {
+                            display: flex;
+                        }
+                    }
+                }
+
+                img {
+                    width: 35px;
+                }
+            }
+
+            .payBtn {
+                display: flex;
+                justify-content: center;
+
+                #paymentBack {
+                    @extend %btn-white;
+                    height: 56px;
+                    width: 105px;
+                    font-size: $font-size-l;
+                    font-weight: $font-weight-bold;
+
+                    &:hover {
+                        scale: 1.04;
+                    }
+                }
+
+                #paymentPay {
+                    @extend %btn-brown;
+                    height: 56px;
+                    width: 175px;
+                    margin-left: $interval-s;
+                    font-size: $font-size-l;
+                    font-weight: $font-weight-bold;
+
+                    &:hover {
+                        background-color: $color-coffee-primary;
+                        filter: drop-shadow(0px 0px 1px gray);
+                        scale: 1.04;
+                    }
+                }
+            }
+        }
+
+        #FeeNext {
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            // align-items: center;
+
+            .totalFee {
+                margin-bottom: 24px;
+
+                span {
+                    font-size: 24px;
+                    margin-left: 0.5rem;
+                }
+            }
+
+            .nextStep {
+                background-color: $color-brown-primary;
+                border-radius: 99px;
+                border: none;
+                color: white;
+                font-size: 20px;
+                font-weight: 700;
+                cursor: pointer;
+
+                height: 56px;
+                width: 100%;
+
+                &:hover {
+                    background-color: $color-coffee-primary;
+                    filter: drop-shadow(0px 0px 1px gray);
+                    scale: 1.04;
+                }
+            }
+        }
+    }
+}
+
+// RWD平板尺寸
+@media ($mediaMdDown) {
+    .lightBoxWrap {
+        #payCourse {
+            .selectedTime {
+                flex-direction: column;
+                text-align: right;
+            }
+        }
+    }
+}
+
+// RWD手機尺寸
+@media ($mediaSm) {
+    .lightBoxWrap {
+        height: 100%;
+
+        .header {
+
+            .topTitle {
+                margin-top: 20px;
+                margin-left: 30px;
+            }
+        }
+
+        .content {
+            margin: 16px 30px 68px 30px;
+            flex-direction: column;
+            overflow: scroll;
+
+            .rsvPayContent {
+                margin-right: 0;
+            }
+
+            section {
+                width: 100%;
+                height: 100%;
+
+                .rsvPayContentWrap {
+                    flex-direction: column;
+
+                    #payPic {
+                        display: none;
+                    }
+                }
+            }
+
+        }
+    }
+}

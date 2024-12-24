@@ -125,4 +125,9 @@
   border-color: #F0E4C6;
 }
 
+@media (max-width:640px) {
+.courseQA .list-row,
+.courseQA .list-row .light {
+  gap: 12px;
+}}
 /*# sourceMappingURL=style_showQa.css.map */

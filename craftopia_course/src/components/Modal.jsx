@@ -1,5 +1,7 @@
 import React from "react";
-import "../components/style_rsv.css";
+// import "../components/style_rsv.css";
+import "../scss/_style_rsv .scss";
+
 
 const Modal = ({ isOpen, onClose, children }) => {
     if (!isOpen) return null;  // 如果 Modal 沒有開啟，不渲染任何東西
