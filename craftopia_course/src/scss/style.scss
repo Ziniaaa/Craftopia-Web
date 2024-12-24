@@ -39,66 +39,66 @@ main {
 
 /*導覽列*/
 
-#topbar {
+// #topbar {
 
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 28px 64px;
-
-
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-
-    .logo {
-        width: 232px;
-    }
-
-    .navigation {
-
-        display: flex;
-        align-items: center;
-
-        .search {
-            margin-right: 36px;
-
-            li {
-                background-image: url(../images/nav-search.svg);
-                background-size: cover;
-                padding: 12px 23px 10px 19px;
-
-                a {
-                    display: flex;
-                    align-items: center;
-                    color: black;
-
-                    img {
-                        width: 20px;
-                        height: 20px;
-                        margin-right: 8px;
-                    }
-                }
-            }
-        }
+//     width: 100%;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     padding: 28px 64px;
 
 
-        .menu {
-            li {
-                background-image: url(../images/nav-menu.svg);
-                background-size: cover;
-                padding: 15px 16px;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     z-index: 999;
 
-                img {
-                    width: 34px;
-                    height: 34px;
-                }
-            }
-        }
-    }
-}
+//     .logo {
+//         width: 232px;
+//     }
+
+//     .navigation {
+
+//         display: flex;
+//         align-items: center;
+
+//         .search {
+//             margin-right: 36px;
+
+//             li {
+//                 background-image: url(../images/nav-search.svg);
+//                 background-size: cover;
+//                 padding: 12px 23px 10px 19px;
+
+//                 a {
+//                     display: flex;
+//                     align-items: center;
+//                     color: black;
+
+//                     img {
+//                         width: 20px;
+//                         height: 20px;
+//                         margin-right: 8px;
+//                     }
+//                 }
+//             }
+//         }
+
+
+//         .menu {
+//             li {
+//                 background-image: url(../images/nav-menu.svg);
+//                 background-size: cover;
+//                 padding: 15px 16px;
+
+//                 img {
+//                     width: 34px;
+//                     height: 34px;
+//                 }
+//             }
+//         }
+//     }
+// }
 
 
 /*麵包屑*/
@@ -161,6 +161,9 @@ main {
         }
 
     }
+
+
+
 
     .courseIntro {
         display: flex;
@@ -297,6 +300,7 @@ main {
             animation: jello-horizontal 0.9s both;
         }
     }
+
 
     .bgblobs {
         mix-blend-mode: multiply;
@@ -558,7 +562,7 @@ main {
     margin-bottom: 10px;
 
     position: relative;
-    
+
 
     .modalReview-overlay {
         position: fixed;
@@ -1137,6 +1141,173 @@ footer {
             z-index: 10;
             width: 100%;
             margin-left: 15px;
+        }
+    }
+}
+
+// RWD平板尺寸
+@media ($mediaMdDown) {
+    #intro {
+        margin-top: 100px;
+        margin-bottom: 200px;
+
+        .coursePhoto {
+            margin-right: 30px;
+            margin-top: 40px;
+
+            .photoL img {
+                width: 350px;
+                height: 294px;
+            }
+
+            .smallPhoto .photoS img {
+                width: 110px;
+                height: 110px;
+            }
+        }
+
+        .buy {
+            margin-top: 20px;
+        }
+    }
+
+    #studio {
+        .studioInfo {
+            width: 600px;
+            height: 200px;
+
+            .studio-photo-masked {
+                scale: 0.9;
+                top: -25px;
+                left: -130px;
+            }
+
+            #titleStudio {
+                left: -85px;
+            }
+
+            .studioInfo2 {
+                margin-left: 170px;
+            }
+        }
+    }
+
+    #experience {
+        background-size: cover;
+        padding-bottom: 0;
+
+        .newestExp {
+            padding-bottom: 100px;
+        }
+    }
+
+    #recommend {
+        .boxList {
+            .classCard {
+
+                //第2個子元素以後
+                &:nth-child(n+4) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+// RWD手機尺寸
+@media ($mediaSm) {
+    #intro {
+        flex-direction: column;
+        align-items: center;
+
+        .coursePhoto {
+            align-items: center;
+            margin-right: 0px;
+            margin-top: 40px;
+
+            .photoL img {
+                width: 350px;
+                height: 294px;
+            }
+
+            .smallPhoto {
+                width: 350px;
+
+                .photoS img {
+                    width: 110px;
+                    height: 110px;
+                }
+            }
+        }
+        .courseIntro{
+            width: 90%;
+
+        }
+    }
+
+    #studio {
+        .studioInfo {
+            width: 90%;
+            height: 400px;
+            margin: 0;
+            margin-top: 20px;
+
+            .studioInfo2 {
+                margin: 15px;
+                margin-top: 220px;
+            }
+
+            .studio-photo-masked {
+                scale: 0.9;
+                width: 100%;
+                top: -35px;
+                left: 0%;
+
+                img {
+                    object-fit: cover;
+                }
+            }
+
+            #titleStudio {
+                left: 13%;
+                top: -70px;
+            }
+        }
+    }
+
+    #experience {
+        .expTop {
+            flex-direction: column;
+
+            #titleExp {
+                margin-bottom: 30px;
+            }
+
+            .titlePic {
+                margin: 20px;
+            }
+
+            .seemore-btn {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    #recommend {
+        margin-bottom: 70px;
+        .boxList {
+            .classCard {
+                width: 150px;
+                height: 350px;
+                margin: 0 12px;
+                
+                .classPrice{
+                    flex-direction: column;
+                }
+                &:nth-child(n+3) {
+                    display: none;
+                }
+            }
         }
     }
 }

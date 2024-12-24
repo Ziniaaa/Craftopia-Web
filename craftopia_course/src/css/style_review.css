@@ -15,18 +15,10 @@
   cursor: pointer;
 }
 
-body {
-  height: 100vh;
-  background-color: #5A5A5A;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .reviewWrap {
-  width: 100%;
+  width: 1280px;
   max-width: 1280px;
-  height: 680px;
+  height: auto;
 }
 
 .reviewContent {
@@ -41,15 +33,16 @@ body {
 }
 .reviewContent .rvwLeft figure {
   height: 100%;
-  width: 100%;
   overflow: hidden;
   aspect-ratio: 4/3;
 }
 .reviewContent .rvwLeft figure img {
   object-fit: cover;
+  height: 100%;
 }
 .reviewContent .rvwRight {
   width: 100%;
+  min-width: 500px;
   padding: 40px 50px;
   position: relative;
 }
@@ -115,8 +108,7 @@ body {
   z-index: 10;
 }
 .reviewSubContent .switchBtn .rvwBigBtn:hover {
-  scale: 1.02;
-  rotate: 3deg;
+  cursor: default;
 }
 .reviewSubContent .switchBtn .rvwSmBtn {
   width: 77px;
@@ -124,36 +116,80 @@ body {
   position: absolute;
   transition: all 0.2s linear;
   top: 55px;
-  left: 0px;
+  left: 5px;
 }
 .reviewSubContent .switchBtn .rvwSmBtn:hover {
   scale: 1.04;
   rotate: 3deg;
 }
 .reviewSubContent .slideshow {
-  display: inline-flex;
+  display: flex;
+  width: calc(100% - 155px);
   margin-left: 155px;
+  position: relative;
 }
-.reviewSubContent .slideshow figure {
+.reviewSubContent .slideshow .thumbnail-container {
   overflow: hidden;
-  width: 180px;
-  height: 135px;
   margin-right: 12px;
   border-radius: 8px;
+  display: flex;
 }
-.reviewSubContent .slideshow figure img {
+.reviewSubContent .slideshow .thumbnail-container .thumbnail-wrap {
+  display: flex;
+}
+.reviewSubContent .slideshow .thumbnail-container .thumbnail {
+  margin-right: 10px;
+  width: 180px;
+  height: 135px;
+  cursor: pointer;
+}
+.reviewSubContent .slideshow .thumbnail-container .thumbnail img {
   object-fit: cover;
+  height: 100%;
+}
+.reviewSubContent .slideshow .thumbnail-container .thumbnail:hover {
+  filter: brightness(120%);
+}
+.reviewSubContent .slideshow .thumbnail-container .active {
+  border: #F3D075 solid 3px;
+}
+.reviewSubContent .slideshow .arrow-btn {
+  color: #BF6E52;
+  background-color: rgba(244, 235, 217, 0.7);
+  border: none;
+  border-radius: 4px;
+  height: 135px;
+  position: absolute;
+  top: 0px;
+}
+.reviewSubContent .slideshow .arrow-btn:hover {
+  background-color: rgba(244, 235, 217, 0.9);
+}
+.reviewSubContent .slideshow .right {
+  right: 0;
+  z-index: 999;
+}
+.reviewSubContent .slideshow .left {
+  left: 0;
+  z-index: 999;
+}
+.reviewSubContent .slideshow :disabled {
+  display: none;
 }
 
 .modalReview-overlay {
-  position: fixed; /* 固定在螢幕上 */
+  position: fixed;
+  /* 固定在螢幕上 */
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
-  display: flex; /* 使用 flex 使內容居中 */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* 半透明背景 */
+  display: flex;
+  /* 使用 flex 使內容居中 */
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* 確保它在頁面最上層 */
+  z-index: 9999;
+  /* 確保它在頁面最上層 */
 }/*# sourceMappingURL=style_review.css.map */

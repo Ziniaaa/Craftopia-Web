@@ -1,0 +1,171 @@
+@use 'variables' as *;
+@use 'function' as *;
+@use 'keyframes';
+
+#topbar {
+    display: flex;
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    justify-content: space-between;
+    z-index: 999;
+
+    @media ($mediaMdDown) {
+        #topbar>.logo {
+           
+            top: 0px;
+        }
+    }
+
+    .logo-w {
+        display: none;
+    }
+
+
+    /*漢堡*/
+    .navigation {
+        display: flex;
+
+
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            list-style: none;
+            padding: 0;
+
+
+            .first {
+                position: relative;
+                margin-right: 30px;
+
+                &:hover {
+                    transition: .5s;
+                    transform: scale(1.2);
+                }
+            }
+
+            @for $num from 1 through 3 {
+                .secondary#{$num} {
+                    position: absolute;
+                    margin: 0 20px;
+                    right: 130px;
+                    display: none;
+                    animation: hide#{$num} 0.8s both;
+
+
+                    &.show#{$num} {
+                        display: flex;
+                        animation: show#{$num} 0.8s both;
+
+
+                        :hover {
+                            transition: .5s;
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+            }
+        }
+
+
+        .hamburger {
+            background: none;
+            background-image: url(../images/nav-menu.svg);
+            background-repeat: no-repeat;
+            width: 70px;
+            height: 70px;
+            padding-left: 4px;
+            padding-bottom: 8px;
+            border: none;
+            align-self: center;
+            cursor: pointer;
+            transition: .5s;
+
+
+            &:hover {
+                transition: .5s;
+                transform: scale(1.1);
+            }
+
+
+            .bar {
+                background-color: white;
+                width: 24px;
+                height: 3px;
+                margin: 5px auto;
+                display: block;
+                transition: .5s;
+            }
+
+
+            &.click {
+                .bar {
+                    &:nth-child(1) {
+                        transform: rotate(45deg) translateY(6px) translateX(5px);
+                    }
+
+
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+
+
+                    &:nth-child(3) {
+                        transform: rotate(-45deg) translateY(-6px) translateX(5px);
+                    }
+                }
+            }
+        }
+
+
+        @media ($mediaMdDown) {
+            flex-direction: column-reverse;
+            align-items: flex-end;
+
+            ul {
+
+
+                @for $num from 1 through 4 {
+                    .secondary#{$num} {
+                        position: absolute;
+                        margin: 0;
+                        top: 70px;
+                        right: 0;
+                        display: none;
+                        animation: hide2-#{$num} 0.8s both;
+
+
+                        &.show#{$num} {
+                            display: flex;
+                            animation: show2-#{$num} 0.8s both;
+
+                            :hover {
+                                transition: .5s;
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .hamburger {
+                align-self: flex-end;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media ($mediaSm) {
+            .hamburger {
+                width: 60px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+    }
+
+
+
+}

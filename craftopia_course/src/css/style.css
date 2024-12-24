@@ -194,6 +194,160 @@ a {
     transform: scale3d(1, 1, 1);
   }
 }
+@keyframes hide1 {
+  from {
+    opacity: 1;
+    display: flex;
+    transform: translateX(-140px);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(0px);
+    display: none;
+  }
+}
+@keyframes show1 {
+  from {
+    opacity: 0;
+    transform: translateX(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-140px);
+  }
+}
+@keyframes hide2 {
+  from {
+    opacity: 1;
+    display: flex;
+    transform: translateX(-330px);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(0px);
+    display: none;
+  }
+}
+@keyframes show2 {
+  from {
+    opacity: 0;
+    transform: translateX(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-330px);
+  }
+}
+@keyframes hide3 {
+  from {
+    opacity: 1;
+    display: flex;
+    transform: translateX(-520px);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(0px);
+    display: none;
+  }
+}
+@keyframes show3 {
+  from {
+    opacity: 0;
+    transform: translateX(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-520px);
+  }
+}
+@keyframes show2-1 {
+  from {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+}
+@keyframes hide2-1 {
+  from {
+    opacity: 1;
+    display: flex;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(0px);
+    display: none;
+  }
+}
+@keyframes show2-2 {
+  from {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(70px);
+  }
+}
+@keyframes hide2-2 {
+  from {
+    opacity: 1;
+    display: flex;
+    transform: translateY(70px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(0px);
+    display: none;
+  }
+}
+@keyframes show2-3 {
+  from {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(130px);
+  }
+}
+@keyframes hide2-3 {
+  from {
+    opacity: 1;
+    display: flex;
+    transform: translateY(130px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(0px);
+    display: none;
+  }
+}
+@keyframes show2-4 {
+  from {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(190px);
+  }
+}
+@keyframes hide2-4 {
+  from {
+    opacity: 1;
+    display: flex;
+    transform: translateY(190px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(0px);
+    display: none;
+  }
+}
 h2 {
   color: red;
 }
@@ -227,52 +381,6 @@ main section {
 }
 
 /*導覽列*/
-#topbar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 28px 64px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-}
-#topbar .logo {
-  width: 232px;
-}
-#topbar .navigation {
-  display: flex;
-  align-items: center;
-}
-#topbar .navigation .search {
-  margin-right: 36px;
-}
-#topbar .navigation .search li {
-  background-image: url(../images/nav-search.svg);
-  background-size: cover;
-  padding: 12px 23px 10px 19px;
-}
-#topbar .navigation .search li a {
-  display: flex;
-  align-items: center;
-  color: black;
-}
-#topbar .navigation .search li a img {
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-}
-#topbar .navigation .menu li {
-  background-image: url(../images/nav-menu.svg);
-  background-size: cover;
-  padding: 15px 16px;
-}
-#topbar .navigation .menu li img {
-  width: 34px;
-  height: 34px;
-}
-
 /*麵包屑*/
 .breadCrumb {
   position: absolute;
@@ -628,8 +736,11 @@ main section {
   padding-bottom: 30px;
   margin-bottom: 10px;
   position: relative;
-  z-index: 500;
   /*裝飾線AFTER*/
+}
+#experience .modalReview-overlay {
+  position: fixed;
+  z-index: 9998;
 }
 #experience::after {
   content: "";
@@ -714,26 +825,24 @@ main section {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  z-index: 998;
+  z-index: 500;
   margin-bottom: 150px;
 }
 #recommend #titleRec {
   width: 205px;
 }
 #recommend .boxList {
-  border: rgb(252, 148, 238) solid 3px;
   display: flex;
   padding: 5px;
   overflow: hidden;
   /*卡片本體*/
 }
 #recommend .boxList .classCard {
-  border: rgb(36, 151, 36) solid 1px;
   display: flex;
   position: relative;
-  width: 320px;
-  height: 460px;
-  margin-right: 20px;
+  width: 200px;
+  height: auto;
+  margin: 0 24px;
 }
 #recommend .boxList .classCard:hover {
   outline: #D4B86F dashed 1px;
@@ -743,7 +852,7 @@ main section {
 }
 #recommend .boxList .classCard a .classPhoto {
   width: 100%;
-  height: 240px;
+  height: 160px;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -794,6 +903,10 @@ main section {
   background-image: none;
   color: #303030;
   font-weight: 700;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 #recommend .boxList .classCard a .title-price-wrap .classTitle .icons-heart {
   width: 24px;
@@ -817,6 +930,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /*RWD*/
 }
 footer .footer-bgDeco {
   position: relative;
@@ -834,8 +948,7 @@ footer .foot-content {
   padding: 50px 100px;
 }
 footer .foot-content img {
-  width: 100%;
-  max-width: 338px;
+  width: 338px;
   height: 72px;
 }
 footer .menu {
@@ -862,6 +975,26 @@ footer small {
 footer small {
   margin-bottom: 50px;
   font-size: 0.8rem;
+}
+@media (min-width:1024px) {
+  footer .menu li {
+    width: 70px;
+    text-align: start;
+  }
+  footer .foot-content {
+    padding: 50px 60px 20px;
+  }
+}
+@media (max-width:1023px) {
+  footer .menu {
+    display: none;
+  }
+  footer .foot-content {
+    padding: 20px;
+  }
+  footer .foot-content img {
+    width: 240px;
+  }
 }
 
 /*泡泡區*/
@@ -1041,4 +1174,125 @@ footer small {
   z-index: 10;
   width: 100%;
   margin-left: 15px;
+}
+
+@media (max-width:1024px) {
+  #intro {
+    margin-top: 100px;
+    margin-bottom: 200px;
+  }
+  #intro .coursePhoto {
+    margin-right: 30px;
+    margin-top: 40px;
+  }
+  #intro .coursePhoto .photoL img {
+    width: 350px;
+    height: 294px;
+  }
+  #intro .coursePhoto .smallPhoto .photoS img {
+    width: 110px;
+    height: 110px;
+  }
+  #intro .buy {
+    margin-top: 20px;
+  }
+  #studio .studioInfo {
+    width: 600px;
+    height: 200px;
+  }
+  #studio .studioInfo .studio-photo-masked {
+    scale: 0.9;
+    top: -25px;
+    left: -130px;
+  }
+  #studio .studioInfo #titleStudio {
+    left: -85px;
+  }
+  #studio .studioInfo .studioInfo2 {
+    margin-left: 170px;
+  }
+  #experience {
+    background-size: cover;
+    padding-bottom: 0;
+  }
+  #experience .newestExp {
+    padding-bottom: 100px;
+  }
+  #recommend .boxList .classCard:nth-child(n+4) {
+    display: none;
+  }
+}
+@media (max-width:640px) {
+  #intro {
+    flex-direction: column;
+    align-items: center;
+  }
+  #intro .coursePhoto {
+    align-items: center;
+    margin-right: 0px;
+    margin-top: 40px;
+  }
+  #intro .coursePhoto .photoL img {
+    width: 350px;
+    height: 294px;
+  }
+  #intro .coursePhoto .smallPhoto {
+    width: 350px;
+  }
+  #intro .coursePhoto .smallPhoto .photoS img {
+    width: 110px;
+    height: 110px;
+  }
+  #intro .courseIntro {
+    width: 90%;
+  }
+  #studio .studioInfo {
+    width: 90%;
+    height: 400px;
+    margin: 0;
+    margin-top: 20px;
+  }
+  #studio .studioInfo .studioInfo2 {
+    margin: 15px;
+    margin-top: 220px;
+  }
+  #studio .studioInfo .studio-photo-masked {
+    scale: 0.9;
+    width: 100%;
+    top: -35px;
+    left: 0%;
+  }
+  #studio .studioInfo .studio-photo-masked img {
+    object-fit: cover;
+  }
+  #studio .studioInfo #titleStudio {
+    left: 13%;
+    top: -70px;
+  }
+  #experience .expTop {
+    flex-direction: column;
+  }
+  #experience .expTop #titleExp {
+    margin-bottom: 30px;
+  }
+  #experience .expTop .titlePic {
+    margin: 20px;
+  }
+  #experience .expTop .seemore-btn {
+    margin-bottom: 20px;
+  }
+  #recommend {
+    margin-bottom: 70px;
+  }
+  #recommend .boxList .classCard {
+    width: 150px;
+    height: 350px;
+    margin: 0 12px;
+  }
+  #recommend .boxList .classCard .classPrice {
+    flex-direction: column;
+  }
+  #recommend .boxList .classCard:nth-child(n+3) {
+    display: none;
+  }
 }/*# sourceMappingURL=style.css.map */

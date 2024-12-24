@@ -8,6 +8,7 @@ import ShowQa from "./components/ShowQa"; // 引入 ShowQa 元件
 import AOS from 'aos';
 import 'aos/dist/aos.css'; //載入node modules中的套件前面不加./
 import RsvCalendar from "./components/RsvCalendar"; // 引入 RsvCalendar 元件
+import TopbarH1 from "./components/TopbarH1"; // 引入 漢堡元件
 import { SlArrowDown } from "react-icons/sl";
 
 function App() {
@@ -223,20 +224,21 @@ function App() {
     <>
       <header id="topbar">
         {/* <!-- logo區 --> */}
-        <h1 className="logo"><a href="./index.html">
+        {/* <h1 className="logo"><a href="./index.html">
           <img src="./images/logo.svg" alt="Craftopia LOGO" />
-        </a></h1>
+        </a></h1> */}
 
 
         {/* <!-- 導覽列 --> */}
-        <nav className="navigation">
-          <ul className="search">
+        {/* <nav className="navigation"> */}
+          {/* <ul className="search">
             <li><a href="#"><img src="./images/icons-search.svg" alt="搜尋課程" />搜尋課程</a></li>
           </ul>
           <ul className="menu">
             <li><img src="./images/icons-menu.svg" alt="menu選單" /></li>
-          </ul>
-        </nav>
+          </ul> */}
+        {/* </nav> */}
+          <TopbarH1/>
 
       </header>
 
@@ -314,7 +316,7 @@ function App() {
                 <img src="./images/coursePic-2.jpg" alt="" title="課程照片2" />
                 <p>由材質、服務介紹及保養方式小講堂帶入課程介紹，每個步驟都會有專業講師解說及現場示範，帶您體驗刻印敲紋、彎折、鋸切、焊接，拋光等金工職人專業工序。可指定戒指亮面、霧面等效果。均附Wedding
                   Code保固卡、絨布袋及拭銀布，消費滿3000元加贈小圓木對戒盒。【 特殊加工服務 】特殊加工服務屬加價購部分，歡迎在課堂中與講師討論或諮詢。</p>
-                <img src="./images/courseImg-2.JPG" alt="" title="課程照片3" />
+                <img src="./images/courseImg-2.jpg" alt="" title="課程照片3" />
                 <p>由材質、服務介紹及保養方式小講堂帶入課程介紹，每個步驟都會有專業講師解說及現場示範，帶您體驗刻印敲紋、彎折、鋸切、焊接，拋光等金工職人專業工序。</p>
               </div>
             </div>

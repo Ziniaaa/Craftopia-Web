@@ -76,3 +76,77 @@
         transform: scale3d(1, 1, 1);
     }
 }
+
+// 漢堡選單動畫
+@for $i from 1 through 3 {
+
+
+    $a : 50 - ($i * 190);
+
+
+    @keyframes hide#{$i} {
+        from {
+            opacity: 1;
+            display: flex;
+            transform: translateX(#{$a}px);
+        }
+
+
+        to {
+            opacity: 0;
+            transform: translateX(0px);
+            display: none;
+        }
+    }
+
+
+    @keyframes show#{$i} {
+        from {
+            opacity: 0;
+            transform: translateX(0px);
+        }
+
+
+        to {
+            opacity: 1;
+            transform: translateX(#{$a}px);
+        }
+    }
+}
+
+
+@for $i2 from 1 through 4 {
+
+
+    $a2 :($i2 * 60) - 50;
+
+
+    @keyframes show2-#{$i2} {
+        from {
+            opacity: 0;
+            transform: translateY(0px);
+        }
+
+
+        to {
+            opacity: 1;
+            transform: translateY(#{$a2}px);
+        }
+    }
+
+
+    @keyframes hide2-#{$i2} {
+        from {
+            opacity: 1;
+            display: flex;
+            transform: translateY(#{$a2}px);
+        }
+
+
+        to {
+            opacity: 0;
+            transform: translateY(0px);
+            display: none;
+        }
+    }
+}
