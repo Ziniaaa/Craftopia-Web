@@ -256,11 +256,8 @@ const handleCloseModalLogIn = () => {
 
       {/*獨立區 */}
       <p className="breadCrumb">首頁＞課程列表＞overloading戒指...</p>
-      <button onClick={handleOpenModalLogIn}>會員登入</button>
-      {/* ModalLogIn 元件 */}
-      <ModalLogIn isOpen={isModalLogInOpen} onClose={handleCloseModalLogIn} />
-
       <a id="buyNow" onClick={handleOpenModal}><img src="./images/btn-buyNow.svg" alt="" /></a>
+      <button onClick={handleOpenModalLogIn}>會員登入</button>
 {/* ModalLogIn 元件 */}
 <ModalLogIn isOpen={isModalLogInOpen} onClose={handleCloseModalLogIn} />
       <main>
@@ -545,7 +542,82 @@ const handleCloseModalLogIn = () => {
 
       {/* Modal_預約彈窗 */}
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-      
+        <div className="lightBoxWrap">
+          <div className="header">
+            <h3 className="topTitle">選擇預約內容</h3>
+            <button id="iconX" onClick={handleCloseModal}></button>
+            {/* <img src="./images/icons-X.svg" alt="" id="iconX" /> */}
+          </div>
+          <div className="content">
+            <section className="rsvS-1">
+              <div className="rsvcontent">
+                <h3>選擇課程方案</h3>
+                <p className={selectedCourse === "c1" ? "selected" : ""}
+                  onClick={() => handleCourseSelect("c1")}>初階 | 鍛敲戒指</p>
+                <p className={selectedCourse === "c2" ? "selected" : ""}
+                  onClick={() => handleCourseSelect("c2")}>進階 | 造型戒指</p>
+              </div>
+              <hr />
+              <div className="rsvcount">
+                <h3>選擇報名人數</h3>
+                <div>成人 (18歲以上)
+                  <span>
+                    <button id="rsvBtnAdultSub" onClick={() => handleAdultCount("-")}>－</button>
+                    <p id="rsvAdultCount">{adultCount}</p>
+                    <button id="rsvAdultAdd" onClick={() => handleAdultCount("+")}>＋</button>
+                  </span>
+                </div>
+                <div>孩童 (12 ~ 17歲)
+                  <span>
+                    <button id="rsvBtnChildSub" onClick={() => handleChildCount("-")}>－</button>
+                    <p id="rsvChildCount">{childCount}</p>
+                    <button id="rsvChildAdd" onClick={() => handleChildCount("+")}>＋</button>
+                  </span>
+                </div>
+              </div>
+            </section>
+            <section className="rsvDate">
+              <h3>選擇預約日期</h3>
+              <div className="calendar-wrapper">
+                <RsvCalendar setSelectedDate={setSelectedDate} selectedDate={selectedDate} />
+              </div>
+            </section>
+            <section className="rsvS-3">
+              <div className="rsvTime">
+                <h3>選擇課程時段</h3>
+                <ul>
+                  <li className={selectedTime === "t1" ? "selected" : ""}
+                    onClick={() => handleTimeSelect("t1")}>10:00~12:00</li>
+                  <li className={selectedTime === "t2" ? "selected" : ""}
+                    onClick={() => handleTimeSelect("t2")}>12:00~14:00</li>
+                  <li className={selectedTime === "t3" ? "selected" : ""}
+                    onClick={() => handleTimeSelect("t3")}>14:00~16:00</li>
+                  <li className={selectedTime === "t4" ? "selected" : ""}
+                    onClick={() => handleTimeSelect("t4")}>16:00~18:00</li>
+                  <li className={selectedTime === "t5" ? "selected" : ""}
+                    onClick={() => handleTimeSelect("t5")}>18:00~20:00</li>
+                  <li className={selectedTime === "t6" ? "selected" : ""}
+                    onClick={() => handleTimeSelect("t6")}>20:00~22:00</li>
+                </ul>
+              </div>
+              <div id="FeeNext">
+                <div className="totalFee">金額小計
+                  <span id="rsvTolFee">${totalFee}</span>
+                </div>
+                <button className="nextStep" onClick={handleNextStep}>下一步
+
+                  {/* Tooltip 提示 */}
+                  {showTooltip && (
+                    <div className="toolTip">
+                      <p>每個項目皆需要選取喔!</p>
+                    </div>
+                  )}
+                </button>
+              </div>
+            </section>
+          </div>
+
+        </div>
 
         {/* 付款彈窗 */}
         <ModalPay isOpen={isModalPayOpen} onClose={handleCloseModalPay}>
