@@ -3,7 +3,6 @@ import $ from 'jquery'
 // import '../css/style.css'
 import Modal from "./components/Modal"; // 引入 Modal 元件
 import ModalPay from "./components/ModalPay"; // 引入 ModalPay 元件
-import ModalReview from "./components/ModalReview"; // 引入 ModalReview 元件
 import ModalLogIn from "./components/ModalLogIn"; // 引入 ModalLogIn 元件
 import ShowQa from "./components/ShowQa"; // 引入 ShowQa 元件
 import AOS from 'aos';
@@ -11,6 +10,8 @@ import 'aos/dist/aos.css'; //載入node modules中的套件前面不加./
 import RsvCalendar from "./components/RsvCalendar"; // 引入 RsvCalendar 元件
 import TopbarH1 from "./components/TopbarH1"; // 引入 漢堡元件
 import { SlArrowDown } from "react-icons/sl";
+import MyShareBox from "./components/MyShareBox"; // 引入 MyShareBox 元件
+
 
 function App() {
   // 點圖切換首圖
@@ -379,7 +380,8 @@ const handleCloseModalLogIn = () => {
 
           </div>
           <div className="newestExp">
-            <div className="Exp" onClick={handleOpenModalReview}>
+          <MyShareBox/>
+            {/* <div className="Exp" onClick={handleOpenModalReview}>
               <img src="./images/exp-1.jpg" alt="" className="expPic" />
               <div className="expContent">
                 <div className="expInfo">
@@ -415,11 +417,11 @@ const handleCloseModalLogIn = () => {
                   一個老文青的收藏基地。30年來收了許多有趣、好玩、有意思的藝術品。這10年來，日本茶掛、茶道具、紫砂壺、民清具輪珠收藏！歡迎預約欣賞、同好交流！我們在意細節與內容呈現，每一次的執行都由理性與感性交織而成。一個老文青的收藏基地。30年來收了許多有趣、好玩、有意思的藝術品。這10年來日本茶掛、茶道具、紫砂壺、民清具輪珠收藏！歡迎預約欣賞、同好交流！我們在意細節與內容呈現，每一次的執行都由理性與感性交織而成。30年來收了許多有趣、好玩、有意思的藝術品。這10年來，日本茶掛、茶道具、紫砂壺、民清具輪珠收藏！歡迎預約欣賞、同好交流！我們在意細節與內容呈現，每一次的執行都由理性與感性交織而成。一個老文青的收藏基地。30年來收了許多有趣、好玩、有意思的藝術品。這10年來日本茶掛、茶道具、紫砂壺、民清具輪珠收藏！
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
           {/* <figure id="bgExperience"><img src="./images/bg-experience.svg" alt=""></figure> */}
           {/* ModalReview 元件 */}
-          <ModalReview isOpen={isModalReviewOpen} onClose={handleCloseModalReview} />
+          {/* <ModalReview isOpen={isModalReviewOpen} onClose={handleCloseModalReview} /> */}
         </section>
 
         {/* 相關課程推薦recommend區 */}

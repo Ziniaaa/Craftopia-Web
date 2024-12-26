@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import DatePicker from "react-datepicker"; //月曆套件npm install react-datepicker
-// import "react-datepicker/dist/react-datepicker.css"; // 引入樣式
 import "../components/style_rsvCal.css"; // 引入樣式
 
 import { zhTW } from "date-fns/locale"; // 引入繁體中文語系 npm install date-fns

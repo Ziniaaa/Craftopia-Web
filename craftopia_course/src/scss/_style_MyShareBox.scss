@@ -1,0 +1,177 @@
+@use 'variables' as *;
+@use 'function' as *;
+
+/* 心得區 */
+
+.newestExp{
+    width: 80%;
+}
+
+.Exp {
+    height: 300px;
+    display: flex;
+    margin: 40px 12px;
+    align-items: center;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $color-white-60;
+        box-shadow:
+            2px 2px 10px rgba(72, 61, 63, 0.4);
+        border-radius: 10px;
+        overflow: hidden;
+
+       .expPic {
+            border-radius: 0;
+            transform: scale(1);
+        }
+    }
+
+    .expPic {
+        width: 400px;
+        height: 100%;
+        border-radius: 5% 5%;
+        overflow: hidden;
+        transition: all .2s ease-in-out;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .expContent {
+        padding: 30px 30px 30px 65px;
+        flex: 1;
+        min-width: 400px;
+
+        .expInfo {
+            display: flex;
+
+            p {
+                margin: 0 20px;
+                font-size: 1.25rem;
+            }
+            img {
+                height: 40px;
+                width: auto;
+            }
+        }
+
+        .expDate {
+            display: flex;
+            flex-direction: column;
+            margin: 10px 0;
+
+            p {
+                //日期
+                color: #5A5A5A;
+                font-size: 0.85rem;
+            }
+
+            span {
+                margin: 0 10px;
+            }
+
+
+            .expItem {
+                // 單行省略
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    .expTxt {
+        // border: 1px solid tomato;
+        font-weight: 400;
+        line-height: 170%;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        overflow: hidden;
+        margin-top: 24px;
+    }
+
+}
+
+
+/* 心得-平板 */
+@media ($mediaMd) {
+
+
+        #experience{
+
+            .newestExp .Exp {
+                height: 240px;
+    
+    
+                .expPic {
+                    width: 240px;
+                }
+    
+    
+                .expContent {
+                    min-width: 300px;
+    
+    
+                    .expTxt {
+                        -webkit-line-clamp: 3;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+/* 心得-手機 */
+@media ($mediaSm) {
+    
+        .expWrapper {
+            .expTitle {
+                padding: 0;
+                margin: 24px 0;
+                flex-direction: column;
+                height: 100%;
+
+
+                .expHeader {
+                    flex: none;
+                }
+
+
+                .btn-area {
+                    margin-top: 24px;
+                }
+            }
+
+
+            .newestExp {
+                .Exp {
+                    flex-direction: column;
+                    height: 420px;
+                    background-color: $color-white-60;
+                    box-shadow:
+                        2px 2px 10px rgba(72, 61, 63, 0.4);
+                    border-radius: 10px;
+                    overflow: hidden;
+
+
+                    .expPic {
+                        height: 180px;
+                        width: 100%;
+                        border-radius: 0;
+                    }
+
+
+                    .expContent {
+                        padding: 20px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    

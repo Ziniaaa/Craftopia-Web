@@ -123,6 +123,8 @@
   rotate: 3deg;
 }
 .reviewSubContent .slideshow {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
   display: flex;
   width: calc(100% - 155px);
   margin-left: 155px;
@@ -146,12 +148,14 @@
 .reviewSubContent .slideshow .thumbnail-container .thumbnail img {
   object-fit: cover;
   height: 100%;
+  border-radius: 8px;
 }
 .reviewSubContent .slideshow .thumbnail-container .thumbnail:hover {
   filter: brightness(120%);
 }
 .reviewSubContent .slideshow .thumbnail-container .active {
   border: #F3D075 solid 3px;
+  border-radius: 8px;
 }
 .reviewSubContent .slideshow .arrow-btn {
   color: #BF6E52;
@@ -192,4 +196,107 @@
   align-items: center;
   z-index: 9999;
   /* 確保它在頁面最上層 */
+}
+
+@media (max-width:1024px) {
+  .modalReview-overlay .modalReview-content {
+    width: 90%;
+  }
+  .reviewWrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .reviewWrap .reviewContent {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    position: relative;
+  }
+  .reviewWrap .reviewContent .rvwLeft {
+    object-fit: contain;
+  }
+  .reviewWrap .reviewContent .rvwRight {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 200px;
+    overflow: scroll;
+    padding-top: 20px;
+  }
+  .reviewWrap .reviewContent .rvwRight::-webkit-scrollbar {
+    display: none;
+  }
+  .reviewWrap .reviewContent .rvwRight .row1,
+  .reviewWrap .reviewContent .rvwRight .row2,
+  .reviewWrap .reviewContent .rvwRight .row3,
+  .reviewWrap .reviewContent .rvwRight .idName {
+    color: white;
+  }
+  .reviewWrap .reviewSubContent {
+    width: 100%;
+    height: auto;
+  }
+  .reviewWrap .reviewSubContent .slideshow {
+    display: flex;
+  }
+  .reviewWrap .reviewSubContent .slideshow .thumbnail-wrap {
+    width: auto;
+  }
+}
+@media (max-width:640px) {
+  .modalReview-overlay .modalReview-content {
+    position: absolute;
+    width: 90%;
+  }
+  .reviewWrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .reviewWrap .reviewContent {
+    flex-direction: column;
+    height: 500px;
+    width: 100%;
+  }
+  .reviewWrap .reviewContent .rvwLeft {
+    object-fit: contain;
+  }
+  .reviewWrap .reviewContent .rvwRight {
+    position: unset;
+    min-width: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F4EBD9;
+    padding: 10px 20px;
+  }
+  .reviewWrap .reviewContent .rvwRight .row1,
+  .reviewWrap .reviewContent .rvwRight .row2,
+  .reviewWrap .reviewContent .rvwRight .row3,
+  .reviewWrap .reviewContent .rvwRight .idName {
+    color: #483D3F;
+  }
+  .reviewWrap .reviewContent .rvwRight .row2 {
+    flex-direction: column;
+  }
+  .reviewWrap .reviewContent .rvwRight .row2 span {
+    display: none;
+  }
+  .reviewWrap .reviewSubContent {
+    width: 100%;
+    height: 180px;
+  }
+  .reviewWrap .reviewSubContent .switchBtn .rvwSmBtn {
+    top: 95px;
+  }
+  .reviewWrap .reviewSubContent .switchBtn .rvwBigBtn {
+    left: 0px;
+  }
+  .reviewWrap .reviewSubContent .slideshow {
+    display: flex;
+    margin-left: 110px;
+  }
+  .reviewWrap .reviewSubContent .slideshow .thumbnail-wrap {
+    width: auto;
+  }
 }/*# sourceMappingURL=style_review.css.map */
