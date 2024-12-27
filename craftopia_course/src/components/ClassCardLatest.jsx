@@ -52,7 +52,7 @@ function ClassCardLatest() {
         <>
             {
                 classCards.map((card) => (
-                    <div key={classCards.id} className="classCard">
+                    <div key={card.id} className="classCard">
                         <figure className="classPhoto">
                             <a href="#">
                                 <p>See More <img src="./images/icons-arrowRightBold.svg" alt="" /></p>

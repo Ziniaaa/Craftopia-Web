@@ -134,7 +134,7 @@ h3 {
 
                             &:hover {
                                 cursor: pointer;
-                                background-color: #D4B86F;
+                                background-color: CE917B;
                             }
                         }
 
@@ -264,9 +264,9 @@ h3 {
                 position: relative;
 
                 &:hover {
-                    background-color: #ff4d0d;
+                    background-color: #CE917B;
                     filter: drop-shadow(0px 0px 1px gray);
-                    scale: 1.04;
+                    // scale: 1.04;
                 }
 
                 .toolTip {

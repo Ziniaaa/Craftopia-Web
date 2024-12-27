@@ -254,12 +254,13 @@ h3 {
                     font-weight: $font-weight-bold;
 
                     &:hover {
-                        scale: 1.04;
+                        scale: 0.95;
                     }
                 }
 
                 #paymentPay {
                     @extend %btn-brown;
+                    background-color: #BF6E52;
                     height: 56px;
                     width: 175px;
                     margin-left: $interval-s;
@@ -267,9 +268,9 @@ h3 {
                     font-weight: $font-weight-bold;
 
                     &:hover {
-                        background-color: $color-coffee-primary;
+                        background-color: #CE917B;
                         filter: drop-shadow(0px 0px 1px gray);
-                        scale: 1.04;
+                        // scale: 1.04;
                     }
                 }
             }
@@ -291,24 +292,8 @@ h3 {
                 }
             }
 
-            .nextStep {
-                background-color: $color-brown-primary;
-                border-radius: 99px;
-                border: none;
-                color: white;
-                font-size: 20px;
-                font-weight: 700;
-                cursor: pointer;
-
-                height: 56px;
-                width: 100%;
-
-                &:hover {
-                    background-color: $color-coffee-primary;
-                    filter: drop-shadow(0px 0px 1px gray);
-                    scale: 1.04;
-                }
-            }
+            
+            
         }
     }
 }

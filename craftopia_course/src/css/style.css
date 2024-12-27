@@ -524,7 +524,7 @@ main section {
 }
 #intro .buy button:hover {
   filter: drop-shadow(0px 0px 1px gray);
-  scale: 1.04;
+  background-color: #CE917B;
 }
 #intro .buy #heart:hover {
   cursor: pointer;
