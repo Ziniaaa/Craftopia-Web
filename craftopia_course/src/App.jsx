@@ -11,6 +11,7 @@ import RsvCalendar from "./components/RsvCalendar"; // 引入 RsvCalendar 元件
 import TopbarH1 from "./components/TopbarH1"; // 引入 漢堡元件
 import { SlArrowDown } from "react-icons/sl";
 import MyShareBox from "./components/MyShareBox"; // 引入 MyShareBox 元件
+import ToTop from "./components/ToTop"; // 引入 ToTop 元件
 
 
 function App() {
@@ -215,17 +216,18 @@ function App() {
     setIsModalReviewOpen(false);  // 關閉 ModalReview
   };
 
-// 控制 ModalLogIn 開啟狀態
-const [isModalLogInOpen, setIsModalLogInOpen] = useState(false);
+  // 控制 ModalLogIn 開啟狀態
+  const [isModalLogInOpen, setIsModalLogInOpen] = useState(false);
 
-const handleOpenModalLogIn = () => {
-  setIsModalLogInOpen(true);  // 開啟 ModalLogIn
-};
+  const handleOpenModalLogIn = () => {
+    setIsModalLogInOpen(true);  // 開啟 ModalLogIn
+  };
 
-const handleCloseModalLogIn = () => {
-  setIsModalLogInOpen(false);  // 關閉 ModalLogIn
-};
+  const handleCloseModalLogIn = () => {
+    setIsModalLogInOpen(false);  // 關閉 ModalLogIn
+  };
 
+  
 
   //AOS淡入淡出套件
   useEffect(() => {
@@ -233,35 +235,31 @@ const handleCloseModalLogIn = () => {
   }, []
   );
 
+  // ToTop按鈕樣式
+  const initialStyle = {
+    position: "fixed",
+    bottom: "110px",
+    right: "10px",
+  };
+
+
   return (
     <>
       <header id="topbar">
-        {/* <!-- logo區 --> */}
-        {/* <h1 className="logo"><a href="./index.html">
-          <img src="./images/logo.svg" alt="Craftopia LOGO" />
-        </a></h1> */}
-
-
-        {/* <!-- 導覽列 --> */}
-        {/* <nav className="navigation"> */}
-          {/* <ul className="search">
-            <li><a href="#"><img src="./images/icons-search.svg" alt="搜尋課程" />搜尋課程</a></li>
-          </ul>
-          <ul className="menu">
-            <li><img src="./images/icons-menu.svg" alt="menu選單" /></li>
-          </ul> */}
-        {/* </nav> */}
-          <TopbarH1/>
+        <TopbarH1 />
 
       </header>
 
       {/*獨立區 */}
       <p className="breadCrumb">首頁＞課程列表＞overloading戒指...</p>
       <a id="buyNow" onClick={handleOpenModal}><img src="./images/btn-buyNow.svg" alt="" /></a>
-      <button onClick={handleOpenModalLogIn}>會員登入</button>
-{/* ModalLogIn 元件 */}
-<ModalLogIn isOpen={isModalLogInOpen} onClose={handleCloseModalLogIn} />
+      {/* ModalLogIn 元件 */}
+      <ModalLogIn isOpen={isModalLogInOpen} onClose={handleCloseModalLogIn} />
+      {/* TO TOp */}
+      <ToTop initialStyle={initialStyle} />
+
       <main>
+      <button onClick={handleOpenModalLogIn}>會員登入</button>
         <section id="intro">
           {/* 課程版頭intro區 */}
           <div className="coursePhoto">
@@ -377,61 +375,14 @@ const handleCloseModalLogIn = () => {
               <span className="font">see all(485)</span>
               <img className="arr" src="./images/Vector-arr.png" alt="" />
             </a>
-
           </div>
-          <div className="newestExp">
-          <MyShareBox/>
-            {/* <div className="Exp" onClick={handleOpenModalReview}>
-              <img src="./images/exp-1.jpg" alt="" className="expPic" />
-              <div className="expContent">
-                <div className="expInfo">
-                  <img src="./images/exp-id-pic-1.png" alt="" />
-                  <p>文仔</p>
-                  <img src="./images/tag-stoneLV.svg" alt="" />
-                </div>
-                <div className="expDate">
-                  <p>2024 年 12 月 13 日</p>
-                  <span>‧</span>
-                  <p>Overloading 戒指 | 純銀 | 送禮自用</p>
-                </div>
-                <p className="expText">市面上的評論幾乎都在3行內結束，可能也跟使用者的習慣有關，長篇一點的可以用...藏起來像下面那樣?。老師很讚，推推</p>
-              </div>
-            </div>
-            <img src="./images/HrLine_rec.svg" alt="" className="hrline" />
-            <div className="Exp" onClick={() => {
-              handleOpenModalReview(); // 打開 Modal
-            }}>
-              <img src="./images/exp-2.jpg" alt="" className="expPic" />
-              <div className="expContent">
-                <div className="expInfo">
-                  <img src="./images/exp-id-pic-1.png" alt="" />
-                  <p>二郎</p>
-                  <img src="./images/tag-stoneLV.svg" alt="" />
-                </div>
-                <div className="expDate">
-                  <p>2024 年 12 月 11 日</p>
-                  <span>‧</span>
-                  <p>Overloading 戒指 | 純銀 | 送禮自用</p>
-                </div>
-                <p className="expText">
-                  一個老文青的收藏基地。30年來收了許多有趣、好玩、有意思的藝術品。這10年來，日本茶掛、茶道具、紫砂壺、民清具輪珠收藏！歡迎預約欣賞、同好交流！我們在意細節與內容呈現，每一次的執行都由理性與感性交織而成。一個老文青的收藏基地。30年來收了許多有趣、好玩、有意思的藝術品。這10年來日本茶掛、茶道具、紫砂壺、民清具輪珠收藏！歡迎預約欣賞、同好交流！我們在意細節與內容呈現，每一次的執行都由理性與感性交織而成。30年來收了許多有趣、好玩、有意思的藝術品。這10年來，日本茶掛、茶道具、紫砂壺、民清具輪珠收藏！歡迎預約欣賞、同好交流！我們在意細節與內容呈現，每一次的執行都由理性與感性交織而成。一個老文青的收藏基地。30年來收了許多有趣、好玩、有意思的藝術品。這10年來日本茶掛、茶道具、紫砂壺、民清具輪珠收藏！
-                </p>
-              </div>
-            </div> */}
-          </div>
-          {/* <figure id="bgExperience"><img src="./images/bg-experience.svg" alt=""></figure> */}
-          {/* ModalReview 元件 */}
-          {/* <ModalReview isOpen={isModalReviewOpen} onClose={handleCloseModalReview} /> */}
+          <MyShareBox />
         </section>
 
         {/* 相關課程推薦recommend區 */}
         <section id='recommend'>
           <figure><img src="./images/title_recommend.svg" alt="相關課程推薦" className="titlePic" id="titleRec" /></figure>
           <div className="boxList">
-            {/* <div className="box">課程卡片1</div>
-            <div className="box">課程卡片2</div>
-            <div className="box">課程卡片3</div>
-            <div className="box">課程卡片4</div> */}
             <div className="classCard" id="classCard-1">
               <a href="#">
                 <figure className="classPhoto">

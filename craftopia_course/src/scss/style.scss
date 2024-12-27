@@ -1056,7 +1056,7 @@ footer {
 #buyNow {
     width: 100px;
     position: fixed;
-    right: 40px;
+    right: 20px;
     bottom: 20px;
     z-index: 999;
     cursor: pointer;
@@ -1307,6 +1307,32 @@ footer {
                 &:nth-child(n+3) {
                     display: none;
                 }
+            }
+        }
+    }
+}
+
+/* totop按鈕 */
+.toTop {
+    z-index: 100;
+    
+    .toTop-btn {
+        border: none;
+        background: none;
+        cursor: pointer;
+       
+
+        #toTopHover {
+            display: none;
+        }
+
+        &:hover {
+            >#toTop {
+                display: none;
+            }
+
+            #toTopHover {
+                display: block;
             }
         }
     }
