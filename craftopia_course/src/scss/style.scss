@@ -446,7 +446,7 @@ main {
     height: 400px;
     max-width: 1100px;
 
-    margin-bottom: 100px;
+    margin-bottom: 60px;
 
     .studioInfo {
         display: flex;
@@ -558,11 +558,11 @@ main {
     background-size: contain;
     background-position: 50%;
 
-    padding-bottom: 30px;
+    padding-bottom: 130px;
     margin-bottom: 10px;
 
     position: relative;
-
+    z-index: 666;
 
     .modalReview-overlay {
         position: fixed;
@@ -580,7 +580,7 @@ main {
         height: 350px;
 
         position: absolute;
-        bottom: -30px;
+        bottom: -150px;
         z-index: -10;
     }
 
@@ -588,82 +588,82 @@ main {
         display: flex;
         align-items: flex-end;
 
-        // #seeAll {
-        //     padding-bottom: 50px;
-        // }
-    }
-
-    #titleExp {
-        width: 245px;
-        margin-bottom: 50px;
-    }
-
-    .newestExp {
-        padding-bottom: 150px;
-
-        .Exp {
-            width: 1000px;
-            height: 300px;
-            display: flex;
-            margin: 30px 0;
-
-
-            &:hover {
-                cursor: pointer;
-                background-color: rgb(255, 255, 255, 0.65);
-                border-radius: 10px;
-            }
-
-            .expPic {
-                width: 400px;
-                border-radius: 10px;
-            }
-
-            .expContent {
-                margin-left: 65px;
-                padding-top: 30px;
-
-                .expInfo {
-                    display: flex;
-
-                    p {
-                        margin: 0 20px;
-                        font-size: 20px;
-                    }
-
-                    img {
-                        height: 40px;
-                        width: auto;
-                    }
-                }
-
-                .expDate {
-                    display: flex;
-                    margin: 10px 0;
-
-                    p {
-                        //日期
-                        color: $color-neutral-60;
-                        font-size: 14px;
-                    }
-
-                    span {
-                        margin: 0 10px;
-                    }
-                }
-
-
-                .expText {
-                    font-size: 14px;
-                    display: -webkit-box;
-                    -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 5;
-                    overflow: hidden;
-                    padding-right: 40px;
-                }
-            }
+        .seemore-btn {
+            padding-left: 120px;
         }
     }
+
+    // #titleExp {
+    //     width: 245px;
+    //     margin-bottom: 50px;
+    // }
+
+    // .newestExp {
+    //     padding-bottom: 150px;
+
+    //     .Exp {
+    //         width: 1000px;
+    //         height: 300px;
+    //         display: flex;
+    //         margin: 30px 0;
+
+
+    //         &:hover {
+    //             cursor: pointer;
+    //             background-color: rgb(255, 255, 255, 0.65);
+    //             border-radius: 10px;
+    //         }
+
+    //         .expPic {
+    //             width: 400px;
+    //             border-radius: 10px;
+    //         }
+
+    //         .expContent {
+    //             margin-left: 65px;
+    //             padding-top: 30px;
+
+    //             .expInfo {
+    //                 display: flex;
+
+    //                 p {
+    //                     margin: 0 20px;
+    //                     font-size: 20px;
+    //                 }
+
+    //                 img {
+    //                     height: 40px;
+    //                     width: auto;
+    //                 }
+    //             }
+
+    //             .expDate {
+    //                 display: flex;
+    //                 margin: 10px 0;
+
+    //                 p {
+    //                     //日期
+    //                     color: $color-neutral-60;
+    //                     font-size: 14px;
+    //                 }
+
+    //                 span {
+    //                     margin: 0 10px;
+    //                 }
+    //             }
+
+
+    //             .expText {
+    //                 font-size: 14px;
+    //                 display: -webkit-box;
+    //                 -webkit-box-orient: vertical;
+    //                 -webkit-line-clamp: 5;
+    //                 overflow: hidden;
+    //                 padding-right: 40px;
+    //             }
+    //         }
+    //     }
+    // }
 
     #bgExperience {
 
@@ -1201,17 +1201,7 @@ footer {
         }
     }
 
-    #recommend {
-        .boxList {
-            .classCard {
-
-                //第2個子元素以後
-                &:nth-child(n+4) {
-                    display: none;
-                }
-            }
-        }
-    }
+    
 }
 
 // RWD手機尺寸
@@ -1239,7 +1229,8 @@ footer {
                 }
             }
         }
-        .courseIntro{
+
+        .courseIntro {
             width: 90%;
 
         }
@@ -1275,52 +1266,36 @@ footer {
         }
     }
 
-    #experience {
-        .expTop {
-            flex-direction: column;
+    // #experience {
+    //     .expTop {
+    //         flex-direction: column;
 
-            #titleExp {
-                margin-bottom: 30px;
-            }
+    //         #titleExp {
+    //             margin-bottom: 30px;
+    //         }
 
-            .titlePic {
-                margin: 20px;
-            }
+    //         .titlePic {
+    //             margin: 20px;
+    //         }
 
-            .seemore-btn {
-                margin-bottom: 20px;
-            }
-        }
-    }
+    //         .seemore-btn {
+    //             margin-bottom: 20px;
+    //         }
+    //     }
+    // }
 
-    #recommend {
-        margin-bottom: 70px;
-        .boxList {
-            .classCard {
-                width: 150px;
-                height: 350px;
-                margin: 0 12px;
-                
-                .classPrice{
-                    flex-direction: column;
-                }
-                &:nth-child(n+3) {
-                    display: none;
-                }
-            }
-        }
-    }
+    
 }
 
 /* totop按鈕 */
 .toTop {
     z-index: 100;
-    
+
     .toTop-btn {
         border: none;
         background: none;
         cursor: pointer;
-       
+
 
         #toTopHover {
             display: none;

@@ -282,6 +282,9 @@
 
                 }
             }
+            #iconX {
+                filter: invert(80);
+            }
         }
 
         .reviewSubContent {
@@ -349,6 +352,7 @@
                         display: none;
                     }
                 }
+
             }
         }
 
@@ -371,10 +375,10 @@
                 display: flex;
                 margin-left: 110px;
 
-                    .thumbnail-wrap {
-                        width: auto;
-                    }
+                .thumbnail-wrap {
+                    width: auto;
                 }
             }
         }
     }
+}

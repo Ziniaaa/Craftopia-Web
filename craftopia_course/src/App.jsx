@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import $ from 'jquery'
 // import '../css/style.css'
-import Modal from "./components/Modal"; // 引入 Modal 元件
+import ModalRsv from "./components/ModalRsv"; // 引入 ModalRsv 元件
 import ModalPay from "./components/ModalPay"; // 引入 ModalPay 元件
 import ModalLogIn from "./components/ModalLogIn"; // 引入 ModalLogIn 元件
 import ShowQa from "./components/ShowQa"; // 引入 ShowQa 元件
@@ -12,6 +12,7 @@ import TopbarH1 from "./components/TopbarH1"; // 引入 漢堡元件
 import { SlArrowDown } from "react-icons/sl";
 import MyShareBox from "./components/MyShareBox"; // 引入 MyShareBox 元件
 import ToTop from "./components/ToTop"; // 引入 ToTop 元件
+import ClassCardLatest from "./components/ClassCardLatest"; // 引入 ClassCardLatest 元件
 
 
 function App() {
@@ -63,15 +64,15 @@ function App() {
     });
   }, [])
 
-  // 控制 Modal 開啟狀態
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // 控制 ModalRsv 開啟狀態
+  const [isModalRsvOpen, setIsModalRsvOpen] = useState(false);
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);  // 開啟 Modal
+  const handleOpenModalRsv = () => {
+    setIsModalRsvOpen(true);  // 開啟 ModalRsv
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);  // 關閉 Modal
+  const handleCloseModalRsv = () => {
+    setIsModalRsvOpen(false);  // 關閉 ModalRsv
   };
 
   //人數按鈕
@@ -91,7 +92,7 @@ function App() {
     );
   };
 
-  //Modal課程金額計算
+  //ModalRsv課程金額計算
   const [selectedCourse, setSelectedCourse] = useState(null); // 儲存選擇的課程
 
   const courseOption = {
@@ -192,16 +193,16 @@ function App() {
   const [isModalPayOpen, setIsModalPayOpen] = useState(false); // 控制 ModalPay 開啟狀態
 
   const handleOpenModalPay = () => {
-    setIsModalPayOpen(true);  // 開啟 Modal
+    setIsModalPayOpen(true);  // 開啟 ModalPay
   };
 
   const handleCloseModalPay = () => {
-    setIsModalPayOpen(false);  // 關閉 Modal
+    setIsModalPayOpen(false);  // 關閉 ModalPay
   };
 
   // Modal&ModalPay同時關閉
   const closeAllModals = () => {
-    setIsModalOpen(false);
+    setIsModalRsvOpen(false);
     setIsModalPayOpen(false);
   };
 
@@ -252,7 +253,7 @@ function App() {
 
       {/*獨立區 */}
       <p className="breadCrumb">首頁＞課程列表＞overloading戒指...</p>
-      <a id="buyNow" onClick={handleOpenModal}><img src="./images/btn-buyNow.svg" alt="" /></a>
+      <a id="buyNow" onClick={handleOpenModalRsv}><img src="./images/btn-buyNow.svg" alt="" /></a>
       {/* ModalLogIn 元件 */}
       <ModalLogIn isOpen={isModalLogInOpen} onClose={handleCloseModalLogIn} />
       {/* TO TOp */}
@@ -304,7 +305,7 @@ function App() {
             </div>
             <div className="buy">
               <p>$1200起</p>
-              <button onClick={handleOpenModal}>立即預約</button>
+              <button onClick={handleOpenModalRsv}>立即預約</button>
               <figure id="heart"><img src="./images/icon-heart.svg" alt="" /></figure>
 
             </div>
@@ -382,7 +383,10 @@ function App() {
         {/* 相關課程推薦recommend區 */}
         <section id='recommend'>
           <figure><img src="./images/title_recommend.svg" alt="相關課程推薦" className="titlePic" id="titleRec" /></figure>
-          <div className="boxList">
+          <div className='cardList'>
+          <ClassCardLatest />
+          </div>
+          {/* <div className="boxList">
             <div className="classCard" id="classCard-1">
               <a href="#">
                 <figure className="classPhoto">
@@ -471,7 +475,7 @@ function App() {
                 </div>
               </a>
             </div>
-          </div>
+          </div> */}
         </section>
         <section className="blobstools" >
           {/* 泡泡區 */}
@@ -493,12 +497,12 @@ function App() {
 
       </main>
 
-      {/* Modal_預約彈窗 */}
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+      {/* ModalRsv_預約彈窗 */}
+      <ModalRsv isOpen={isModalRsvOpen} onClose={handleCloseModalRsv}>
         <div className="lightBoxWrap">
           <div className="header">
             <h3 className="topTitle">選擇預約內容</h3>
-            <button id="iconX" onClick={handleCloseModal}></button>
+            <button id="iconX" onClick={handleCloseModalRsv}></button>
             {/* <img src="./images/icons-X.svg" alt="" id="iconX" /> */}
           </div>
           <div className="content">
@@ -684,7 +688,7 @@ function App() {
             </div>
           </div>
         </ModalPay>
-      </Modal>
+      </ModalRsv>
 
 
       {/* 頁尾區 */}

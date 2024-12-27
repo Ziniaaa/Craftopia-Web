@@ -1,9 +1,9 @@
 import React from "react";
 // import "../components/style_rsv.css";
-import "../scss/_style_rsv .scss";
+import "../scss/_style_ModalRsv .scss";
 
 
-const Modal = ({ isOpen, onClose, children }) => {
+const ModalRsv = ({ isOpen, onClose, children }) => {
     if (!isOpen) return null;  // 如果 Modal 沒有開啟，不渲染任何東西
 
     
@@ -18,4 +18,4 @@ const Modal = ({ isOpen, onClose, children }) => {
     );
 };
 
-export default Modal;
+export default ModalRsv;

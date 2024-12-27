@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../scss/style_review.scss";
+import "../scss/style_ModalReview.scss";
 
 
 const ModalReview = ({ isOpen, onClose }) => {

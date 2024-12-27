@@ -649,7 +649,7 @@ main section {
   z-index: 99;
   height: 400px;
   max-width: 1100px;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 }
 #studio .studioInfo {
   display: flex;
@@ -733,9 +733,10 @@ main section {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 50%;
-  padding-bottom: 30px;
+  padding-bottom: 130px;
   margin-bottom: 10px;
   position: relative;
+  z-index: 666;
   /*裝飾線AFTER*/
 }
 #experience .modalReview-overlay {
@@ -751,68 +752,15 @@ main section {
   width: 100%;
   height: 350px;
   position: absolute;
-  bottom: -30px;
+  bottom: -150px;
   z-index: -10;
 }
 #experience .expTop {
   display: flex;
   align-items: flex-end;
 }
-#experience #titleExp {
-  width: 245px;
-  margin-bottom: 50px;
-}
-#experience .newestExp {
-  padding-bottom: 150px;
-}
-#experience .newestExp .Exp {
-  width: 1000px;
-  height: 300px;
-  display: flex;
-  margin: 30px 0;
-}
-#experience .newestExp .Exp:hover {
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.65);
-  border-radius: 10px;
-}
-#experience .newestExp .Exp .expPic {
-  width: 400px;
-  border-radius: 10px;
-}
-#experience .newestExp .Exp .expContent {
-  margin-left: 65px;
-  padding-top: 30px;
-}
-#experience .newestExp .Exp .expContent .expInfo {
-  display: flex;
-}
-#experience .newestExp .Exp .expContent .expInfo p {
-  margin: 0 20px;
-  font-size: 20px;
-}
-#experience .newestExp .Exp .expContent .expInfo img {
-  height: 40px;
-  width: auto;
-}
-#experience .newestExp .Exp .expContent .expDate {
-  display: flex;
-  margin: 10px 0;
-}
-#experience .newestExp .Exp .expContent .expDate p {
-  color: #5A5A5A;
-  font-size: 14px;
-}
-#experience .newestExp .Exp .expContent .expDate span {
-  margin: 0 10px;
-}
-#experience .newestExp .Exp .expContent .expText {
-  font-size: 14px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-  overflow: hidden;
-  padding-right: 40px;
+#experience .expTop .seemore-btn {
+  padding-left: 120px;
 }
 #experience #bgExperience img {
   height: auto;
@@ -1108,7 +1056,7 @@ footer small {
 #buyNow {
   width: 100px;
   position: fixed;
-  right: 40px;
+  right: 20px;
   bottom: 20px;
   z-index: 999;
   cursor: pointer;
@@ -1218,9 +1166,6 @@ footer small {
   #experience .newestExp {
     padding-bottom: 100px;
   }
-  #recommend .boxList .classCard:nth-child(n+4) {
-    display: none;
-  }
 }
 @media (max-width:640px) {
   #intro {
@@ -1269,30 +1214,22 @@ footer small {
     left: 13%;
     top: -70px;
   }
-  #experience .expTop {
-    flex-direction: column;
-  }
-  #experience .expTop #titleExp {
-    margin-bottom: 30px;
-  }
-  #experience .expTop .titlePic {
-    margin: 20px;
-  }
-  #experience .expTop .seemore-btn {
-    margin-bottom: 20px;
-  }
-  #recommend {
-    margin-bottom: 70px;
-  }
-  #recommend .boxList .classCard {
-    width: 150px;
-    height: 350px;
-    margin: 0 12px;
-  }
-  #recommend .boxList .classCard .classPrice {
-    flex-direction: column;
-  }
-  #recommend .boxList .classCard:nth-child(n+3) {
-    display: none;
-  }
+}
+/* totop按鈕 */
+.toTop {
+  z-index: 100;
+}
+.toTop .toTop-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.toTop .toTop-btn #toTopHover {
+  display: none;
+}
+.toTop .toTop-btn:hover > #toTop {
+  display: none;
+}
+.toTop .toTop-btn:hover #toTopHover {
+  display: block;
 }/*# sourceMappingURL=style.css.map */

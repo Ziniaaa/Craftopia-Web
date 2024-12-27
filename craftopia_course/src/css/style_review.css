@@ -233,6 +233,9 @@
   .reviewWrap .reviewContent .rvwRight .idName {
     color: white;
   }
+  .reviewWrap .reviewContent #iconX {
+    filter: invert(80);
+  }
   .reviewWrap .reviewSubContent {
     width: 100%;
     height: auto;

@@ -1,0 +1,299 @@
+@use 'variables' as *;
+@use 'function' as *;
+
+.cardList {
+    display: flex;
+    .classCard {
+margin: 30px;
+
+        position: relative;
+        width: 100%;
+        height: auto;
+
+
+        div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .classPhoto {
+            position: relative;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            overflow: hidden;
+            clip-path: polygon(47% 0, 76% 0, 100% 0, 100% 66%, 100% 100%, 41% 100%, 0 100%, 0 66%, 0 29%, 0 0);
+            transition: clip-path 0.5s ease;
+
+            .tagHotorNew {
+                position: absolute;
+                left: 4px;
+                top: 4px;
+                z-index: 10;
+
+                opacity: 1;
+                transition: opacity 0.5s ease;
+
+                img {
+                    width: 52px;
+                }
+            }
+
+            .photo {
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+            }
+
+            p {
+                font-family: "Braah One", serif;
+                color: #F0E4C6;
+                font-size: 18px;
+                font-weight: 400;
+                z-index: 10;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: rgba(66, 66, 66, 0.6);
+                opacity: 0;
+
+                transition: all 0.5s ease-in-out;
+                img {
+                    width: 24px;
+                }
+            }
+        }
+
+
+        .classTag {
+            margin: 20px 0;
+            display: flex;
+            justify-content: left;
+
+            p {
+                color: #ffffff;
+                font-size: 13px;
+                margin-right: 12px;
+            }
+
+
+            .classLevel {
+                background-image: url(../images/tag-level.svg);
+                padding: 7px 16px 8px;
+                background-repeat: no-repeat;
+            }
+
+            .classTime {
+                background-image: url(../images/tag-time.svg);
+                padding: 5px 17.5px 4px 15px;
+                background-repeat: no-repeat;
+            }
+        }
+
+
+        .classTitle {
+            align-items: start;
+            margin-bottom: 24px;
+            height: 56px;
+
+            h3 {
+                font-size: 18px;
+                font-weight: 600;
+                margin-right: 4px;
+
+                @extend %line-multiple;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+
+
+                a {
+
+                    border-bottom: 2px solid transparent;
+                    transition: all 0.5s ease-in-out;
+                    color: $color-coffee-dark;
+
+
+                    &:hover {
+
+
+                        color: #565656;
+                        border-bottom: 2px solid #B07662;
+
+
+                    }
+                }
+            }
+
+
+            img {
+                width: 24px;
+            }
+        }
+
+
+        .classPrice {
+
+            align-items: center;
+            height: 34px;
+
+
+            .classStoreName {
+                color: #5a5a5a;
+                font-size: 16px;
+                width: 130px;
+
+                @extend %line-multiple;
+                -webkit-line-clamp: 1;
+                line-clamp: 1;
+
+
+                a {
+                    color: $color-coffee-dark;
+                    transition: all 0.5s ease-in-out;
+
+                    &:hover {
+                        color: #939393;
+                    }
+                }
+            }
+
+
+            .price {
+                color: #483D3F;
+                font-size: 22px;
+
+            }
+        }
+
+
+        .icons-heart {
+            width: 24px;
+            cursor: pointer;
+            z-index: 20;
+            transition: .3s;
+
+            @for $HeartNum from 1 through 6 {
+
+
+
+
+                #heartstrike#{$HeartNum} {
+                    display: flex;
+
+                    &.click-h {
+                        display: none;
+                    }
+                }
+
+                #heartfill#{$HeartNum} {
+                    display: none;
+
+                    &.click-h {
+                        display: flex;
+                        width: 23px;
+                    }
+                }
+            }
+
+
+
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.2);
+                background-image: url(./images/icons-heart-hover.svg);
+                background-size: cover;
+            }
+        }
+
+
+        &:hover {
+
+
+            .classPhoto {
+
+
+                clip-path: polygon(40% 0, 73% 4%, 92% 33%, 89% 75%, 77% 94%, 48% 100%, 17% 95%, 6% 76%, 5% 39%, 15% 10%);
+
+                &:hover {
+
+
+                    p {
+                        opacity: 1;
+
+
+                        img {
+
+
+                            animation: moveArrow 0.6s ease-in-out infinite alternate;
+
+                        }
+
+
+                    }
+
+
+                }
+            }
+
+
+            .tagHotorNew {
+
+
+                opacity: 0;
+
+
+            }
+        }
+    }
+}
+
+
+@keyframes moveArrow {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(10px);
+
+    }
+}
+
+@media ($mediaMdDown) {
+    #recommend {
+        .cardList {
+            .classCard {
+
+                //第2個子元素以後
+                &:nth-child(n+4) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media ($mediaSm) {
+#recommend {
+    margin-bottom: 70px;
+
+    .cardList {
+        .classCard {
+            width: 150px;
+            height: 350px;
+            margin: 0 12px;
+
+            .classPrice {
+                flex-direction: column;
+            }
+
+            &:nth-child(n+3) {
+                display: none;
+            }
+        }
+    }
+}}
