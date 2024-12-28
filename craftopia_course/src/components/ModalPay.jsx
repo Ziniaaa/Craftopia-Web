@@ -1,6 +1,5 @@
 import React from "react";
-// import "../components/style_rsvPay.css";
-import "../scss/_style_rsvPay.scss";
+import "../scss/_style_ModalPay.scss";
 
 
 const ModalPay = ({ isOpen, onClose, children }) => {

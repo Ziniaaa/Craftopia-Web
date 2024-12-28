@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import $ from 'jquery'
-// import '../css/style.css'
 import ModalRsv from "./components/ModalRsv"; // 引入 ModalRsv 元件
 import ModalPay from "./components/ModalPay"; // 引入 ModalPay 元件
 import ModalLogIn from "./components/ModalLogIn"; // 引入 ModalLogIn 元件
@@ -13,6 +12,9 @@ import { SlArrowDown } from "react-icons/sl";
 import MyShareBox from "./components/MyShareBox"; // 引入 MyShareBox 元件
 import ToTop from "./components/ToTop"; // 引入 ToTop 元件
 import ClassCardLatest from "./components/ClassCardLatest"; // 引入 ClassCardLatest 元件
+import Hearttoggle from "./components/Hearttoggle"; // 引入 Hearttoggle 元件
+import ModalReview from "./components/ModalReview";
+
 
 
 function App() {
@@ -31,30 +33,7 @@ function App() {
     p3: { id: 'coursePhoto-3', url: './images/courseImg-3.jpg' },
   };
 
-  //愛心icon toggle
-  useEffect(() => {
-    $('#heart').on('click', function () {
-      const img = $(this).find('img');
-      const currentSrc = img.attr('src');
-      const isFilled = currentSrc.includes('heart-fill');
-      const newSrc = isFilled
-        ? './images/icon-heart.svg'
-        : './images/icon-heart-fill.svg';
 
-      // 先立即更新圖片
-      img.attr('src', newSrc);
-
-      // 如果切換到 icon-heart-fill.svg，加入動畫
-      if (!isFilled) {
-        img.addClass('animate');
-
-        // 動畫結束後移除動畫類名
-        setTimeout(() => {
-          img.removeClass('animate');
-        }, 900); // 動畫時長與 jello-horizontal 一致
-      }
-    });
-  },)
 
   //控制閱讀更多(jQ)
   useEffect(() => {
@@ -66,11 +45,9 @@ function App() {
 
   // 控制 ModalRsv 開啟狀態
   const [isModalRsvOpen, setIsModalRsvOpen] = useState(false);
-
   const handleOpenModalRsv = () => {
     setIsModalRsvOpen(true);  // 開啟 ModalRsv
   };
-
   const handleCloseModalRsv = () => {
     setIsModalRsvOpen(false);  // 關閉 ModalRsv
   };
@@ -125,7 +102,6 @@ function App() {
   //選擇課程日期
   const [selectedDate, setSelectedDate] = useState(null);
 
-
   //選擇課程時段
   const [selectedTime, setSelectedTime] = useState(null); // 儲存選擇的時段
 
@@ -137,7 +113,6 @@ function App() {
     t5: '18:00~20:00',
     t6: '20:00~22:00',
   }
-
   const handleTimeSelect = (timeKey) => {
     setSelectedTime(timeKey);
   };
@@ -152,6 +127,7 @@ function App() {
     setShowTooltip(false);
     handleOpenModalPay();
   };
+
   // 使用 useEffect 監聽條件變化
   useEffect(() => {
     if (
@@ -191,11 +167,9 @@ function App() {
 
   // ModalPay開關控制
   const [isModalPayOpen, setIsModalPayOpen] = useState(false); // 控制 ModalPay 開啟狀態
-
   const handleOpenModalPay = () => {
     setIsModalPayOpen(true);  // 開啟 ModalPay
   };
-
   const handleCloseModalPay = () => {
     setIsModalPayOpen(false);  // 關閉 ModalPay
   };
@@ -208,27 +182,21 @@ function App() {
 
   // 控制 ModalReview 開啟狀態
   const [isModalReviewOpen, setIsModalReviewOpen] = useState(false);
-
   const handleOpenModalReview = () => {
     setIsModalReviewOpen(true);  // 開啟 ModalReview
   };
-
   const handleCloseModalReview = () => {
     setIsModalReviewOpen(false);  // 關閉 ModalReview
   };
 
   // 控制 ModalLogIn 開啟狀態
   const [isModalLogInOpen, setIsModalLogInOpen] = useState(false);
-
   const handleOpenModalLogIn = () => {
     setIsModalLogInOpen(true);  // 開啟 ModalLogIn
   };
-
   const handleCloseModalLogIn = () => {
     setIsModalLogInOpen(false);  // 關閉 ModalLogIn
   };
-
-  
 
   //AOS淡入淡出套件
   useEffect(() => {
@@ -260,7 +228,7 @@ function App() {
       <ToTop initialStyle={initialStyle} />
 
       <main>
-      <button onClick={handleOpenModalLogIn}>會員登入</button>
+        <button onClick={handleOpenModalLogIn}>會員登入</button>
         <section id="intro">
           {/* 課程版頭intro區 */}
           <div className="coursePhoto">
@@ -306,7 +274,8 @@ function App() {
             <div className="buy">
               <p>$1200起</p>
               <button onClick={handleOpenModalRsv}>立即預約</button>
-              <figure id="heart"><img src="./images/icon-heart.svg" alt="" /></figure>
+              {/* <figure id="heart"><img src="./images/icon-heart.svg" alt="" /></figure> */}
+              <Hearttoggle heartFillId='heartfill5' heartStrikeId='heartstrike5' />
 
             </div>
           </div>
@@ -316,8 +285,6 @@ function App() {
           </div>
         </section>
 
-        {/* <!-- 裝飾線 --> */}
-        {/*<figure id="decoLineIntro"><img src="./images/decoline-intro.svg" alt=""></figure>*/}
 
         {/* 課程介紹content區 */}
         <section id="content">
@@ -371,7 +338,9 @@ function App() {
         <section id="experience">
           <div className="expTop">
             <figure><img src="./images/title_Exp.svg" alt="最新心得足跡" className="titlePic" id="titleExp" /></figure>
-            <a className="seemore-btn" href="#">
+            <a className="seemore-btn" onClick={handleOpenModalReview}>
+              {/* ModalReview 元件 */}
+            <ModalReview isOpen={isModalReviewOpen} onClose={handleCloseModalReview} />
               <img className="ball" src="./images/Vector-circle-b.png" alt="" />
               <span className="font">see all(485)</span>
               <img className="arr" src="./images/Vector-arr.png" alt="" />
@@ -384,98 +353,8 @@ function App() {
         <section id='recommend'>
           <figure><img src="./images/title_recommend.svg" alt="相關課程推薦" className="titlePic" id="titleRec" /></figure>
           <div className='cardList'>
-          <ClassCardLatest />
+            <ClassCardLatest />
           </div>
-          {/* <div className="boxList">
-            <div className="classCard" id="classCard-1">
-              <a href="#">
-                <figure className="classPhoto">
-                  <img src="./images/course-card-pic-1.jpg" alt="" />
-                </figure>
-                <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className='title-price-wrap'>
-                  <div className="classTitle">
-                    <h3>【陶藝小酒杯】『土斯工作坊』手作陶杯體驗課 </h3>
-                    <img className="icons-heart" src="./images/icon-heart.svg" alt="" />
-                  </div>
-                  <div className="classPrice">
-                    <p className="classStoreName">土斯工作坊</p>
-                    <p className="classPrice">$ 1290</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div className="classCard" id="classCard-2">
-              <a href="#">
-                <figure className="classPhoto">
-                  <img src="./images/course-card-pic-2.jpg" alt="" />
-                </figure>
-                <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
-                <div className="classTag">
-                  <p className="classLevel">進階</p>
-                  <p className="classTime">4hr</p>
-                </div>
-                <div className='title-price-wrap'>
-                  <div className="classTitle">
-                    <h3>低調奢華名片夾─從無到有自己製作 </h3>
-                    <img className="icons-heart" src="./images/icon-heart.svg" alt="" />
-                  </div>
-                  <div className="classPrice">
-                    <p className="classStoreName">Royal Leather</p>
-                    <p className="classPrice">$ 3800</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div className="classCard" id="classCard-3">
-              <a href="#">
-                <figure className="classPhoto">
-                  <img src="./images/course-card-pic-3.jpg" alt="" />
-                </figure>
-                <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className='title-price-wrap'>
-                  <div className="classTitle">
-                    <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                    <img className="icons-heart" src="./images/icon-heart.svg" alt="" />
-                  </div>
-                  <div className="classPrice">
-                    <p className="classStoreName">草樹工作坊</p>
-                    <p className="classPrice">$ 3800</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div className="classCard" id="classCard-4">
-              <a href="#">
-                <figure className="classPhoto">
-                  <img src="./images/course-card-pic-4.jpg" alt="" />
-                </figure>
-                <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">2hr</p>
-                </div>
-                <div className='title-price-wrap'>
-                  <div className="classTitle">
-                    <h3>《真皮老鋪》皮革文件夾手作課程 / DIY / 適合上班族、情侶、社團 </h3>
-                    <img className="icons-heart" src="./images/icon-heart.svg" alt="" />
-                  </div>
-                  <div className="classPrice">
-                    <p className="classStoreName">真皮老鋪</p>
-                    <p className="classPrice">$ 3800</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div> */}
         </section>
         <section className="blobstools" >
           {/* 泡泡區 */}

@@ -283,23 +283,57 @@ main {
             }
         }
 
-        #heart {
+        .icons-heart {
+            width: 36px;
+            cursor: pointer;
+            transition: .3s;
+
+            @for $HeartNum from 1 through 6 {
+
+                #heartstrike#{$HeartNum} {
+                    display: flex;
+
+                    &.click-h {
+                        display: none;
+                    }
+                }
+
+                #heartfill#{$HeartNum} {
+                    display: none;
+
+                    &.click-h {
+                        display: flex;
+                        width: 35px;
+                    }
+                }
+            }
+
             &:hover {
-                // scale: 1.15;
                 cursor: pointer;
+                transform: scale(1.2);
+                background-image: url(./images/icons-heart-hover.svg);
+                background-size: cover;
             }
         }
 
-        #heart img {
-            // transition: 0.4s cubic-bezier(0, 1, 0, 1);
-            // /* 加入動畫 */
-            // transform: scale(1);
-            // /* 預設大小 */
-        }
 
-        #heart img.animate[src*="icon-heart-fill"] {
-            animation: jello-horizontal 0.9s both;
-        }
+        // #heart {
+        //     &:hover {
+        //         // scale: 1.15;
+        //         cursor: pointer;
+        //     }
+        // }
+
+        // #heart img {
+        //     // transition: 0.4s cubic-bezier(0, 1, 0, 1);
+        //     // /* 加入動畫 */
+        //     // transform: scale(1);
+        //     // /* 預設大小 */
+        // }
+
+        // #heart img.animate[src*="icon-heart-fill"] {
+        //     animation: jello-horizontal 0.9s both;
+        // }
     }
 
 
@@ -591,6 +625,7 @@ main {
 
         .seemore-btn {
             padding-left: 120px;
+            cursor: pointer;
         }
     }
 
@@ -1202,7 +1237,7 @@ footer {
         }
     }
 
-    
+
 }
 
 // RWD手機尺寸
@@ -1267,30 +1302,11 @@ footer {
         }
     }
 
-    // #experience {
-    //     .expTop {
-    //         flex-direction: column;
-
-    //         #titleExp {
-    //             margin-bottom: 30px;
-    //         }
-
-    //         .titlePic {
-    //             margin: 20px;
-    //         }
-
-    //         .seemore-btn {
-    //             margin-bottom: 20px;
-    //         }
-    //     }
-    // }
-
-    
 }
 
 /* totop按鈕 */
 .toTop {
-    z-index: 100;
+    z-index: 9988;
 
     .toTop-btn {
         border: none;
